@@ -1,2 +1,5 @@
 ::打包脚本
-git clone https://github.com/vmjcv/sunset.git --recursive
+cd ..
+cd godot
+godot --export "Android" "SunSet.apk" --path '../export'
+godot --export "Windows Desktop" "SunSet.exe" --path '../export'

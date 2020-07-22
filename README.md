@@ -100,7 +100,7 @@
 
 - 尽量往自己感觉好的地方设计，基本上是每个人设计一个模块，然后对外提供调用接口，互相之间是不会管对方类里面写了什么，写完某个类就更新一下api文档，会提供一个生成api的脚本，暴露给外界的方法每个类的参数要是固定类型，返回值也要是固定类型，<https://docs.godotengine.org/zh_CN/latest/getting_started/scripting/gdscript/static_typing.html>注释中包含每个参数的意义和返回值的意义
 
-## 命名规范
+## 脚本规范
 
 ### 动态语言规范
 

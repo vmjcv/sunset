@@ -16,9 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="sunset"
-run/main_scene="res://scene/test/test.tscn"
+run/main_scene="res://scene/scene1/Node2D.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/dpi/allow_hidpi=true
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

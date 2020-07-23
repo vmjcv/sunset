@@ -1,12 +1,13 @@
 {
 	"input": [
-		{ "file": "../../fuzzy_v3/data/excel/technology_info.xlsx", "encode": "GBK"},
-		{ "file": "../../fuzzy_v3/data/excel/policy_info.xlsx", "encode": "GBK"}
+		{ "file": "../../game/data/excel/technology_info.xlsx", "encode": "GBK"},
+		{ "file": "../../game/data/excel/policy_info.xlsx", "encode": "GBK"}
 	],
+	"input_dir": { "file": "../../game/data/excel", "encode": "GBK"},
 	"parser": {
 		"floating_numbers": false
 	},
-	"output": "../../fuzzy_v3/data",
+	"output": "../../game/data",
 	"exporter": {
 		"json": {
 			"enabled": false,
@@ -27,7 +28,7 @@
 			"file_name": "data"
 		},
 		"csharp": {
-			"enabled": true,
+			"enabled": false,
 			"namespace": "game.data",
 			"base_type": "tiny.data.UniqueIDObject",
 			"type_extention": "",

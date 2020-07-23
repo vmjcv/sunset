@@ -31,11 +31,19 @@ class GDScriptExporter(Exporter):
 	def is_autoload(self):
 		return self.config["exporter"]["gdscript"]["autoload"]
 
-	def convert_value(self, value):
-		if isinstance(value, str):
+	def convert_value(self, value, valueType):
+		if  valueType=="String":
+			return '"' + value.replace('"', '\\"') + '"'
+		elif valueType=="int" or valueType=="float" or valueType=="bool":
+			return str(value)
+		elif valueType=="Dictionary" or valueType=="Array":
+			jsonStr=json.dumps(value, ensure_ascii=False, sort_keys=True)
+			return "JSON.parse({}).result".format(jsonStr)
+		elif  isinstance(value, str):
 			return '"' + value.replace('"', '\\"') + '"'
 		elif isinstance(value, dict) or isinstance(value, list):
-			return json.dumps(value, ensure_ascii=False, sort_keys=True)
+			jsonStr=json.dumps(value, ensure_ascii=False, sort_keys=True)
+			return "JSON.parse({}).result".format(jsonStr)
 		elif value is None:
 			return "null"
 		return str(value)
@@ -58,13 +66,14 @@ class GDScriptExporter(Exporter):
 		script_text += self.line()
 		script_text += self.line("class {}:".format(class_name))
 		first_line = data[0]
-		props = sorted(data[0].keys())
+		second_line = data[1]
+		props = sorted(data[1].keys())
 		idx = 0
 		params = ""
 		initializers = ""
 		for key in props:
 			# declear
-			gd_type = self.detect_type(first_line[key])
+			gd_type = first_line[key] or self.detect_type(second_line[key])
 			gd_type = ": " + gd_type if gd_type else ""
 			declear = self.line("var {}{}".format(key, gd_type), 1)
 			script_text += declear
@@ -83,12 +92,12 @@ class GDScriptExporter(Exporter):
 		script_text += self.line()
 		script_text += self.line("static func load_configs():")
 		script_text += self.line("return [", 1)
-		for row in data:
+		for row in data[1:]:
 			args = ""
 			idx = 0
 			for key in props:
 				if idx > 0: args += ", "
-				args += self.convert_value(row[key])
+				args += self.convert_value(row[key],first_line[key])
 				idx += 1
 			line = self.line("{}.new({}),".format(class_name, args), 2)
 			script_text += line
@@ -125,7 +134,7 @@ class GDScriptExporter(Exporter):
 			classes_consts += self.line('const {0} = {1}.{0}'.format(self.get_class_name(name), script_const_name))
 			configs += self.line("{}: [],".format(self.get_class_name(name)), 1)
 			configs_initializers += self.line("configs[{}] = {}.load_configs()".format(self.get_class_name(name), script_const_name), 1)
-			unique_id_depot_setup += self.line("for d in configs[{}]: unique_id_depot[d.id] = d".format(self.get_class_name(name)), 1)
+			unique_id_depot_setup += self.line("for d in configs[{}]: unique_id_depot[d.get_instance_id()] = d".format(self.get_class_name(name)), 1)
 		configs += self.line("}")
 			
 		index_file_content += scripts_consts

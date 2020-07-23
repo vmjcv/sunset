@@ -1,0 +1,30 @@
+site_name: Sophon
+
+docs_dir: mddocs
+
+site_dir: docs
+
+#theme: readthedocs
+theme: yeti
+#theme: material
+#theme: united
+
+pages:
+- Home: index.md
+- User Guide:
+  - Installation: user_guide/installation.md
+  - Getting Started: user_guide/getting_started.md
+  - Sophon Style Python Docstrings: user_guide/sophon_style_python_docstrings.md
+  - Configuration: user_guide/configuration.md
+- About:
+  - Release Notes: about/release_notes.md
+  - License: about/license.md
+- API: api/sophon/API.md
+
+
+# Copyright
+copyright: 'Copyright (c) 2016 <a href="http://www.monitor1379.com" target="blank">Zhenpeng Deng(monitor1379)</a>'
+
+
+markdown_extensions:
+- admonition

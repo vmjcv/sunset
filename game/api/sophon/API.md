@@ -1,12 +1,6 @@
-# API documentations of Sophon
-
-This is some API documentations of Sophon.
-
-# sophon/parsers.py
 
 
-
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L10)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/parsers.py#L10)</span>
 
 ## Parser
 
@@ -16,48 +10,6 @@ sophon.parsers.Parser()
 
 Top level base class of parsers.
 
-
----
-
-
-
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L155)</span>
-
-## ReStructuredTextParser
-
-```python
-sophon.parsers.ReStructuredTextParser()
-```
-
-Support soon.
-
----
-
-
-
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L178)</span>
-
-## GoogleDocParser
-
-```python
-sophon.parsers.GoogleDocParser()
-```
-
-Support soon.
-
----
-
-
-
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L201)</span>
-
-## NumPyDocParser
-
-```python
-sophon.parsers.NumPyDocParser()
-```
-
-Support soon.
 
 ---
 
@@ -77,12 +29,12 @@ A docstring parser for parsing Sophon style docstring to Markdown.
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L86)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/parsers.py#L86)</span>
 
 ### SophonParser.parse_from_class
 
 ```python
-sophon.parsers.SophonParser.parse_from_class(class_, **kwargs)
+sophon.parsers.parse_from_class(self, class_, **kwargs)
 ```
 
 Extract docstring from class and parse it to Markdown text.
@@ -101,12 +53,12 @@ Extract docstring from class and parse it to Markdown text.
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L116)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/parsers.py#L116)</span>
 
 ### SophonParser.parse_from_class_with_methods
 
 ```python
-sophon.parsers.SophonParser.parse_from_class_with_methods(class_, **kwargs)
+sophon.parsers.parse_from_class_with_methods(self, class_, **kwargs)
 ```
 
 Extract docstring from class and its public members, and parse it to Markdown text.
@@ -125,12 +77,12 @@ Extract docstring from class and its public members, and parse it to Markdown te
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L37)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/parsers.py#L37)</span>
 
 ### SophonParser.parse_from_docstring
 
 ```python
-sophon.parsers.SophonParser.parse_from_docstring(docstring, **kwargs)
+sophon.parsers.parse_from_docstring(self, docstring, **kwargs)
 ```
 
 Parse Sophon style docstring to Markdown text.
@@ -149,12 +101,12 @@ Parse Sophon style docstring to Markdown text.
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/parsers.py#L56)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/parsers.py#L56)</span>
 
 ### SophonParser.parse_from_function
 
 ```python
-sophon.parsers.SophonParser.parse_from_function(function, **kwargs)
+sophon.parsers.parse_from_function(self, function, **kwargs)
 ```
 
 Extract docstring from function and parse it to Markdown text.
@@ -172,11 +124,7 @@ Extract docstring from function and parse it to Markdown text.
 
 
 
-# sophon/utils.py
-
-
-
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/utils.py#L6)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/utils.py#L6)</span>
 
 ## extract_function_signature
 
@@ -250,7 +198,7 @@ print sophon.extract_function_signature(bar.baz3, ismethod=False)
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/utils.py#L106)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/utils.py#L106)</span>
 
 ## extract_class_signature
 
@@ -293,7 +241,7 @@ print extract_class_signature(bar)
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/utils.py#L145)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/utils.py#L145)</span>
 
 ## code_snippet
 
@@ -315,7 +263,7 @@ Change a string-typed code snippet into Markdown-style code fence.
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/utils.py#L158)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/utils.py#L158)</span>
 
 ## import_from_name
 
@@ -337,7 +285,7 @@ Import module from string.
 
 
 
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/utils.py#L174)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/utils.py#L174)</span>
 
 ## generate_repo_link
 
@@ -361,11 +309,7 @@ Get the definition position of obj in source file, then link it to GitHub repo.
 
 
 
-# sophon/build.py
-
-
-
-<span style="float:right;">[[source]](https://github.com/monitor1379/sophon/blob/master/sophon/cmd/build.py#L26)</span>
+<span style="float:right;">[[source]](https://github.com/vmjcv/sunset/blob/develop/sophon/cmd/build.py#L26)</span>
 
 ## build_from_yaml
 

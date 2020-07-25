@@ -117,16 +117,32 @@ class CreateMd():
             temp_str+="  "+arguments_info[key]+"\n"
         self.base_str+=temp_str
 
-    def add_li(self,str,str_info):
+    def add_li(self,str,strvalue,str_info):
         temp_str=""
-        temp_str+="- **%s**:%s"%(str,str_info)+"\n"
+        print(str,strvalue,str_info)
+        if strvalue and str_info:
+            temp_str+="- **%s**:%s  %s"%(str,strvalue,str_info)+"\n"
+        elif strvalue:
+            temp_str+="- **%s**:%s"%(str,strvalue)+"\n"
+        elif str_info:
+            temp_str+="- **%s**  %s"%(str,str_info)+"\n"
+        else:
+            temp_str+="- **%s**"%(str)+"\n"
         self.base_str+=temp_str
 
-    def add_li2(self,str,str_info):
+    def add_li2(self,str,strvalue,str_info):
         temp_str=""
-        temp_str+="-- **%s**:%s"%(str,str_info)+"\n"
+        if strvalue and str_info:
+            temp_str+="-- **%s**:%s  %s"%(str,strvalue,str_info)+"\n"
+        elif strvalue:
+            temp_str+="-- **%s**:%s"%(str,strvalue)+"\n"
+        elif str_info:
+            temp_str+="-- **%s**  %s"%(str,str_info)+"\n"
+        else:
+            str+="-- **%s**"%(str)+"\n"
         self.base_str+=temp_str
-    
+
+
     def add_return(self,return_info):
         temp_str=""
         temp_str+="**Return**\n"
@@ -142,47 +158,49 @@ class CreateMd():
             self.add_str(self.class_node.class_info.info)
 
         if self.class_node.is_tool:
-            self.add_str("is_tool")
+            self.add_title(2,"is_tool")
 
         if self.class_node.extends_class:
+            self.add_title(1,"parent")
             if self.class_node.parent_node:
                 self.add_link(os.path.join(self.base_url,self.class_node.parent_node.path ))
-            self.add_title(1,self.class_node.extends_class.name)
+            self.add_title(2,self.class_node.extends_class.name)
 
         if self.class_node.signal:
             self.add_title(1,"signal")
             for key,value in self.class_node.signal.items():
-                self.add_li(value.name,value.info)
+                self.add_li(value.name,None,value.info)
 
         if self.class_node.enum:
             self.add_title(1,"enum")
             for key,value in self.class_node.enum.items():
-                self.add_li(value.name,value.info)
+                self.add_li(value.name,None,value.info)
                 for paramskey,paramsvalue in value.params.items():
-                    self.add_li2(paramskey,paramsvalue)
+                    self.add_li2(paramskey,paramsvalue,None)
 
 
         if self.class_node.const:
             self.add_title(1,"const")
             for key,value in self.class_node.const.items():
-                self.add_li(value.name,value.value+"  "+value.info)
+                self.add_li(value.name,value.value,value.info)
 
         if self.class_node.export:
             self.add_title(1,"export")
             for key,value in self.class_node.export.items():
-                self.add_li(value.name,value.value+"  "+value.info)
+                self.add_li(value.name,value.value,value.info)
 
 
         if self.class_node.var:
             self.add_title(1,"var")
             for key,value in self.class_node.var.items():
-                self.add_li(value.name,value.value+"  "+value.info)
+                self.add_li(value.name,value.value,value.info)
 
         if self.class_node.onready:
             self.add_title(1,"onready")
             for key,value in self.class_node.onready.items():
-                self.add_li(value.name,value.value+"  "+value.info)
-
+                self.add_li(value.name,value.value,value.info)
+        
+        """
         if self.class_node.func:
             self.add_title(1,"func")
             for key,value in self.class_node.func.items():
@@ -199,9 +217,13 @@ class CreateMd():
                 temp_str+=")"
                 self.add_code(temp_str)
                 self.add_str(value.info)
+                
+
 
                 self.add_arguments(value.params,value.params_info)
                 self.add_return(value.return_info)
+        """
+
         return self.base_str
 
 
@@ -274,7 +296,7 @@ class ClassNode():
         matchObj = re.search(pattern, script_str, flags=0)
         if matchObj:
             line = find_line(matchObj,script_base_str)
-            self.extends_class = NodeInfo().create_class_name(matchObj.group(1),line)
+            self.class_name = NodeInfo().create_class_name(matchObj.group(1),line)
             pattern = re.compile(r'^class_name[ ]+(\S*)\s*?.*?$\n',re.M) 
             script_str=re.sub(pattern,"",script_str)
 
@@ -291,31 +313,34 @@ class ClassNode():
         script_str=re.sub(pattern,"",script_str)
 
 
-        pattern = re.compile(r'^enum[ ]+([A-Za-z0-9]\w*)[^{.]*{(.*)}.*#(.*)$',re.M) 
+        pattern = re.compile(r'^enum[ ]+([A-Za-z0-9]\w*)[^{.]*{(.*)}.*?(?:#(.*)){0,1}$',re.M) 
         it = re.finditer(pattern, script_str, flags=0)
         for matchObj in it: 
             line = find_line(matchObj,script_base_str)
             self.enum[matchObj.group(1)] = {"info":matchObj.group(3)}
             self.enum[matchObj.group(1)]["params"] =collections.OrderedDict()
             init = 0
-            pattern = re.compile(r'^[ ]+([\w*?)[ ]*=[ ]*([0-9+-])[ ]*,',re.M) 
-            enumObj = True
-            while enumObj:
-                enumObj = re.search(pattern, matchObj.group(2), flags=0)
-                if enumObj:
-                    if enumObj.group(2):
-                        self.enum[matchObj.group(1)]["params"][enumObj.group(1)] = enumObj.group(2)
-                        init = int(enumObj.group(2))+1
-                    else:
-                        self.enum[matchObj.group(1)]["params"][enumObj.group(1)] = init
+            pattern2 = re.compile(r'[ ]*(\w+)[ ]*(?:=[ ]*([0-9+-]*)[ ]*){0,1},{0,1}',re.M) 
+            it2 = re.finditer(pattern2, matchObj.group(2), flags=0)
+            for enumObj in it2: 
+                if enumObj.group(2):
+                    self.enum[matchObj.group(1)]["params"][enumObj.group(1)] = enumObj.group(2)
+                    init = int(enumObj.group(2))+1
                 else:
-                    break
+                    self.enum[matchObj.group(1)]["params"][enumObj.group(1)] = init
+                    init=init+1
+            
+
             self.enum[matchObj.group(1)] = NodeInfo().create_enum(matchObj.group(3),matchObj.group(1),self.enum[matchObj.group(1)]["params"],line)
+        
+
+        
+
         pattern = re.compile(r'^enum.*$\n',re.M) 
         script_str=re.sub(pattern,"",script_str)
 
 
-        pattern = re.compile(r'^export[ ]+var[ ]+([A-Za-z0-9]\w*).*=?(.*)#(.*)$',re.M) 
+        pattern = re.compile(r'^export[ ]+var[ ]+([A-Za-z0-9]\w*).*={0,1}(.*)(?:#(.*)){0,1}$',re.M) 
         it = re.finditer(pattern, script_str, flags=0)
         for matchObj in it: 
             line = find_line(matchObj,script_base_str)
@@ -324,16 +349,20 @@ class ClassNode():
         script_str=re.sub(pattern,"",script_str)
 
 
-        pattern = re.compile(r'^const[ ]+var[ ]+([A-Za-z0-9]\w*).*=?(.*)#(.*)$',re.M) 
+        pattern = re.compile(r'^const[ ]+var[ ]+([A-Za-z0-9]\w*).*={0,1}(.*)(?:#(.*)){0,1}$',re.M) 
         it = re.finditer(pattern, script_str, flags=0)
         for matchObj in it: 
+            print(matchObj.group(0))
+            print(matchObj.group(1))
+            print(matchObj.group(2))
+            print(matchObj.group(3))
             line = find_line(matchObj,script_base_str)
             self.const[matchObj.group(1)] = NodeInfo().create_export(matchObj.group(3),matchObj.group(1),matchObj.group(2),line)
         pattern = re.compile(r'^const.*$\n',re.M) 
         script_str=re.sub(pattern,"",script_str)
 
 
-        pattern = re.compile(r'^var[ ]+([A-Za-z0-9]\w*).*=?(.*)#(.*)$',re.M) 
+        pattern = re.compile(r'^var[ ]+([A-Za-z0-9]\w*).*={0,1}(.*)(?:#(.*)){0,1}$',re.M) 
         it = re.finditer(pattern, script_str, flags=0)
         for matchObj in it: 
             line = find_line(matchObj,script_base_str)
@@ -342,7 +371,7 @@ class ClassNode():
         script_str=re.sub(pattern,"",script_str)
 
 
-        pattern = re.compile(r'^onready[ ]+var[ ]+([A-Za-z0-9]\w*).*=?(.*)#(.*)$',re.M) 
+        pattern = re.compile(r'^onready[ ]+var[ ]+([A-Za-z0-9]\w*).*={0,1}(.*)(?:#(.*)){0,1}$',re.M) 
         it = re.finditer(pattern, script_str, flags=0)
         for matchObj in it: 
             line = find_line(matchObj,script_base_str)
@@ -524,10 +553,17 @@ class NodeInfo():
 
     
 def main():
+    """
+    pattern2 = re.compile(r'[ ]*(\w*)[ ]*(?:=[ ]*([0-9+-])[ ]*){0,1},{0,1}',re.M) 
+    it2 = re.finditer(pattern2, "UP, DOWN=30, LEFT, RIGHT", flags=0)
+    for enumObj in it2: 
+        print(enumObj.group(0))
+    """
     code_dir="../../game/script"
     api_dir="../../game/api"
     parseobj=Parse(code_dir,api_dir)
     parseobj.run()
+
 
 if __name__ == '__main__':      
     main()

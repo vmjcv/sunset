@@ -3,7 +3,7 @@
 # TestChild
 
  docstring
- ´úÂë¹æ·¶Ê¾Àý
+ ä»£ç è§„èŒƒç¤ºä¾‹
 
 
 ## is_tool
@@ -14,10 +14,10 @@
 
 # signal
 
-- **door_opened**   ÃÅ´ò¿ªµÄÊ±ºò·¢³öÐÅºÅ
+- **door_opened**   é—¨æ‰“å¼€çš„æ—¶å€™å‘å‡ºä¿¡å·
 # enum
 
-- **MoveDirection**   Ã¶¾Ù
+- **MoveDirection**   æžšä¸¾
 -- **DOWN**:30
 -- **LEFT**:31
 -- **RIGHT**:32
@@ -37,7 +37,7 @@
 - **MOVE_SPEED_1**: 50.0
 # export
 
-- **move_color**: 50.0    µ¼³ö±äÁ¿
+- **move_color**: 50.0    å¯¼å‡ºå˜é‡
 - **move_color_2**: 50.0
 # var
 
@@ -56,10 +56,10 @@
 to_api(a=0,b=0)
 ```
 
-¹«¿ª·½·¨Ê¹ÓÃÉßÐÎÃüÃû·¨,Í¨¹ý¾²Ì¬ÀàÐÍÖ¸¶¨´«Èë²ÎÊýºÍ´«³ö²ÎÊý
+å…¬å¼€æ–¹æ³•ä½¿ç”¨è›‡å½¢å‘½åæ³•,é€šè¿‡é™æ€ç±»åž‹æŒ‡å®šä¼ å…¥å‚æ•°å’Œä¼ å‡ºå‚æ•°
 
 **Argument**
-- **a**:0  ÏòÁ¿·½Ïò
-- **b**:0  ÏòÁ¿´óÐ¡
+- **a**:0  å‘é‡æ–¹å‘
+- **b**:0  å‘é‡å¤§å°
 **Return**
-- ÏòÁ¿¹éÒ»»¯Öµ
+- å‘é‡å½’ä¸€åŒ–å€¼

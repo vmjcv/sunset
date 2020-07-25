@@ -10,14 +10,14 @@ signal door_opened # 门打开的时候发出信号
 enum MoveDirection {UP, DOWN=30, LEFT, RIGHT} # 枚举
 enum MoveDirection2 {UP=4, DOWN=30, LEFT, RIGHT} 
 enum MoveDirection3 {UP=5, DOWN=30, LEFT, RIGHT} 
-const var MOVE_SPEED: float = 50.0 #test
-const var MOVE_SPEED_1: float = 50.0
+const MOVE_SPEED: float = 50.0 #test
+const MOVE_SPEED_1: float = 50.0
 export var move_color: float = 50.0 # 导出变量
 export var move_color_2: float = 50.0
 var my_node2D: Node2D
 var my_int: int
 var _self_help: String
-onready var good: String =10
+onready var good =10
 
 func _init():
 	pass
@@ -63,6 +63,6 @@ func to_api(a: int,b: int)-> int:
 	return value
 
 func _not_to_api(a: int,b: int)-> int:
-    # 私有方法不会生成到api文档中
+	# 私有方法不会生成到api文档中
 	var value = a+b
 	return value

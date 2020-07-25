@@ -372,7 +372,7 @@ class ClassNode():
         script_str=re.sub(pattern,"",script_str)
 
 
-        pattern = re.compile(r'^const[ ]+var[ ]+([A-Za-z0-9]\w*)[^=\n]*={0,1}(.*?)(?:#(.*)){0,1}$',re.M) 
+        pattern = re.compile(r'^const[ ]+([A-Za-z0-9]\w*)[^=\n]*={0,1}(.*?)(?:#(.*)){0,1}$',re.M) 
         it = re.finditer(pattern, script_str, flags=0)
         for matchObj in it: 
             line = find_line(matchObj,script_base_str)

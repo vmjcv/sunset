@@ -256,20 +256,27 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    命名规范
+    资源提交
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    设计分辨率
+    命名规范
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    设计分辨率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     不要做的事情
   </a>
   
@@ -299,18 +306,42 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../%E6%95%99%E7%A8%8B%E5%9C%B0%E5%9D%80/" title="教程地址" class="md-nav__link">
+      教程地址
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6/" title="扩展插件" class="md-nav__link">
+      扩展插件
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       API
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="API" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
@@ -370,20 +401,27 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    命名规范
+    资源提交
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    设计分辨率
+    命名规范
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    设计分辨率
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     不要做的事情
   </a>
   
@@ -409,7 +447,7 @@
                   
                 
                 
-                <h1 id="_1">==资源规范==</h1>
+                <h1 id="_1">资源规范</h1>
 <h2 id="_2">存放路径：</h2>
 <ul>
 <li>存放路径应该为   “文件类型/所属场景”
@@ -423,20 +461,24 @@
 <li>sounds：音乐及音效</li>
 <li>texture：图片及ui</li>
 </ul>
-<h2 id="_3">命名规范</h2>
+<h2 id="_3">资源提交</h2>
+<ul>
+<li>统一提交到develop分支</li>
+</ul>
+<h2 id="_4">命名规范</h2>
 <ul>
 <li>全部用拼音命名即可</li>
 <li>文字和文字之间就加个__,例如怪物1，即为guai_wu_1,不用管命名多长，不要缩写</li>
 <li>如果是两个及两个以上的物品即用类别加数字的形式命名，比如我们要做的游戏里面有10个相似的怪物，那么这10个怪物的名字就命名为guai_wu_1,guai_wu_2,以此类推。当然如果只有一个唯一的物体就不用加数字后缀，比如主角。如果有特殊需求的图片也是要加数字后缀的，比如你给了我三个太阳，要随机在地图上显示一种颜色的太阳，那么这个时候太阳的名字最好命名为tai_yang_1,tai_yang_2,tai_yang_3.别命名成红太阳，绿太阳，黄太阳。这样很不好写代码。</li>
 </ul>
-<h2 id="_4">设计分辨率</h2>
+<h2 id="_5">设计分辨率</h2>
 <ul>
 <li>按1920*1080出设计图即可，可以直接搭ui</li>
 </ul>
-<h2 id="_5">不要做的事情</h2>
+<h2 id="_6">不要做的事情</h2>
 <ul>
 <li>给图片加了一堆花边，然后左边图少了一点光晕，右边图多了一点光晕，导致图片中心不是真正的图片中心，这样子我们摆放位置和做缩放都很困难，可以考虑将左边图补几个空白像素，让图片的中心回到真正的中心点</li>
-<li>psd文件要保存好，别合并后后期效果不好调整</li>
+<li>psd文件要保存好（不要直接保存在项目里面，因为psd文件太大了，会把项目变得庞大），别合并后后期效果不好调整</li>
 <li>遇到失败或者冲突要慎重，就是call我们就行</li>
 <li>程序不要做的事情，不要随意更换资源文件的命名位置，如果需要更换命名位置，尽量call美术让她自己来，防止出现冲突</li>
 </ul>

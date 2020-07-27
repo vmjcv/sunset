@@ -747,7 +747,7 @@
                   
                 
                 
-                <h1 id="_1">==熟悉基本工具==</h1>
+                <h1 id="_1">熟悉基本工具</h1>
 <h2 id="_2">启动编辑器</h2>
 <h3 id="_3">功能：打开编辑器制作游戏</h3>
 <h3 id="_4">使用方法：</h3>
@@ -810,39 +810,34 @@
 <ul>
 <li>更改md文件后记得提交到开发分支</li>
 <li>api文件从代码直接生成，手动改md文件并没有什么用，请在代码中修改相应的注释</li>
-<li>代码注释规范<ul>
-<li>类注释，写在开头，由顶格的#号开始，例如</li>
-</ul>
+<li>代码注释规范</li>
+<li>
+<p>类注释，写在开头，由顶格的#号开始，例如</p>
+<p>class_name BaseNode</p>
+<h1 id="_24">基本示例类的注释代码</h1>
+<h1 id="_25">给大佬们提供注释规范使用</h1>
 </li>
-</ul>
-<pre><code>class_name BaseNode
-# 基本示例类的注释代码
-# 给大佬们提供注释规范使用
-
-</code></pre>
-
-<pre><code> - 变量注释，写在变量命名的最后，由#号开始，注意，变量如果是_开头的不会导出，例如
-</code></pre>
-<pre><code>signal door_opened # 门打开的时候发出信号
+<li>
+<p>变量注释，写在变量命名的最后，由#号开始，注意，变量如果是_开头的不会导出，例如</p>
+<p>signal door_opened # 门打开的时候发出信号
 signal _door_closed # 门关闭的时候发出信号,不会导出，因为是_开头
 enum MoveDirection {UP, DOWN=30, LEFT, RIGHT} # 移动方向
 const MOVE_SPEED: float = 50.0 # 移动速度常量
 export var move_time: float = 50.0 # 移动时间，编辑器中可用变量
 var player_node: Node2D # 玩家节点
-onready var score = 0 # 总分数
-</code></pre>
-
-<pre><code> - 方法注释，写在方法的开头，由# @号开始，注意，方法如果是_开头的不会导出，例如
-</code></pre>
-<pre><code>func to_api(a: int,b: int)-&gt; int:
+onready var score = 0 # 总分数</p>
+</li>
+<li>
+<p>方法注释，写在方法的开头，由# @号开始，注意，方法如果是_开头的不会导出，例如</p>
+<p>func to_api(a: int,b: int)-&gt; int:
     # @:公开方法使用蛇形命名法,通过静态类型指定传入参数和传出参数
     # @a:向量方向
     # @b:向量大小
     # @return:向量归一化值
     var value = a + b
-    return value
-
-</code></pre>
+    return value</p>
+</li>
+</ul>
                 
               
               

@@ -1,2 +1,2 @@
-::导出游戏编辑器
+::压缩资源
 start python pack.py

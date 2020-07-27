@@ -3,3 +3,4 @@ cd ..\tools\apiÉú³É
 python to_api.py
 cd ..\..
 mkdocs gh-deploy
+pause

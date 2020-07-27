@@ -7,17 +7,12 @@ class_name TestChild
 # 代码规范示例
 
 signal door_opened # 门打开的时候发出信号
-enum MoveDirection {UP, DOWN=30, LEFT, RIGHT} # 枚举
-enum MoveDirection2 {UP=4, DOWN=30, LEFT, RIGHT} 
-enum MoveDirection3 {UP=5, DOWN=30, LEFT, RIGHT} 
-const MOVE_SPEED: float = 50.0 #test
-const MOVE_SPEED_1: float = 50.0
-export var move_color: float = 50.0 # 导出变量
-export var move_color_2: float = 50.0
-var my_node2D: Node2D
-var my_int: int
-var _self_help: String
-onready var good =10
+signal _door_closed # 门关闭的时候发出信号,不会导出，因为是_开头
+enum MoveDirection {UP, DOWN=30, LEFT, RIGHT} # 移动方向
+const MOVE_SPEED: float = 50.0 # 移动速度常量
+export var move_time: float = 50.0 # 移动时间，编辑器中可用变量
+var player_node: Node2D # 玩家节点
+onready var score = 0 # 总分数
 
 func _init():
 	pass

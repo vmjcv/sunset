@@ -24,12 +24,18 @@ config/name="sunset"
 run/main_scene="res://scene/scene1/Node2D.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
+
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/always_on_top=true
+window/size/test_width=960
+window/size/test_height=540
 window/dpi/allow_hidpi=true
-
 
 [rendering]
 

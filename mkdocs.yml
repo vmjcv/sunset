@@ -6,6 +6,8 @@ pages:
 - {工具使用: 工具使用.md}
 - {资源规范: 资源规范.md}
 - {代码规范: 代码规范.md}
+- {教程地址: 教程地址.md}
+- {扩展插件: 扩展插件.md}
 - API:
   - {TestChild: api\scene1\Node2D.md}
 repo_url: https://github.com/vmjcv/sunset/

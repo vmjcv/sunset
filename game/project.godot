@@ -9,24 +9,109 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "EventChainGraph",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/core/event_chain_graph.gd"
+}, {
+"base": "Reference",
+"class": "EventChainGraphDataType",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/data_structures/data_types.gd"
+}, {
+"base": "Reference",
+"class": "EventChainGraphEditorUtil",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/common/editor_util.gd"
+}, {
+"base": "Control",
+"class": "EventChainGraphEditorView",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/editor/gui/editor_view.gd"
+}, {
+"base": "Object",
+"class": "EventChainGraphEvent",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/data_structures/event.gd"
+}, {
+"base": "Node",
+"class": "EventChainGraphNodePool",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/core/node_pool.gd"
+}, {
+"base": "Reference",
+"class": "EventChainGraphSettings",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/core/project_settings.gd"
+}, {
+"base": "Object",
+"class": "EventChainGraphSignal",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/data_structures/signal.gd"
+}, {
+"base": "Object",
+"class": "EventChainGraphStatus",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/data_structures/status.gd"
+}, {
+"base": "",
+"class": "EventChainGraphTemplate",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/core/template.gd"
+}, {
+"base": "GraphNode",
+"class": "EventChainNode",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/core/event_chain_node.gd"
+}, {
+"base": "Node",
+"class": "EventChainNodeLibrary",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/core/node_library.gd"
+}, {
+"base": "Reference",
+"class": "JSONBeautifier",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/thirdparty/json_beautifier/json_beautifier.gd"
+}, {
+"base": "Object",
+"class": "NodeUtils",
+"language": "GDScript",
+"path": "res://addons/event_chain/src/common/node_utils.gd"
+}, {
 "base": "Node2D",
 "class": "TestChild",
 "language": "GDScript",
 "path": "res://script/scene1/Node2D.gd"
 } ]
 _global_script_class_icons={
+"EventChainGraph": "res://addons/event_chain/icons/icon_event_chain_graph.svg",
+"EventChainGraphDataType": "",
+"EventChainGraphEditorUtil": "",
+"EventChainGraphEditorView": "",
+"EventChainGraphEvent": "",
+"EventChainGraphNodePool": "",
+"EventChainGraphSettings": "",
+"EventChainGraphSignal": "",
+"EventChainGraphStatus": "",
+"EventChainGraphTemplate": "",
+"EventChainNode": "",
+"EventChainNodeLibrary": "",
+"JSONBeautifier": "",
+"NodeUtils": "",
 "TestChild": ""
 }
 
 [application]
 
 config/name="sunset"
-run/main_scene="res://scene/scene1/Node2D.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
+StatusUtils="*res://addons/event_chain/src/common/status_util.gd"
+SignalUtils="*res://addons/event_chain/src/common/signal_util.gd"
 
 [display]
 
@@ -36,6 +121,17 @@ window/size/always_on_top=true
 window/size/test_width=960
 window/size/test_height=540
 window/dpi/allow_hidpi=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "event_chain", "zylann.translation_editor" )
+
+[event_chain_graph]
+
+generation/enable_multithreading=true
+generation/delay_before_generation=75
+user_interface/inline_vector_fields=false
+user_interface/group_nodes_by_type=false
 
 [rendering]
 

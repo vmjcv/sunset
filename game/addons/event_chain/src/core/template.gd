@@ -101,6 +101,7 @@ func generate(force_full_simulation := false) -> void:
 
 
 func load_from_file(path: String, soft_load := false) -> void:
+	
 	if not node_library or not path or path == "":
 		return
 
@@ -201,30 +202,48 @@ func run_garbage_collection():
 				resource.call_deferred("free")
 	_registered_resources = []
 
-func get_status(index):
-	if index:
+func get_status(name):
+	if name:
 		for node in get_children():
 			if node is EventChainNode and node.unique_id=="status":
 				node._generate_outputs()
-				if node.output[0]._index==index:
+				if node.output[0].status_name==name:
 					return node
 	return null
 	
+func get_all_signal():
+	var signal_array=[]
+	for node in get_children():
+		if node is EventChainNode and node.unique_id=="signal":
+			node._generate_outputs()
+			signal_array.append(node._signal_name)
+	return signal_array
+	
+func get_all_status():
+	var status_array=[]
+	for node in get_children():
+		if node is EventChainNode and node.unique_id=="status":
+			node._generate_outputs()
+			status_array.append(node._status_name)
+	return status_array
 
 
 func _run_generation() -> void:
 	if _clear_cache_on_next_run:
 		clear_simulation_cache()
 	var node = get_status(event_chain_graph.now_status)
-	if node and event_chain_graph.event_list.count()>0:
+	if node and event_chain_graph.event_list.size()>0:
 		var event = node.get_event(event_chain_graph.event_list[0])
 		if event:
-			_call_signal(event.signal_before_obj)
+			if event.signal_before_obj:
+				EventChainSignalManage.emit(event.signal_before_obj.name,event.signal_before_obj.signal_value)
 		var next_status = node.get_next_status(event_chain_graph.event_list[0])
 		if next_status:
-			event_chain_graph.now_status = next_status._index
-		_call_signal(event.signal_after_obj)
-	
+			event_chain_graph.now_status = next_status.status_name
+		if event:
+			if event.signal_after_obj:
+				EventChainSignalManage.emit(event.signal_after_obj.name,event.signal_after_obj.signal_value)
+			
 	call_deferred("emit_signal", "completed")
 
 func _call_signal(obj):
@@ -252,3 +271,4 @@ func _on_node_changed(_node: EventChainNode, replay_simulation := false) -> void
 	if replay_simulation:
 		emit_signal("simulation_outdated")
 	update()
+

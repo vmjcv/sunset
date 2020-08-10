@@ -24,9 +24,9 @@ func _ready() -> void:
 
 func _generate_outputs() -> void:
 	_event = EventChainGraphEvent.new()
-	_event.signal_trigger_obj = get_input_single(0, 0)
-	_event.signal_before_obj = get_input_single(1, 0)
-	_event.signal_after_obj = get_input_single(2, 0)
+	_event.signal_trigger_obj = get_input_single(0, null)
+	_event.signal_before_obj = get_input_single(1, null)
+	_event.signal_after_obj = get_input_single(2, null)
 
 	output[0] = _event
 

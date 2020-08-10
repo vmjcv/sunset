@@ -54,7 +54,7 @@ class Parse():
     def change_page(self,):
         with open(self.m_mk_path,"r",encoding="utf-8") as file:
             #mk_str =  file.read()   
-            data = yaml.load(file)
+            data = yaml.load(file,Loader=yaml.FullLoader)
 
         api_str="- API:\n"
         api_list=[]

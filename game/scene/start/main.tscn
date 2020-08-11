@@ -5,10 +5,10 @@
 [ext_resource path="res://shader/breath.shader" type="Shader" id=9]
 [ext_resource path="res://shader/title_breath.shader" type="Shader" id=11]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 9 )
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 11 )
 
 [node name="ColorRect" type="TextureRect"]
@@ -33,7 +33,7 @@ __meta__ = {
 }
 
 [node name="start_bg" type="TextureRect" parent="Container"]
-material = SubResource( 2 )
+material = SubResource( 1 )
 anchor_left = 0.241
 anchor_top = 0.749
 anchor_right = 0.757
@@ -51,7 +51,7 @@ __meta__ = {
 }
 
 [node name="start" type="TextureRect" parent="Container/start_bg"]
-material = SubResource( 3 )
+material = SubResource( 2 )
 anchor_left = 0.312
 anchor_top = 0.391
 anchor_right = 0.69

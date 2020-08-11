@@ -1,0 +1,8 @@
+  2020/8/11 0:25:40: Starting composition “测试用 Skew测试”.
+
+  Output To: E:\【工程】\【练习】\11.CIGA 限时挑战\测试用 Skew测试\测试用 Skew测试_[#####].png    2020/8/11 0:25:40: Finished composition “测试用 Skew测试”.
+
+
+  Total Time Elapsed: 0 Seconds
+Log closed on 2020/8/11 at 0:25:40
+

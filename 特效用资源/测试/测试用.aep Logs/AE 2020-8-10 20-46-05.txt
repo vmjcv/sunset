@@ -1,0 +1,8 @@
+  2020/8/10 20:46:05: Starting composition “测试用 简单动效”.
+
+  Output To: E:\【工程】\【练习】\11.CIGA 限时挑战\测试用 简单动效\测试用 简单动效_[#####].png    2020/8/10 20:46:06: Finished composition “测试用 简单动效”.
+
+
+  Total Time Elapsed: 1 Seconds
+Log closed on 2020/8/10 at 20:46:06
+

@@ -11,8 +11,7 @@ pages:
 - 代码规范: 代码规范.md
 - 教程地址: 教程地址.md
 - 扩展插件: 扩展插件.md
-- API:
-  - TestChild: api\scene1\Node2D.md
+- API: []
 repo_url: https://github.com/vmjcv/sunset/
 site_name: SunSet
 theme: material

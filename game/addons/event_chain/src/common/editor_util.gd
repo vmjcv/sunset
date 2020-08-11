@@ -4,6 +4,8 @@ class_name EventChainGraphEditorUtil
 
 # Taken from https://github.com/Zylann/godot_heightmap_plugin/blob/master/addons/zylann.hterrain/tools/util/editor_util.gd
 static func get_dpi_scale() -> float:
+	if not Engine.is_editor_hint():
+		return 1.0
 	var editor_plugin = EditorPlugin.new()
 	var editor_settings = editor_plugin.get_editor_interface().get_editor_settings()
 	editor_plugin.queue_free()

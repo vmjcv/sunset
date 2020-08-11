@@ -9,23 +9,23 @@ signal template_path_changed
 
 export(String, FILE, "*.egraph") var template_path := "" setget set_template_path
 export var auto_generate_on_load := true
-export var paused := false
 
 var _initialized := false
 var _template: EventChainGraphTemplate
 var _exposed_variables := {}
 
 
-export var now_status:int
+
+export var now_status:String
 export var event_list:Array
 
 func _enter_tree():
 	# @:进入场景的时候重播所有事件信号
 	if _initialized:
 		return
-	if Engine.is_editor_hint():
-		reload_template(auto_generate_on_load)
-		_initialized = true
+	#if Engine.is_editor_hint():
+	reload_template(auto_generate_on_load)
+	_initialized = true
 
 
 func _get_property_list() -> Array:
@@ -98,7 +98,14 @@ func reload_template(generate: bool = true) -> void:
 		_template = EventChainGraphTemplate.new()
 		add_child(_template)
 		_template.event_chain_graph = self
-		_template.node_library = get_tree().root.get_node("EventChainNodeLibrary")
+		
+		_template.node_library = get_tree().root.get_node_or_null("EventChainNodeLibrary")
+		if _template.node_library==null:
+			var _node_library = EventChainNodeLibrary.new()
+			_node_library.name = "EventChainNodeLibrary"
+			get_tree().root.call_deferred("add_child", _node_library)
+			_template.node_library = _node_library
+		
 		_template.connect("simulation_outdated", self, "generate")
 		_template.connect("simulation_completed", self, "_on_simulation_completed")
 
@@ -111,7 +118,7 @@ func reload_template(generate: bool = true) -> void:
 
 func generate(force_full_simulation := false) -> void:
 	# 模拟整个过程
-	if not Engine.is_editor_hint() or paused:
+	if not Engine.is_editor_hint():
 		return
 
 	_template.generate(force_full_simulation) # Actual simulation happens here

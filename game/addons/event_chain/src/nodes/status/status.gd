@@ -16,6 +16,7 @@ func _init() -> void:
 	set_input(0, "Name", EventChainGraphDataType.STRING)
 	set_input(1, "Status", EventChainGraphDataType.STATUS)
 	set_output(0, "Status", EventChainGraphDataType.STATUS)
+	set_output(1, "StatusIndex", EventChainGraphDataType.SCALAR)
 
 func _ready() -> void:
 	connect("input_changed", self, "_on_input_changed")
@@ -25,13 +26,14 @@ func _generate_outputs() -> void:
 	if _status:
 		pass
 	else:
-		_status = get_input_single(1, 0)
-		if _status:
+		_status = get_input_single(1, null)
+		if not _status:
 			_status = EventChainGraphStatus.new()
-		
-	_status.status_name = get_input_single(0, 0)
-
+	_status.status_name = get_input_single(0, "")
+	_status_name = _status.status_name
+	
 	output[0] = _status
+	output[1] = _status._index
 	for i in range(2,get_inputs_count()):
 		output[i] = _status
 
@@ -117,15 +119,15 @@ func _on_button_delete_pressed() -> void:
 	._generate_default_gui()
 	.regenerate_default_ui()
 
-func get_event(index):
+func get_event(name):
 	for i in range(2,get_inputs_count()):
-		if _inputs[i].signal_trigger_obj._index==index:
+		if _inputs[i].signal_trigger_obj.signal_name==name:
 			return _inputs[i]
 	return null
 
-func get_next_status(index):
+func get_next_status(name):
 	for i in range(2,get_inputs_count()):
-		if _inputs[i].signal_trigger_obj._index==index:
+		if _inputs[i].signal_trigger_obj.signal_name==name:
 			var result: Array = get_parent().get_right_nodes(self, i)
 			return result[0]
 	return null

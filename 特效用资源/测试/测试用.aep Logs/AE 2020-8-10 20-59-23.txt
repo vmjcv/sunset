@@ -1,0 +1,8 @@
+  2020/8/10 20:59:23: Starting composition “测试用 复杂动效”.
+
+  Output To: E:\【工程】\【练习】\11.CIGA 限时挑战\测试用 复杂动效\测试用 复杂动效_[#####].png    2020/8/10 20:59:24: Finished composition “测试用 复杂动效”.
+
+
+  Total Time Elapsed: 1 Seconds
+Log closed on 2020/8/10 at 20:59:24
+

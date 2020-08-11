@@ -2,6 +2,7 @@ docs_dir: docs
 markdown_extensions:
 - admonition
 pages:
+- 活动规则: 活动规则.md
 - 项目详情: 项目详情.md
 - 玩法介绍: 玩法介绍.md
 - 前期准备: 前期准备.md

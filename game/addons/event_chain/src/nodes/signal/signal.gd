@@ -28,11 +28,11 @@ func _generate_outputs() -> void:
 	else:
 		_signal = EventChainGraphSignal.new()
 	_signal.signal_name = get_input_single(0, 0)
+	_signal_name = _signal.signal_name
 	for i in range(1,get_inputs_count()):
 		var number = get_input_single(i, false)
 		if number:
 			_signal.signal_value.append(number)
-			break
 	output[0] = _signal
 
 

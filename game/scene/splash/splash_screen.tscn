@@ -425,13 +425,13 @@ nodes/fragment/connections = PoolIntArray( 5, 0, 4, 0, 4, 0, 40, 0, 40, 0, 3, 0,
 
 [sub_resource type="ShaderMaterial" id=46]
 shader = SubResource( 45 )
-shader_param/Strength = 0.133333
+shader_param/Strength = 1.0
 
 [sub_resource type="Animation" id=47]
 length = 4.2
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Skeleton/Root/EyeRight:position")
+tracks/0/path = NodePath("Panel3/Skeleton/Root/EyeRight:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -443,7 +443,7 @@ tracks/0/keys = {
 "values": [ Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ), Vector2( 30.7358, 6.79419 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Skeleton/Root/EyeRight:scale")
+tracks/1/path = NodePath("Panel3/Skeleton/Root/EyeRight:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -455,7 +455,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.786569, 1.12035 ), Vector2( 1.07883, 0.975046 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Skeleton/Root/PupilLeft:position")
+tracks/2/path = NodePath("Panel3/Skeleton/Root/PupilLeft:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -467,7 +467,7 @@ tracks/2/keys = {
 "values": [ Vector2( -29.4416, -2.26474 ), Vector2( -29.4416, -2.26474 ), Vector2( -29.4415, 0.993744 ), Vector2( -30.2775, -2.88672 ), Vector2( -29.4416, -2.26474 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Skeleton/Root/PupilLeft:scale")
+tracks/3/path = NodePath("Panel3/Skeleton/Root/PupilLeft:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -479,7 +479,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.369988, 1.07291 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Skeleton/Root/EyeLeft:position")
+tracks/4/path = NodePath("Panel3/Skeleton/Root/EyeLeft:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -491,7 +491,7 @@ tracks/4/keys = {
 "values": [ Vector2( -31.3828, 4.85303 ), Vector2( -31.3828, 4.85303 ), Vector2( -31.3828, 4.85303 ), Vector2( -31.3828, 4.85303 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Skeleton/Root/EyeLeft:scale")
+tracks/5/path = NodePath("Panel3/Skeleton/Root/EyeLeft:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -503,7 +503,7 @@ tracks/5/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.775082, 1.06048 ), Vector2( 1.10825, 0.884834 ), Vector2( 1, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Skeleton/Root/PupilRight:position")
+tracks/6/path = NodePath("Panel3/Skeleton/Root/PupilRight:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -515,7 +515,7 @@ tracks/6/keys = {
 "values": [ Vector2( 29.4417, -2.26474 ), Vector2( 29.4417, -2.26474 ), Vector2( 29.4417, 0.812714 ), Vector2( 29.4417, -2.08371 ), Vector2( 29.4417, -2.26474 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Skeleton/Root/PupilRight:scale")
+tracks/7/path = NodePath("Panel3/Skeleton/Root/PupilRight:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -527,7 +527,7 @@ tracks/7/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.339253, 1.0218 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Skeleton/Root:position")
+tracks/8/path = NodePath("Panel3/Skeleton/Root:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -536,10 +536,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 2.25, 2.3, 2.45, 2.55 ),
 "transitions": PoolRealArray( 1, 0.482968, -2, -2.21914, 1 ),
 "update": 0,
-"values": [ Vector2( 640.729, 283.489 ), Vector2( 640.729, 283.489 ), Vector2( 640.729, 284.627 ), Vector2( 640.729, 280.076 ), Vector2( 640.729, 283.489 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 1.138 ), Vector2( 0, -3.413 ), Vector2( 0, 0 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Skeleton/Root:scale")
+tracks/9/path = NodePath("Panel3/Skeleton/Root:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -551,7 +551,7 @@ tracks/9/keys = {
 "values": [ Vector2( 1.12639, 1.12639 ), Vector2( 1.12639, 1.12639 ), Vector2( 1.15915, 1.09652 ), Vector2( 1.11054, 1.16841 ), Vector2( 1.12639, 1.12639 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("GodotPolygons:visible")
+tracks/10/path = NodePath("Panel2/GodotPolygons:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -563,7 +563,7 @@ tracks/10/keys = {
 "values": [ true ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("GodotPolygons:material:shader_param/Strength")
+tracks/11/path = NodePath("Panel2/GodotPolygons:material:shader_param/Strength")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -575,7 +575,7 @@ tracks/11/keys = {
 "values": [ 1.0, 1.0, 0.0, 0.0, 1.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("GodotPolygons/godot-logo-text:modulate")
+tracks/12/path = NodePath("Panel2/GodotPolygons/godot-logo-text:modulate")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -587,7 +587,7 @@ tracks/12/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("GodotPolygons/godot-logo-text:position")
+tracks/13/path = NodePath("Panel2/GodotPolygons/godot-logo-text:position")
 tracks/13/interp = 2
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -596,7 +596,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 1.1, 2.05, 3.45, 3.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 640.729, 500 ), Vector2( 640.729, 459.83 ), Vector2( 640.729, 459.83 ), Vector2( 640.729, 500 ) ]
+"values": [ Vector2( 0, 140 ), Vector2( 0, 100 ), Vector2( 0, 100 ), Vector2( 0, 140 ) ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("your-studio:visible")
@@ -611,7 +611,7 @@ tracks/14/keys = {
 "values": [ false ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("GodotPolygons/godot-logo-text:visible")
+tracks/15/path = NodePath("Panel2/GodotPolygons/godot-logo-text:visible")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -625,6 +625,7 @@ tracks/15/keys = {
 
 [sub_resource type="Animation" id=48]
 length = 5.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("your-studio:visible")
 tracks/0/interp = 1
@@ -650,7 +651,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("GodotPolygons:visible")
+tracks/2/path = NodePath("Panel2/GodotPolygons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -662,93 +663,124 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[node name="SplashScreen" type="Node2D"]
+[node name="CenterContainer" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="your-studio" type="Sprite" parent="."]
+[node name="your-studio" type="TextureRect" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 665.807, 362.919 )
+margin_left = 672.0
+margin_top = 383.0
+margin_right = 1247.0
+margin_bottom = 696.0
 texture = ExtResource( 3 )
 
-[node name="GamejamLogo" type="AnimatedSprite" parent="."]
+[node name="Panel" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="GamejamLogo" type="AnimatedSprite" parent="Panel"]
 visible = false
-position = Vector2( 663.578, 382.925 )
-scale = Vector2( 0.685356, 0.696091 )
+scale = Vector2( 0.696, 0.696 )
 frames = SubResource( 1 )
 animation = "show_logo"
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="GodotPolygons" type="Node2D" parent="."]
-visible = false
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="GodotPolygons" type="Node2D" parent="Panel2"]
 material = SubResource( 46 )
 
-[node name="Bot" type="Polygon2D" parent="GodotPolygons"]
+[node name="Bot" type="Polygon2D" parent="Panel2/GodotPolygons"]
 use_parent_material = true
-position = Vector2( 565.832, 205.681 )
+position = Vector2( -73.2203, -133.328 )
 texture = ExtResource( 7 )
-skeleton = NodePath("../../Skeleton")
+skeleton = NodePath("../../../Panel3/Skeleton")
 polygon = PoolVector2Array( 72.8813, 145.198, 33.0508, 142.655, 0.564972, 114.689, -6.77966, 57.3446, 2.54237, 26.2712, 47.7401, -3.67232, 100.282, -2.54237, 144.35, 28.5311, 152.825, 59.322, 145.48, 122.316, 111.582, 144.915, 42.963, 91.2963, 35.1852, 89.0741, 28.5185, 82.7778, 25.5556, 74.2593, 28.1481, 65, 35.5556, 58.8889, 43.1481, 57.7778, 52.4074, 59.2593, 57.7778, 64.6296, 61.1111, 74.8148, 57.7778, 84.0741, 50.3704, 90.3704, 42.5926, 94.4444, 33.1481, 91.1111, 25.9259, 84.4444, 22.7778, 75, 25.1852, 63.8889, 34.0741, 55.7407, 43.7037, 54.0741, 53.3333, 55.7407, 60.7407, 62.5926, 64.4444, 75.1852, 60.5556, 86.4815, 51.4815, 93.1481, 104.815, 91.8519, 95.5555, 90, 89.8148, 83.5185, 87.2222, 74.2593, 89.2593, 64.4444, 95.5555, 56.8519, 105, 55.1852, 114.444, 58.1481, 120.37, 65.1852, 121.296, 74.4444, 118.889, 84.0741, 112.778, 89.6296, 104.444, 52.037, 116.481, 55.9259, 123.519, 64.0741, 123.704, 75, 121.111, 85.3704, 113.889, 91.8519, 105.185, 94.8148, 93.8889, 91.8519, 87.2222, 84.2593, 85.1852, 74.6296, 87.037, 62.963, 94.8148, 54.0741, 42.7481, 74.5547, 104.835, 74.3002 )
 uv = PoolVector2Array( 72.8813, 145.198, 33.0508, 142.655, 0.564972, 114.689, -6.77966, 57.3446, 2.54237, 26.2712, 47.7401, -3.67232, 100.282, -2.54237, 144.35, 28.5311, 152.825, 59.322, 145.48, 122.316, 111.582, 144.915, 42.963, 91.2963, 35.1852, 89.0741, 28.5185, 82.7778, 25.5556, 74.2593, 28.1481, 65, 35.5556, 58.8889, 43.1481, 57.7778, 52.4074, 59.2593, 57.7778, 64.6296, 61.1111, 74.8148, 57.7778, 84.0741, 50.3704, 90.3704, 42.5926, 94.4444, 33.1481, 91.1111, 25.9259, 84.4444, 22.7778, 75, 25.1852, 63.8889, 34.0741, 55.7407, 43.7037, 54.0741, 53.3333, 55.7407, 60.7407, 62.5926, 64.4444, 75.1852, 60.5556, 86.4815, 51.4815, 93.1481, 104.815, 91.8519, 95.5555, 90, 89.8148, 83.5185, 87.2222, 74.2593, 89.2593, 64.4444, 95.5555, 56.8519, 105, 55.1852, 114.444, 58.1481, 120.37, 65.1852, 121.296, 74.4444, 118.889, 84.0741, 112.778, 89.6296, 104.444, 52.037, 116.481, 55.9259, 123.519, 64.0741, 123.704, 75, 121.111, 85.3704, 113.889, 91.8519, 105.185, 94.8148, 93.8889, 91.8519, 87.2222, 84.2593, 85.1852, 74.6296, 87.037, 62.963, 94.8148, 54.0741, 42.7481, 74.5547, 104.835, 74.3002 )
 polygons = [ PoolIntArray( 12, 59, 11 ), PoolIntArray( 12, 13, 59 ), PoolIntArray( 13, 14, 59 ), PoolIntArray( 14, 15, 59 ), PoolIntArray( 15, 16, 59 ), PoolIntArray( 16, 17, 59 ), PoolIntArray( 17, 18, 59 ), PoolIntArray( 18, 19, 59 ), PoolIntArray( 19, 20, 59 ), PoolIntArray( 20, 21, 59 ), PoolIntArray( 21, 22, 59 ), PoolIntArray( 22, 11, 59 ), PoolIntArray( 23, 12, 11 ), PoolIntArray( 24, 12, 23 ), PoolIntArray( 24, 12, 13 ), PoolIntArray( 25, 24, 13 ), PoolIntArray( 14, 25, 13 ), PoolIntArray( 14, 26, 25 ), PoolIntArray( 14, 15, 26 ), PoolIntArray( 27, 15, 26 ), PoolIntArray( 27, 15, 16 ), PoolIntArray( 27, 16, 28 ), PoolIntArray( 16, 17, 28 ), PoolIntArray( 28, 29, 17 ), PoolIntArray( 29, 18, 17 ), PoolIntArray( 29, 30, 18 ), PoolIntArray( 30, 19, 18 ), PoolIntArray( 19, 31, 30 ), PoolIntArray( 20, 31, 32 ), PoolIntArray( 19, 31, 20 ), PoolIntArray( 32, 33, 21 ), PoolIntArray( 20, 32, 21 ), PoolIntArray( 11, 22, 34 ), PoolIntArray( 22, 21, 33 ), PoolIntArray( 22, 34, 33 ), PoolIntArray( 34, 23, 11 ), PoolIntArray( 60, 36, 35 ), PoolIntArray( 60, 46, 35 ), PoolIntArray( 60, 45, 46 ), PoolIntArray( 44, 60, 45 ), PoolIntArray( 44, 43, 60 ), PoolIntArray( 43, 42, 60 ), PoolIntArray( 42, 41, 60 ), PoolIntArray( 41, 40, 60 ), PoolIntArray( 40, 39, 60 ), PoolIntArray( 39, 38, 60 ), PoolIntArray( 38, 37, 60 ), PoolIntArray( 37, 36, 60 ), PoolIntArray( 36, 54, 37 ), PoolIntArray( 37, 55, 38 ), PoolIntArray( 38, 56, 39 ), PoolIntArray( 39, 57, 40 ), PoolIntArray( 40, 58, 41 ), PoolIntArray( 41, 47, 42 ), PoolIntArray( 42, 48, 43 ), PoolIntArray( 43, 49, 44 ), PoolIntArray( 44, 50, 45 ), PoolIntArray( 45, 51, 46 ), PoolIntArray( 46, 52, 35 ), PoolIntArray( 35, 53, 36 ), PoolIntArray( 53, 35, 52 ), PoolIntArray( 52, 46, 51 ), PoolIntArray( 51, 45, 50 ), PoolIntArray( 49, 44, 50 ), PoolIntArray( 49, 43, 48 ), PoolIntArray( 48, 42, 47 ), PoolIntArray( 47, 41, 58 ), PoolIntArray( 58, 40, 57 ), PoolIntArray( 57, 39, 56 ), PoolIntArray( 55, 54, 37 ), PoolIntArray( 54, 36, 53 ), PoolIntArray( 56, 55, 38 ), PoolIntArray( 24, 2, 1 ), PoolIntArray( 24, 23, 1 ), PoolIntArray( 24, 25, 2 ), PoolIntArray( 26, 2, 25 ), PoolIntArray( 3, 26, 2 ), PoolIntArray( 3, 27, 26 ), PoolIntArray( 4, 27, 3 ), PoolIntArray( 4, 28, 27 ), PoolIntArray( 28, 5, 4 ), PoolIntArray( 28, 29, 5 ), PoolIntArray( 29, 30, 5 ), PoolIntArray( 30, 5, 31 ), PoolIntArray( 57, 58, 6 ), PoolIntArray( 58, 47, 6 ), PoolIntArray( 47, 6, 48 ), PoolIntArray( 48, 7, 6 ), PoolIntArray( 48, 7, 49 ), PoolIntArray( 8, 49, 7 ), PoolIntArray( 49, 8, 50 ), PoolIntArray( 50, 8, 9 ), PoolIntArray( 51, 9, 50 ), PoolIntArray( 52, 9, 51 ), PoolIntArray( 53, 10, 52 ), PoolIntArray( 9, 52, 10 ), PoolIntArray( 23, 0, 34 ), PoolIntArray( 0, 1, 23 ), PoolIntArray( 0, 53, 10 ), PoolIntArray( 0, 54, 53 ), PoolIntArray( 33, 0, 34 ), PoolIntArray( 55, 0, 54 ), PoolIntArray( 33, 55, 0 ), PoolIntArray( 55, 32, 33 ), PoolIntArray( 56, 32, 55 ), PoolIntArray( 56, 31, 32 ), PoolIntArray( 56, 31, 57 ), PoolIntArray( 57, 5, 31 ), PoolIntArray( 6, 5, 57 ) ]
 bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.47, 0.47, 0.47, 1, 1, 1, 1, 1, 1, 1, 0.47, 0.47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0.47, 0.47, 0.47, 0.47, 0.47, 1, 1, 1, 0, 0 ), NodePath("Root/PupilRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0.47, 0.47, 0, 0.47, 0.47, 0, 0, 0, 0, 1 ), NodePath("Root/PupilLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.47, 0.47, 0.47, 0, 0, 0, 0, 0, 0, 0, 0.47, 0.47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0 ) ]
 internal_vertex_count = 50
 
-[node name="PupilL" type="Polygon2D" parent="GodotPolygons"]
+[node name="PupilL" type="Polygon2D" parent="Panel2/GodotPolygons"]
 use_parent_material = true
-position = Vector2( 600.653, 270.499 )
+position = Vector2( -38.3993, -68.5097 )
 texture = ExtResource( 8 )
-skeleton = NodePath("../../Skeleton")
+skeleton = NodePath("../../../Panel3/Skeleton")
 polygon = PoolVector2Array( 10.1781, 23.4097, 2.29008, 21.1196, -4.3257, 12.4682, 0.254456, 1.52672, 10.1781, -3.30788, 19.8473, 0.763359, 25.6997, 10.4326, 22.1374, 20.1018 )
 uv = PoolVector2Array( 10.1781, 23.4097, 2.29008, 21.1196, -4.3257, 12.4682, 0.254456, 1.52672, 10.1781, -3.30788, 19.8473, 0.763359, 25.6997, 10.4326, 22.1374, 20.1018 )
 bones = [ NodePath("Root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilLeft"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="PupilR" type="Polygon2D" parent="GodotPolygons"]
+[node name="PupilR" type="Polygon2D" parent="Panel2/GodotPolygons"]
 use_parent_material = true
-position = Vector2( 600.653, 270.499 )
+position = Vector2( -38.3993, -68.5097 )
 texture = ExtResource( 8 )
-skeleton = NodePath("../../Skeleton")
+skeleton = NodePath("../../../Panel3/Skeleton")
 polygon = PoolVector2Array( 69.2112, 23.1552, 59.0331, 18.5751, 56.4885, 9.92366, 61.0687, 1.01781, 70.229, -1.78117, 80.4071, 2.54453, 83.2061, 10.1781, 79.1349, 20.8651 )
 uv = PoolVector2Array( 69.2112, 23.1552, 59.0331, 18.5751, 56.4885, 9.92366, 61.0687, 1.01781, 70.229, -1.78117, 80.4071, 2.54453, 83.2061, 10.1781, 79.1349, 20.8651 )
 bones = [ NodePath("Root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilRight"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/PupilLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
-[node name="Highlights" type="Polygon2D" parent="GodotPolygons"]
+[node name="Highlights" type="Polygon2D" parent="Panel2/GodotPolygons"]
 use_parent_material = true
-position = Vector2( 599.421, 270.164 )
+position = Vector2( -39.6313, -68.8447 )
 texture = ExtResource( 6 )
-skeleton = NodePath("../../Skeleton")
+skeleton = NodePath("../../../Panel3/Skeleton")
 polygon = PoolVector2Array( -9.99999, 20, -9.99999, -10, 80, -10, 80, 20 )
 uv = PoolVector2Array( -9.99999, 20, -9.99999, -10, 80, -10, 80, 20 )
 bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1 ), NodePath("Root/PupilRight"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Root/EyeRight"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Root/PupilLeft"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Root/EyeLeft"), PoolRealArray( 0, 0, 0, 0 ) ]
 
-[node name="godot-logo-text" type="Sprite" parent="GodotPolygons"]
-modulate = Color( 1, 1, 1, 0.857143 )
-position = Vector2( 640.729, 473.4 )
+[node name="godot-logo-text" type="Sprite" parent="Panel2/GodotPolygons"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 0, 143.367 )
 texture = ExtResource( 1 )
 
-[node name="Skeleton" type="Skeleton2D" parent="."]
+[node name="Panel3" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="Skeleton" type="Skeleton2D" parent="Panel3"]
 visible = false
+position = Vector2( 0, -60 )
 
-[node name="Root" type="Bone2D" parent="Skeleton"]
-position = Vector2( 640.729, 283.489 )
+[node name="Root" type="Bone2D" parent="Panel3/Skeleton"]
 scale = Vector2( 1.12639, 1.12639 )
-rest = Transform2D( 1, 0, 0, 1, 640.729, 283.489 )
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="PupilRight" type="Bone2D" parent="Skeleton/Root"]
+[node name="PupilRight" type="Bone2D" parent="Panel3/Skeleton/Root"]
 position = Vector2( 29.4417, -2.26474 )
 rotation = -1.57079
 rest = Transform2D( 2.22127e-06, -1, 1, 2.22127e-06, 29.4417, -2.26474 )
 
-[node name="EyeRight" type="Bone2D" parent="Skeleton/Root"]
+[node name="EyeRight" type="Bone2D" parent="Panel3/Skeleton/Root"]
 position = Vector2( 30.7358, 6.79419 )
 rotation = 1.57079
 rest = Transform2D( 2.22127e-06, 1, -1, 2.22127e-06, 30.7358, 6.79419 )
 
-[node name="PupilLeft" type="Bone2D" parent="Skeleton/Root"]
+[node name="PupilLeft" type="Bone2D" parent="Panel3/Skeleton/Root"]
 position = Vector2( -29.4416, -2.26474 )
 rotation = -1.57079
 rest = Transform2D( 2.22127e-06, -1, 1, 2.22127e-06, -29.4416, -2.26474 )
 
-[node name="EyeLeft" type="Bone2D" parent="Skeleton/Root"]
+[node name="EyeLeft" type="Bone2D" parent="Panel3/Skeleton/Root"]
 position = Vector2( -31.3828, 4.85303 )
 rotation = 1.57079
 rest = Transform2D( 2.22127e-06, 1, -1, 2.22127e-06, -31.3828, 4.85303 )

@@ -1,7 +1,7 @@
-extends Node2D
+extends CenterContainer
 
 onready var animation_player : AnimationPlayer = $AnimationPlayer
-onready var frame_anim : AnimatedSprite = $GamejamLogo
+onready var frame_anim : AnimatedSprite = $Panel/GamejamLogo
 signal done
 
 func _ready():

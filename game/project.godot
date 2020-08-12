@@ -106,6 +106,7 @@ _global_script_class_icons={
 
 config/name="sunset"
 run/main_scene="res://scene/splash/splash_screen.tscn"
+boot_splash/image="res://texture/splash/blank.png"
 config/icon="res://icon.png"
 
 [autoload]

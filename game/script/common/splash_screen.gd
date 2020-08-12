@@ -13,6 +13,9 @@ func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
 		if event.pressed and animation_player.is_playing():
 			animation_player.seek(max(4.0, animation_player.current_animation_position), true)
+		elif event.pressed and frame_anim.is_playing():
+			frame_anim.stop()
+			frame_anim.emit_signal("animation_finished")
 	get_tree().set_input_as_handled()
 
 func animation_player_finished(anim: String):
@@ -21,6 +24,7 @@ func animation_player_finished(anim: String):
 		frame_anim.animation = "show_logo"
 		frame_anim.play()
 	elif anim == "show_studio":
+		print("finished")
 		emit_signal("done")
 		queue_free()
 		#TODO switch to main scene	--醉醉

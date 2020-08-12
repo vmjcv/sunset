@@ -624,8 +624,7 @@ tracks/15/keys = {
 }
 
 [sub_resource type="Animation" id=48]
-length = 5.0
-loop = true
+length = 4.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("your-studio:visible")
 tracks/0/interp = 1
@@ -633,7 +632,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 5 ),
+"times": PoolRealArray( 0, 4.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -645,7 +644,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 3, 4.5, 5 ),
+"times": PoolRealArray( 1, 2.4, 3.8, 4.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -673,7 +672,7 @@ __meta__ = {
 }
 
 [node name="your-studio" type="TextureRect" parent="."]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 672.0
 margin_top = 383.0
 margin_right = 1247.0
@@ -702,6 +701,7 @@ margin_right = 960.0
 margin_bottom = 540.0
 
 [node name="GodotPolygons" type="Node2D" parent="Panel2"]
+visible = false
 material = SubResource( 46 )
 
 [node name="Bot" type="Polygon2D" parent="Panel2/GodotPolygons"]
@@ -748,7 +748,7 @@ bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1 ), NodePath("Root/PupilRig
 [node name="godot-logo-text" type="Sprite" parent="Panel2/GodotPolygons"]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 0, 143.367 )
+position = Vector2( 0, 140 )
 texture = ExtResource( 1 )
 
 [node name="Panel3" type="Panel" parent="."]

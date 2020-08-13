@@ -5,9 +5,6 @@ extends EditorPlugin
 # 该插件提供了一个基础框架：状态信息，触发事件，回调事件，
 # 需注意游戏中可能同时存在多个事件链条，所以事件编号要是全局唯一的量
 
-
-
-
 var _graph_editor_view
 var _panel_button: Button
 var _editor_selection: EditorSelection
@@ -18,13 +15,8 @@ var _proxy
 
 
 func _enter_tree() -> void:
-	add_autoload_singleton("StatusUtils","res://addons/event_chain/src/common/status_util.gd")
-	add_autoload_singleton("SignalUtils","res://addons/event_chain/src/common/signal_util.gd")
-	
-	add_autoload_singleton("EventChainGraphManage","res://addons/event_chain/src/core/graph_manage.gd")
-	add_autoload_singleton("EventChainSignalManage","res://addons/event_chain/src/core/signal_manage.gd")
-	
-	
+	#add_autoload_singleton("EventChainGraphManage","res://addons/event_chain/src/core/graph_manage.gd")
+	#add_autoload_singleton("EventChainSignalManage","res://addons/event_chain/src/core/signal_manage.gd")
 	_add_custom_editor_view()
 	_connect_editor_signals()
 	_setup_node_library()
@@ -33,7 +25,6 @@ func _enter_tree() -> void:
 
 
 func _exit_tree() -> void:
-	remove_autoload_singleton("StatusUtils")
 	_disconnect_editor_signals()
 	_remove_custom_editor_view()
 	_remove_node_library()
@@ -41,7 +32,7 @@ func _exit_tree() -> void:
 
 
 func _add_custom_editor_view() -> void:
-	_graph_editor_view = preload("src/editor/gui/editor_view.tscn").instance()
+	_graph_editor_view = preload("editor/src/editor/gui/editor_view.tscn").instance()
 	_graph_editor_view.undo_redo = get_undo_redo()
 	_panel_button = add_control_to_bottom_panel(_graph_editor_view, "Event Chain Graph Editor")
 	_panel_button.visible = true
@@ -89,7 +80,7 @@ func _remove_node_library() -> void:
 func _setup_editor_plugin_proxy() -> void:
 	if _proxy:
 		return
-	_proxy = preload("src/common/editor_plugin_proxy.gd").new()
+	_proxy = preload("editor/src/common/editor_plugin_proxy.gd").new()
 	_proxy.name = "EventChainGraphEditorPluginProxy"
 	_proxy.proxy = self
 	get_tree().root.call_deferred("add_child", _proxy)

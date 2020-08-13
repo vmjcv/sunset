@@ -1,0 +1,63 @@
+{
+	"connections": [],
+	"nodes": [
+		{
+			"data": {},
+			"editor": {
+				"offset_x": -10,
+				"offset_y": 450,
+				"slots": {
+					"0": ""
+				}
+			},
+			"name": "GraphNode3",
+			"type": "signal"
+		},
+		{
+			"data": {},
+			"editor": {
+				"offset_x": -20,
+				"offset_y": 320,
+				"slots": {
+					"0": ""
+				}
+			},
+			"name": "GraphNode2",
+			"type": "signal"
+		},
+		{
+			"data": {},
+			"editor": {
+				"offset_x": -30,
+				"offset_y": 160,
+				"slots": {
+					"0": ""
+				}
+			},
+			"name": "GraphNode",
+			"type": "signal"
+		},
+		{
+			"data": {},
+			"editor": {
+				"offset_x": 280,
+				"offset_y": 290,
+				"slots": {}
+			},
+			"name": "GraphNode4",
+			"type": "event"
+		},
+		{
+			"data": {},
+			"editor": {
+				"offset_x": 420,
+				"offset_y": 50,
+				"slots": {
+					"0": ""
+				}
+			},
+			"name": "GraphNode5",
+			"type": "callback"
+		}
+	]
+}

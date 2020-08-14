@@ -26,6 +26,7 @@ TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettin
 ItemManage="*res://script/common/item_manage.gd"
 Configs="*res://data/gdscript/configs.gd"
 GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
+SceneMgr="*res://script/common/scene_mgr.gd"
 
 [display]
 

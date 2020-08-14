@@ -8,104 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Reference",
-"class": "EventChainGraph",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/core/event_chain_graph.gd"
-}, {
-"base": "Object",
-"class": "EventChainGraphCallback",
-"language": "GDScript",
-"path": "res://addons/event_chain/data_structures/callback.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphDataType",
-"language": "GDScript",
-"path": "res://addons/event_chain/data_structures/data_types.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphEditorUtil",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/common/editor_util.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphEditorView",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/editor/gui/editor_view.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphEvent",
-"language": "GDScript",
-"path": "res://addons/event_chain/data_structures/event.gd"
-}, {
-"base": "Node",
-"class": "EventChainGraphNodePool",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/core/node_pool.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphSettings",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/core/project_settings.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphSignal",
-"language": "GDScript",
-"path": "res://addons/event_chain/data_structures/signal.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphStatus",
-"language": "GDScript",
-"path": "res://addons/event_chain/data_structures/status.gd"
-}, {
-"base": "Reference",
-"class": "EventChainGraphTemplate",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/core/template.gd"
-}, {
-"base": "Reference",
-"class": "EventChainNode",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/core/event_chain_node.gd"
-}, {
-"base": "Reference",
-"class": "EventChainNodeLibrary",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/core/node_library.gd"
-}, {
-"base": "Reference",
-"class": "JSONBeautifier",
-"language": "GDScript",
-"path": "res://addons/event_chain/thirdparty/json_beautifier/json_beautifier.gd"
-}, {
-"base": "Object",
-"class": "NodeUtils",
-"language": "GDScript",
-"path": "res://addons/event_chain/editor/src/common/node_utils.gd"
-}, {
-"base": "Node2D",
-"class": "TestChild",
-"language": "GDScript",
-"path": "res://script/scene1/Node2D.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"EventChainGraph": "",
-"EventChainGraphCallback": "",
-"EventChainGraphDataType": "",
-"EventChainGraphEditorUtil": "",
-"EventChainGraphEditorView": "",
-"EventChainGraphEvent": "",
-"EventChainGraphNodePool": "",
-"EventChainGraphSettings": "",
-"EventChainGraphSignal": "",
-"EventChainGraphStatus": "",
-"EventChainGraphTemplate": "",
-"EventChainNode": "",
-"EventChainNodeLibrary": "",
-"JSONBeautifier": "",
-"NodeUtils": "",
-"TestChild": ""
+
 }
 
 [application]
@@ -134,7 +39,7 @@ window/dpi/allow_hidpi=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "event_chain", "zylann.translation_editor" )
+enabled=PoolStringArray( "zylann.translation_editor" )
 
 [event_chain_graph]
 

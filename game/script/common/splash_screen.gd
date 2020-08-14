@@ -39,3 +39,4 @@ func studio_anim_finished():
 	emit_signal("done")
 	queue_free()
 	#TODO switch to main scene	--醉醉
+

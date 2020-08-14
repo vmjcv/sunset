@@ -27,6 +27,7 @@ StatusUtils="*res://addons/event_chain/src/common/status_util.gd"
 SignalUtils="*res://addons/event_chain/src/common/signal_util.gd"
 EventChainGraphManage="*res://addons/event_chain/src/core/graph_manage.gd"
 EventChainSignalManage="*res://addons/event_chain/src/core/signal_manage.gd"
+SceneMgr="*res://script/common/scene_mgr.gd"
 
 [display]
 

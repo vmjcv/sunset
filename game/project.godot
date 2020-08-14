@@ -23,11 +23,9 @@ config/icon="res://icon.png"
 [autoload]
 
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
-StatusUtils="*res://addons/event_chain/src/common/status_util.gd"
-SignalUtils="*res://addons/event_chain/src/common/signal_util.gd"
-EventChainGraphManage="*res://addons/event_chain/src/core/graph_manage.gd"
-EventChainSignalManage="*res://addons/event_chain/src/core/signal_manage.gd"
-SceneMgr="*res://script/common/scene_mgr.gd"
+ItemManage="*res://script/common/item_manage.gd"
+Configs="*res://data/gdscript/configs.gd"
+GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
 
 [display]
 

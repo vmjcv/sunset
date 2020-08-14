@@ -21,10 +21,8 @@ func _array_to_dict(item_array):
 	return dict
 
 func get_by_name(item_name):
-	#var level = scene_manage.get_level()
-	#var zhoumu = scene_manage.get_zhoumu()
-	var level = 1
-	var zhoumu = 1
+	var level = GlobalStatusMgr.get_level()
+	var zhoumu = GlobalStatusMgr.get_zhoumu()
 	var new_item_name =item_name+"_"+String(level)+"_"+String(zhoumu)
 	if item_dict.has(new_item_name):
 		return item_dict[new_item_name]

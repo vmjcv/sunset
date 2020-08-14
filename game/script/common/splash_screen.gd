@@ -38,10 +38,4 @@ func studio_anim_finished():
 	print("finished")
 	emit_signal("done")
 	queue_free()
-<<<<<<< HEAD
-	#TODO switch to main scene	--醉醉
-
-=======
-	#TODO switch to main scene	--醉醉			show_error()
 	SceneMgr.changeScene('res://scene/start/main.tscn')
->>>>>>> 8ce8d6e652fb1e8c0df5c0d4ed19bd35713ebd60

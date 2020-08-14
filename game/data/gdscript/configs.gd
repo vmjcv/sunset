@@ -2,12 +2,12 @@
 tool
 extends Node
 
-const policy_infoScript = preload("policy_info.gd")
-const policy_infoData = policy_infoScript.policy_infoData
+const item_infoScript = preload("item_info.gd")
+const item_infoData = item_infoScript.item_infoData
 
 var unique_id_depot = {}
 var configs = {
-	policy_infoData: [],
+	item_infoData: [],
 }
 
 func get_config_by_uid(id: int):
@@ -17,5 +17,5 @@ func get_table_configs(table: GDScript):
 	return configs[table] if table in configs else null
 
 func _init():
-	configs[policy_infoData] = policy_infoScript.load_configs()
-	for d in configs[policy_infoData]: unique_id_depot[d.get_instance_id()] = d
+	configs[item_infoData] = item_infoScript.load_configs()
+	for d in configs[item_infoData]: unique_id_depot[d.get_instance_id()] = d

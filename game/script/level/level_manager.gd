@@ -60,10 +60,10 @@ func move_up():
 		var mapIndex = ant.get_map_index()
 		var curX = mapIndex.x
 		var curY = mapIndex.y - 1
-		if check_block_type(curX, curY, 5):
+		if check_block_type(curX, curY):
 			continue
 		var Offset = 0
-		while not check_block_type(curX, curY, 5) :
+		while not check_block_type(curX, curY) :
 			curY = curY - 1
 			Offset = Offset + 1
 		ant.set_map_index(curX, curY+1)
@@ -76,10 +76,10 @@ func move_left():
 		var mapIndex = ant.get_map_index()
 		var curX = mapIndex.x - 1
 		var curY = mapIndex.y
-		if check_block_type(curX, curY, 5):
+		if check_block_type(curX, curY):
 			continue
 		var Offset = 0
-		while not check_block_type(curX, curY, 5) :
+		while not check_block_type(curX, curY) :
 			curX = curX - 1
 			Offset = Offset + 1
 		ant.set_map_index(curX+1, curY)
@@ -92,10 +92,10 @@ func move_right():
 		var mapIndex = ant.get_map_index()
 		var curX = mapIndex.x + 1
 		var curY = mapIndex.y
-		if check_block_type(curX, curY, 5):
+		if check_block_type(curX, curY):
 			continue
 		var Offset = 0
-		while not check_block_type(curX, curY, 5) :
+		while not check_block_type(curX, curY) :
 			curX = curX + 1
 			Offset = Offset + 1
 		ant.set_map_index(curX-1, curY)
@@ -108,10 +108,10 @@ func move_down():
 		var mapIndex = ant.get_map_index()
 		var curX = mapIndex.x
 		var curY = mapIndex.y + 1
-		if check_block_type(curX, curY, 5):
+		if check_block_type(curX, curY):
 			continue
 		var Offset = 0
-		while not check_block_type(curX, curY, 5) :
+		while not check_block_type(curX, curY) :
 			curY = curY + 1
 			Offset = Offset + 1
 		ant.set_map_index(curX, curY-1)
@@ -119,11 +119,24 @@ func move_down():
 		ant.set_move_info(0, 8)
 		ant.set_move_times(Offset*8)
 	
-func check_block_type(x, y, type):
-	if tileMap.get_cell(x, y) == type:
-		return true
-	else:
-		return false
+func check_block_type(x, y):
+	for type in globalVar.OBSTACLE:
+		if tileMap.get_cell(x, y) == type:
+			return true
+			
+	for type in globalVar.OBSTACLE:
+		if tileMap.get_cell(x, y) == type:
+			return true
+
+	return false
 		
 func check_pass():
-	pass
+	var successNum = 0
+	for ant in ants:
+		var pos = ant.get_map_index()
+		for type in globalVar.DESTINATION:
+			if tileMap.get_cell(pos.x, pos.y) == type:
+				successNum = successNum + 1
+	#暂时写1，之后条件会读取配置
+	if successNum >= 1:
+		print("通关啦!!!!!!!!!!!!!!!!")

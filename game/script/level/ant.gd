@@ -5,7 +5,8 @@ extends Node2D
 # var a = 2
 # var b = "text"
 onready var antModel: KinematicBody2D = $Ant
-onready var isImmortal = false
+onready var isTrapped = false
+onready var isDie = false
 onready var isMoveStatus = false
 onready var posX	#tilemap坐标x
 onready var posY	#tilemap坐标y
@@ -18,11 +19,17 @@ onready var now_status = -1 #移动方向
 func _ready():
 	pass # Replace with function body.
 
-func set_immortal(flag):
-	isImmortal = flag
+func set_isTrapped(flag):
+	isTrapped = flag
 	
-func get_immortal():
-	return isImmortal
+func get_isTrapped():
+	return isTrapped
+	
+func set_isDie(flag):
+	isDie = flag
+	
+func get_isDie():
+	return isDie
 	
 func set_map_index(x, y):
 	posX = x

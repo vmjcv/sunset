@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/C2-1 一周目or二周目，阴森，悲怆，木吉他，白噪音.ogg-5b2bf4816e15989c76d596ef4b626ec4.oggstr"
+
+[deps]
+
+source_file="res://sounds/C2-1 一周目or二周目，阴森，悲怆，木吉他，白噪音.ogg"
+dest_files=[ "res://.import/C2-1 一周目or二周目，阴森，悲怆，木吉他，白噪音.ogg-5b2bf4816e15989c76d596ef4b626ec4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

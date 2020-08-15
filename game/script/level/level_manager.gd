@@ -258,6 +258,14 @@ func check_pass():
 
 func show_pass():
 	print("通关啦!!!!!!!!!!!!!!!!")
+	var game_over = preload("res://scene/common/game_over.tscn")
+	var panel = game_over.instance()
+	add_child(panel)
+	panel.get_item_list(itemList,true)
+	
+	
+	
+	
 	#确认后发送事件
 	#emit_signal("success")
 	

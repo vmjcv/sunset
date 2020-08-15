@@ -11,18 +11,21 @@ onready var open_box = $"箱子开"
 onready var close_box = $"箱子关"
 
 var need_close=true
-
+var bsc_bool = true
 var _item_name_list
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	temp_timer.connect("timeout",self,"get_one")
 	
-	get_item_list(["干燥剂","结婚照"])
+	#get_item_list(["干燥剂","结婚照"])
 	
 	pass # Replace with function body.
 
-func get_item_list(item_name_list):
-	_item_name_list = item_name_list
+func get_item_list(item_name_list,bsc):
+	bsc_bool = bsc
+	_item_name_list = []
+	for key  in item_name_list.values():
+		_item_name_list.append(key.item_name)
 	get_one()
 	
 func get_one():
@@ -39,6 +42,7 @@ func get_one():
 			open_box.hide()
 			move_child(close_box,get_child_count())
 			close_box.show()
+			GlobalStatusMgr._matchResult(_item_name_list,bsc_bool)
 		else:
 			need_close = true
 			temp_timer.start(0.5)

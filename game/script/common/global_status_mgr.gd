@@ -10,7 +10,7 @@ var zhoumu = 1
 func _ready():
 	pass
 	
-func _matchResult(bSuc):
+func _matchResult(item_list,bSuc):
 	if bSuc:
 		onLevelFinish()
 	else:

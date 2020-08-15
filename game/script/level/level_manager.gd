@@ -2,8 +2,6 @@ extends Panel
 
 var globalVar = load("res://script/common/global.gd")
 var pressed_status = false
-var maxW = 0
-var maxH = 0
 var birthPos = []
 var trappedAntPos = {}
 var ants = []
@@ -41,11 +39,9 @@ func _ready():
 		curZhoumu = 1
 	_add_map(curLevel, curZhoumu)
 	for cord in tileMap.get_used_cells():
-		maxW = max(cord[0], maxW)
-		maxH = max(cord[1], maxH)
 		for type in globalVar.BIRTHPOS:
 			var tileID = tileMap.get_cell(cord[0], cord[1])
-			if typeof(tileID) == typeof(type) and tileID == type:
+			if tileID == tileIdMap[type]:
 				birthPos.append(cord)
 
 	for pos in birthPos:
@@ -153,13 +149,13 @@ func check_ant_status(ant):
 	var curPos = ant.get_map_index()
 	var dict_key = curPos.x * 100 + curPos.y
 	var tileId = tileMap.get_cell(curPos.x, curPos.y)
-	for type in globalVar.TRAP:
-		if typeof(tileId) == typeof(type) and tileId == type and not trappedAntPos.keys().has(dict_key):
-			ant.set_isTrapped(true)
-			trappedAntPos[dict_key] = ant
-	for type in globalVar.HOLE:
-		if typeof(tileId) == typeof(type) and tileId == type:
-			ant.set_isDie(true)
+	var tileName = tileMap.tile_set.tile_get_name(tileId)
+	
+	if globalVar.TRAP.has(tileName) and not trappedAntPos.keys().has(dict_key):
+		ant.set_isTrapped(true)
+		trappedAntPos[dict_key] = ant
+	if globalVar.HOLE.has(tileName):
+		ant.set_isDie(true)
 
 func get_all_grids_number():
 	var dict = {}
@@ -172,30 +168,28 @@ func check_block_type(x, y):
 	var temp_dict=get_all_grids_number()
 	var dict_key = x * 100 + y
 	var tileId = tileMap.get_cell(x, y)
-	for type in globalVar.OBSTACLE:
-		if typeof(tileId) == typeof(type) and tileId == type:
-			return true
-	for type in globalVar.PLAIN:
-		if typeof(tileId) == typeof(type) and tileId == type and temp_dict.keys().has(dict_key):
-			return true
-	for type in globalVar.DESTINATION:
-		if typeof(tileId) == typeof(type) and tileId == type and temp_dict.keys().has(dict_key):
-			return true
-	for type in globalVar.WALL:
-		if typeof(tileId) == typeof(type) and tileId == type:
-#			var cellKey = tileMap.tile_set.tile_get_tile_mode()
-			#tileMap.set_cell(x, y, cellKy)
-			return true
+	var tileName = tileMap.tile_set.tile_get_name(tileId)
+	
+	if globalVar.OBSTACLE.has(tileName):
+		return true
+	if globalVar.PLAIN.has(tileName) and temp_dict.keys().has(dict_key):
+		return true
+	if globalVar.DESTINATION.has(tileName) and temp_dict.keys().has(dict_key):
+		return true
+	if globalVar.WALL.has(tileName):
+#		var cellKey = tileMap.tile_set.tile_get_name()
+		#tileMap.set_cell(x, y, cellKy)
+		return true
 	return false
 		
 func check_pass():
 	var successNum = 0
 	for ant in ants:
 		var pos = ant.get_map_index()
-		var tileId = tileMap.get_cell(pos.x, pos.y) 
-		for type in globalVar.DESTINATION:
-			if typeof(tileId) == typeof(type) and tileId == type:
-				successNum = successNum + 1
+		var tileId = tileMap.get_cell(pos.x, pos.y)
+		var tileName = tileMap.tile_set.tile_get_name(tileId)
+		if globalVar.DESTINATION.has(tileName):
+			successNum = successNum + 1
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:
 		show_pass()

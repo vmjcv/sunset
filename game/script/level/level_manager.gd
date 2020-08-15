@@ -1,4 +1,4 @@
-extends Panel
+extends Container
 
 var globalVar = load("res://script/common/global.gd")
 var pressed_status = false

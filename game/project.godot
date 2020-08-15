@@ -32,15 +32,17 @@ ItemManage="*res://script/common/item_manage.gd"
 Configs="*res://data/gdscript/configs.gd"
 GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
 SceneMgr="*res://script/common/scene_mgr.gd"
+AudioPlayer="*res://scene/common/audio_player.gd"
+TalkMgr="*res://script/taking/talk_mgr.gd"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
-window/size/always_on_top=true
 window/size/test_width=1920
 window/size/test_height=1080
-window/dpi/allow_hidpi=true
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

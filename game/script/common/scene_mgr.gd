@@ -16,7 +16,7 @@ var bSlipAction = false
 var nStartSlipTime = 0
 var lastSceneposi = null
 var curSceneposi = null
-var slipTime = 3000
+var slipTime = 300
 const sceneH = 1080
 
 func _ready():
@@ -32,7 +32,7 @@ func _process(time):
 			set_process(false)
 			return
 		var changeH = sceneH * (OS.get_ticks_msec() - nStartSlipTime) / slipTime
-		current_scene.rect_position = Vector2(curSceneposi.x, curSceneposi.y - changeH)
+		current_scene.rect_position = Vector2(curSceneposi.x, curSceneposi.y + sceneH - changeH)
 		last_scene.rect_position = Vector2(lastSceneposi.x, lastSceneposi.y - changeH)
 	
 #	后台加载

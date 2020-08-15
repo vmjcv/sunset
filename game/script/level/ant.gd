@@ -5,7 +5,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 onready var antModel: KinematicBody2D = $Ant
-onready var icon: Sprite = $Ant/icon
+onready var icon: AnimatedSprite = $Ant/icon
 onready var isTrapped = false
 onready var isDie = false
 onready var isMoveStatus = false

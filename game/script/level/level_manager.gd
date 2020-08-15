@@ -4,12 +4,16 @@ var globalVar = load("res://script/common/global.gd")
 var pressed_status = false
 var birthPos = []
 var ants = []
+var trapped = {}
+var swallowed = {}
 var tileIdMap = {}
 enum {UP,DOWN,LEFT,RIGHT}
 
 onready var tileMap : TileMap
 onready var curLevel
 onready var curZhoumu
+
+onready var tilemap_item={}
 
 signal match_result
 signal fail
@@ -29,8 +33,14 @@ func _add_map(level,zhoumu):
 	var tile_map_res = load(path)
 	tileMap = tile_map_res.instance()
 	add_child(tileMap)
+	
+	tilemap_item = tileMap.dict
+	
 	for TileId in tileMap.tile_set.get_tiles_ids():
 		tileIdMap[tileMap.tile_set.tile_get_name(TileId)] = TileId
+
+func get_tile_item(x,y):
+	return tilemap_item.get(x*100+y,null)
 
 func _ready():
 	if curLevel == null or curZhoumu == null:
@@ -155,12 +165,18 @@ func check_ant_status(ant):
 	var tileId = tileMap.get_cell(curPos.x, curPos.y)
 	var tileName = tileMap.tile_set.tile_get_name(tileId)
 	
-	if tileName == "trap1":
+	if tileName == "destination" and not trapped.keys().has(dict_key):
 		ant.set_isTrapped(true)
-	elif tileName == "trap2":
+		trapped[dict_key] = true
+	if tileName == "trap1" and not trapped.keys().has(dict_key):
+		ant.set_isTrapped(true)
+		trapped[dict_key] = true
+	elif tileName == "trap2" and not swallowed.keys().has(dict_key):
 		ant.set_isSwallowed(true)
+		swallowed[dict_key] = true
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
+		
 	
 	var index = 0
 	while index < ants.size():
@@ -174,7 +190,7 @@ func check_ant_status(ant):
 func get_all_grids_number():
 	var dict = {}
 	for ant in ants:
-		if not ant.get_isSwallowed():
+		if not ant.get_isTrapped() and not ant.get_isSwallowed():
 			var mapIndex = ant.get_map_index()
 			dict[mapIndex.x*100+mapIndex.y] = ant
 	return dict
@@ -187,8 +203,6 @@ func check_block_type(x, y):
 	
 	if globalVar.OBSTACLE.has(tileName):
 		return true
-	if temp_dict.keys().has(dict_key):
-		return true
 	if globalVar.WALL.has(tileName):
 		if tileName == "wall1":
 			tileMap.set_cell(x, y, tileIdMap["wall2"])
@@ -197,7 +211,12 @@ func check_block_type(x, y):
 		elif tileName == "wall3":
 			tileMap.set_cell(x, y, tileIdMap["plain"])
 		return true
-	
+	if temp_dict.keys().has(dict_key):
+		return true
+	if (tileName == "trap1" or tileName == "destination") and trapped.keys().has(dict_key):
+		return true
+	if tileName == "trap2" and swallowed.keys().has(dict_key):
+		return false
 	if globalVar.BROKEN.has(tileName):
 		if tileName == "broken1":
 			tileMap.set_cell(x, y, tileIdMap["broken2"])
@@ -212,10 +231,10 @@ func check_pass():
 	var successNum = 0
 	for ant in ants:
 		var pos = ant.get_map_index()
+		var dict_key = pos.x * 100 + pos.y
 		var tileId = tileMap.get_cell(pos.x, pos.y)
 		var tileName = tileMap.tile_set.tile_get_name(tileId)
 		if globalVar.DESTINATION.has(tileName):
-			ant.set_isTrapped(true)
 			successNum = successNum + 1
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:

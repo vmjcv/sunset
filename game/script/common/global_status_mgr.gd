@@ -46,10 +46,14 @@ func isLevelFinish(iLevel):
 func goToLevel(number):
 	curLevel = number
 	#TODO 跳转关卡
-	print("jump to " + str(number))
-	_matchResult(true)
-#	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
-#	scene.set_map_id(curLevel, zhoumu)
-#	scene.connect("match_result", self, "_matchResult")
+	#print("jump to " + str(number))
+	#_matchResult(true)
+	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
+	scene.set_map_id(curLevel, zhoumu)
+	scene.connect("match_result", self, "_matchResult")
 	
 
+func get_match_result(item_list,bSuc):
+	
+	
+	pass

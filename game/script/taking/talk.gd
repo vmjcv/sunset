@@ -28,8 +28,12 @@ func _input(event):
 				get_node("NinePatchRect/label").time = 1
 				bStart = false
 			else:
-				queue_free()
-				emit_signal("finish_one_talk")
+				get_node("AnimationPlayer").play("down")
+
+
+func close_panel():
+	queue_free()
+	emit_signal("finish_one_talk")
 
 func talk(iTalker, sValue):
 	talker = iTalker

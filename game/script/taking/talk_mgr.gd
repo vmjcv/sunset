@@ -15,7 +15,6 @@ func  _enter_tree():
 	pass # Replace with function body.
 
 func _sayOneLine():
-	print(talkingList)
 	if len(talkingList) > 0:
 		var oneTalkingItem = talkingList.pop_front()
 		if panel:
@@ -37,4 +36,3 @@ func _sayOneLine():
 func talk(lTalkingList):
 	talkingList = lTalkingList
 	_sayOneLine()
-	print("111111111111")

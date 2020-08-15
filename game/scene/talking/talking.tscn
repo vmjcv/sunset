@@ -27,7 +27,7 @@ tracks/0/keys = {
 "times": PoolRealArray( -0.0369099, 0, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 80, 624 ), Vector2( 0, 625 ), Vector2( 0, 1120 ) ]
+"values": [ Vector2( 0, 600 ), Vector2( 0, 625 ), Vector2( 0, 1120 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("NinePatchRect:self_modulate")
@@ -40,6 +40,20 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "close_panel"
+} ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -54,7 +68,7 @@ tracks/0/keys = {
 "times": PoolRealArray( -0.0369099, 0, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 80, 624 ), Vector2( 0, 1120 ), Vector2( 0, 625 ) ]
+"values": [ Vector2( 0, 1120 ), Vector2( 0, 1120 ), Vector2( 0, 600 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("NinePatchRect:self_modulate")
@@ -69,15 +83,18 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath(".talk_now")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "talk_now"
+} ]
 }
 
 [node name="main" type="TextureRect"]
@@ -104,12 +121,12 @@ position = Vector2( 1665.7, 520.795 )
 texture = ExtResource( 1 )
 
 [node name="NinePatchRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 1120.0
-margin_right = 1704.0
-margin_bottom = 1600.0
+anchor_right = 1.0
+margin_top = 625.0
+margin_bottom = 1105.0
 texture = ExtResource( 11 )
 expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,7 +142,10 @@ custom_colors/selection_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[color=gray]bounce:[/color] [bounce]mom, i want to eat child,,, why do not eat child....[/bounce]"
-text = "bounce: mom, i want to eat child,,, why do not eat child...."
 custom_effects = [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), null, null ]
 reverse = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )

@@ -59,7 +59,7 @@ func _input(event):
 					
 				
 func updateStatus():
-	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeAnt, nodeDilie]:
+	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeDilie, nodeAnt]:
 		nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 
 func finishLevel(iZhoumu, iLevel):

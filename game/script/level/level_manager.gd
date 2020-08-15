@@ -38,7 +38,6 @@ func _process(delta):
 			ant.set_move_times(move_times)
 			if move_times <= 0:
 				ant.set_move_status(false)
-			
 
 func _input(event):
 	var isMoving = false
@@ -125,3 +124,6 @@ func check_block_type(x, y, type):
 		return true
 	else:
 		return false
+		
+func check_pass():
+	pass

@@ -11,7 +11,7 @@ onready var tileMap : TileMap
 onready var curLevel
 onready var curZhoumu
 
-signal success
+signal match_result
 signal fail
 
 var ant_path="res://scene/level/ant.tscn"

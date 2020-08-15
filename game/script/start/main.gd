@@ -11,4 +11,4 @@ func _ready():
 
 
 func _on_start_pressed():
-	SceneMgr.goDownScene('res://scene/start/room.tscn')
+	SceneMgr.goDownScene('res://scene/juqing/1/juqing1.tscn').updateStatus()

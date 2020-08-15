@@ -79,4 +79,5 @@ func showPanel(tscnPath):
 
 func go_scene(number):
 	# 去小关卡
+	print(number)
 	pass

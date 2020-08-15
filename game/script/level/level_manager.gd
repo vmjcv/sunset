@@ -15,6 +15,8 @@ onready var curZhoumu
 
 onready var tilemap_item={}
 
+var round_time =0
+
 signal match_result
 signal fail
 
@@ -60,12 +62,13 @@ func _ready():
 		add_child(ant_instance)
 		ants.append(ant_instance)
 		ant_instance.position=(pos*64)+Vector2(32,32)
+		ant_instance.round_time = round_time
 
 func _process(delta):
 	var length=0
 	var have_move = false
 	for ant in ants:
-		if ant.get_move_status():
+		if ant.get_move_status() and ant.round_time<=round_time:
 			have_move = true
 			length=length+1
 			var move_info = ant.get_move_info()
@@ -106,7 +109,9 @@ func _input(event):
 			isMoving = true
 	if isMoving:
 		return
-	
+	else:
+		round_time = round_time + 1
+		
 	if Input.is_action_pressed('ui_up'):
 		move_turn(UP)
 	elif Input.is_action_pressed('ui_down'):
@@ -135,11 +140,16 @@ func move_turn(turn):
 	var can_move =false
 	
 	for ant in ants:
+		if ant.round_time >round_time:
+			continue
+		
 		var mapIndex = ant.get_map_index()
 	
 		var cur = mapIndex+turn_vector2
 		ant.now_status = turn
 		if ant.get_isTrapped() or ant.get_isSwallowed() or check_block_type(cur.x, cur.y):
+			if ant.now_status!=-1:
+				ant.round_time = round_time+1
 			ant.now_status = -1
 			continue
 		

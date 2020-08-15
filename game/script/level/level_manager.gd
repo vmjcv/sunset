@@ -6,14 +6,24 @@ var maxW = 0
 var maxH = 0
 var birthPos = []
 var ants = []
-onready var tileMap = get_node("TileMap")
+onready var tileMap
 enum {UP,DOWN,LEFT,RIGHT}
 
 
 var ant_path="res://scene/level/ant.tscn"
 
 # Called when the node enters the scene tree for the first time.
+
+func _add_map(level,zhoumu):
+	for node in get_children():
+		remove_child(node)
+	var path="res://scene/map/map_%s_%s.tscn"%[level,zhoumu]
+	var tile_map_res = load(path)
+	tileMap = tile_map_res.instance()
+	add_child(tileMap)
+
 func _ready():
+	_add_map(1,1)
 	for cord in tileMap.get_used_cells():
 		maxW = max(cord[0], maxW)
 		maxH = max(cord[1], maxH)

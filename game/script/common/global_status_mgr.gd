@@ -11,3 +11,7 @@ func getLevel():
 	
 func getZhoumu():
 	return zhoumu
+
+# 去小关卡
+func goToLevel(number):
+	level = number

@@ -1,5 +1,6 @@
 extends Node
 
+var last_scene = null
 var current_scene = null
 
 #预加载场景
@@ -10,11 +11,30 @@ var loader
 var wait_frames
 var time_max = 100 # msec
 
+# 上下切换动画
+var bSlipAction = false
+var nStartSlipTime = 0
+var lastSceneposi = null
+var curSceneposi = null
+var slipTime = 0.3
+const sceneH = 720
+
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 func _process(time):
+	if bSlipAction:
+		if OS.get_ticks_msec() - nStartSlipTime > slipTime:
+			last_scene.queue_free()
+			get_tree().set_current_scene(current_scene)
+			current_scene.position = curSceneposi
+			return
+		var changeH = sceneH * (OS.get_ticks_msec() - nStartSlipTime) / slipTime
+		last_scene.position = {x = lastSceneposi.x, y = lastSceneposi.y - changeH}
+		current_scene.position = {x = curSceneposi.x, y = curSceneposi.y - changeH}
+	
+#	后台加载
 	if loader == null:
 		set_process(false)
 		return
@@ -44,7 +64,7 @@ func _loadPanel(path):
 	return ins
 
 func _deferred_goto_scene(path):
-	current_scene.free()
+	current_scene.queue_free()
 
 	var s = null
 	if perload_scene_map.get(path):
@@ -54,10 +74,36 @@ func _deferred_goto_scene(path):
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
+	return current_scene
 	
+func _action_goto_scene(path):
+#	current_scene.queue_free()
+	last_scene = current_scene
+
+	var s = null
+	if perload_scene_map.get(path):
+		s = perload_scene_map[path]
+	else:
+		s = ResourceLoader.load(path)
+	current_scene = s.instance()
+	get_tree().get_root().add_child(current_scene)
+#	get_tree().set_current_scene(current_scene)
+	bSlipAction = true
+	nStartSlipTime = OS.get_ticks_msec()
+	lastSceneposi = last_scene.position
+	curSceneposi = current_scene.position
+	current_scene.position.y = current_scene.position.y + sceneH
+	return current_scene
+
+
 # 更改当前场景
 func changeScene(tscnPath):
-	call_deferred("_deferred_goto_scene", tscnPath)
+	return _deferred_goto_scene(tscnPath)
+#	call_deferred("_deferred_goto_scene", tscnPath)
+
+# 更改当前场景，使用上下切换的动画
+func goDownScene(tscnPath):
+	return _action_goto_scene(tscnPath)
 
 # 加载场景
 func preloadScene(tscnPath):
@@ -77,6 +123,3 @@ func runSceneInteractive(tscnPath):
 func showPanel(tscnPath):
 	return _loadPanel(tscnPath)
 
-func go_scene(number):
-	# 去小关卡
-	pass

@@ -21,4 +21,5 @@ __meta__ = {
 }
 
 [node name="icon" type="Sprite" parent="Ant"]
+
 texture = ExtResource( 2 )

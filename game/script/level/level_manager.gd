@@ -157,7 +157,10 @@ func check_ant_status(ant):
 	var tileId = tileMap.get_cell(curPos.x, curPos.y)
 	var tileName = tileMap.tile_set.tile_get_name(tileId)
 	
-	if (tileName == "trap1" or tileName == "destination") and not trapped.keys().has(dict_key):
+	if tileName == "destination" and not trapped.keys().has(dict_key):
+		ant.set_isTrapped(true)
+		trapped[dict_key] = true
+	if tileName == "trap1" and not trapped.keys().has(dict_key):
 		ant.set_isTrapped(true)
 		trapped[dict_key] = true
 	elif tileName == "trap2" and not swallowed.keys().has(dict_key):
@@ -222,8 +225,7 @@ func check_pass():
 		var dict_key = pos.x * 100 + pos.y
 		var tileId = tileMap.get_cell(pos.x, pos.y)
 		var tileName = tileMap.tile_set.tile_get_name(tileId)
-		if globalVar.DESTINATION.has(tileName) and not trapped.keys().has(dict_key):
-			ant.set_isTrapped(true)
+		if globalVar.DESTINATION.has(tileName):
 			successNum = successNum + 1
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:

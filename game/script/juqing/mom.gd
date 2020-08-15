@@ -10,7 +10,7 @@ func _ready():
 	pass # Replace with function body.
 
 func updateStatus(iZhoumu, dLevel):
-	if iZhoumu > 1:
+	if iZhoumu > 1 or dLevel[5]:
 		status = STATUS_SAD
 	else:
 		status = STATUS_NORMAL

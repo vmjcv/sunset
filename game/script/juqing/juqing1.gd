@@ -75,13 +75,13 @@ func finishLevel(iZhoumu, iLevel):
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('flower')
 		elif iLevel == 3:
-			for nodes in [nodeAward, nodeFlower, nodeMom, ]:
+			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic, nodeRing]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('picture')
 		elif iLevel == 4:
-			for nodes in [nodeAward, nodeFlower, nodeMom, ]:
+			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic, nodeRing]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
-			nodeDaughter.showGift('ring')
+			nodeDaughter.showGift('rings')
 		elif iLevel == 5:
 			updateStatus()
 			return

@@ -22,13 +22,13 @@ func onLevelFinish():
 	for bWin in levelFinsihList.values():
 		if bWin:
 			winCount += 1
-	if winCount == maxLevelEachZhoumu:
-		SceneMgr.changeScene('res://scene/zhoumu_cg/zhoumu'+ zhoumu +'.tscn')
-		zhoumu += 1
-		levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
-	else:
-		var s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
-		s.finishLevel(zhoumu, curLevel)
+#	if winCount == maxLevelEachZhoumu:
+#		SceneMgr.changeScene('res://scene/zhoumu_cg/zhoumu'+ zhoumu +'.tscn')
+#		zhoumu += 1
+#		levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
+#	else:
+	var s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
+	s.finishLevel(zhoumu, curLevel)
 	
 func getCurLevel():
 	return curLevel
@@ -47,10 +47,10 @@ func goToLevel(number):
 	curLevel = number
 	#TODO 跳转关卡
 	#print("jump to " + str(number))
-	#_matchResult(true)
-	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
-	scene.set_map_id(curLevel, zhoumu)
-	scene.connect("match_result", self, "_matchResult")
+	_matchResult([],true)
+#	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
+#	scene.set_map_id(curLevel, zhoumu)
+#	scene.connect("match_result", self, "_matchResult")
 	
 
 func get_match_result(item_list,bSuc):

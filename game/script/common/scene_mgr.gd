@@ -37,6 +37,12 @@ func _process(time):
 			loader = null
 			break
 
+func _loadPanel(path):
+	var s = ResourceLoader.load(path)
+	var ins = s.instance()
+	current_scene.add_child(ins)
+	return ins
+
 func _deferred_goto_scene(path):
 	current_scene.free()
 
@@ -50,23 +56,26 @@ func _deferred_goto_scene(path):
 	get_tree().set_current_scene(current_scene)
 	
 # 更改当前场景
-func changeScene(path):
-	call_deferred("_deferred_goto_scene", path)
+func changeScene(tscnPath):
+	call_deferred("_deferred_goto_scene", tscnPath)
 
 # 加载场景
 func preloadScene(tscnPath):
 	var s = ResourceLoader.load(tscnPath)
 	perload_scene_map[tscnPath] = s
 	
-	
-func runSceneInteractive(path): 
-	loader = ResourceLoader.load_interactive(path)
+# 后台加载
+func runSceneInteractive(tscnPath): 
+	loader = ResourceLoader.load_interactive(tscnPath)
 	if loader == null:
 		return
 	set_process(true)
 
 	current_scene.queue_free() 
 	wait_frames = 1
+
+func showPanel(tscnPath):
+	return _loadPanel(tscnPath)
 
 func go_scene(number):
 	# 去小关卡

@@ -1,16 +1,33 @@
 extends Node
 
+var talkingList = null
+#当前在播放的下标
+var nowIdx = 0 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+#	talk([[0, "123213213"], [1, "duqwhufod21d12d21d21d21de"]])
 	pass # Replace with function body.
 
+func  _enter_tree():
+#	talk([[0, "123213213"], [1, "duqwhufode"]])
+	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _sayOneLine():
+	print(talkingList)
+	if len(talkingList) > 0:
+		var oneTalkingItem = talkingList.pop_front()
+		var panel = SceneMgr.showPanel('res://scene/talking/talking.tscn')
+		panel.connect("finish_one_talk", self, "_sayOneLine")
+		panel.talk(oneTalkingItem[0], oneTalkingItem[1])
+	else:
+		talkingList = null
+		emit_signal("finish_talk")
+
+
+# lTalkingList = [[iTalker, sValue]]
+func talk(lTalkingList):
+	if talkingList != null:
+		assert(false, "重复调起对话场景了")
+		return
+	talkingList = lTalkingList
+	_sayOneLine()

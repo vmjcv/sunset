@@ -39,9 +39,13 @@ func play_sound(sound_name):
 	var path=get_sound_path(sound_name)
 	
 	var player = AudioStreamPlayer2D.new()
-	
+	add_child(player)
 	player.stream=load(path)
 	player.play()
+	player.connect("finished",self,"remove_one",[player])
+	
+func remove_one(node):
+	remove_child(node)
 	
 func get_sound_path(sound_name):
 	var path

@@ -174,6 +174,8 @@ func check_block_type(x, y):
 		return true
 	if globalVar.PLAIN.has(tileName) and temp_dict.keys().has(dict_key):
 		return true
+	if globalVar.BIRTHPOS.has(tileName) and temp_dict.keys().has(dict_key):
+		return true
 	if globalVar.DESTINATION.has(tileName) and temp_dict.keys().has(dict_key):
 		return true
 	if globalVar.WALL.has(tileName):

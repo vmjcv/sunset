@@ -165,6 +165,7 @@ func check_ant_status(ant):
 		swallowed[dict_key] = true
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
+		
 	
 	var index = 0
 	while index < ants.size():

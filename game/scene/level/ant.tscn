@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://script/level/ant.gd" type="Script" id=1]
 [ext_resource path="res://texture/common/蚂蚁/7.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://texture/common/蚂蚁/6.png" type="Texture" id=8]
 [ext_resource path="res://texture/common/蚂蚁/8.png" type="Texture" id=9]
 [ext_resource path="res://texture/common/蚂蚁/9.png" type="Texture" id=10]
+[ext_resource path="res://texture/item/蚂蚁.png" type="Texture" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
@@ -32,5 +33,9 @@ shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="Ant"]
 frames = SubResource( 2 )
-frame = 4
+frame = 7
 playing = true
+
+[node name="mayi" type="Sprite" parent="Ant"]
+visible = false
+texture = ExtResource( 11 )

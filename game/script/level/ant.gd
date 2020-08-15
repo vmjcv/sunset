@@ -13,7 +13,7 @@ onready var towardX = 0	#移动x
 onready var towardY = 0	#移动y
 onready var towardTimes = 0	#移动次数
 
-
+onready var now_status = -1 #移动方向
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

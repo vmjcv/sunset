@@ -31,8 +31,12 @@ func _ready():
 	
 
 func _process(delta):
+	var length=0
+	var have_move = false
 	for ant in ants:
 		if ant.get_move_status():
+			have_move = true
+			length=length+1
 			var move_info = ant.get_move_info()
 			var move_times = ant.get_move_times()
 			ant.position = ant.position+Vector2(move_info.x,move_info.y)
@@ -40,6 +44,16 @@ func _process(delta):
 			ant.set_move_times(move_times)
 			if move_times <= 0:
 				ant.set_move_status(false)
+				length=length-1
+	var need_check = true	
+	if length<=0 and have_move:
+		for ant in ants:
+			if ant.now_status>-1:
+				need_check=false
+				need_check = not move_turn(ant.now_status)
+				break
+		if  need_check:
+			check_pass()
 
 func _input(event):
 	var isMoving = false
@@ -51,6 +65,7 @@ func _input(event):
 	
 	if Input.is_action_pressed('ui_up'):
 		move_turn(UP)
+		
 	elif Input.is_action_pressed('ui_down'):
 		move_turn(DOWN)
 	elif Input.is_action_pressed('ui_left'):
@@ -73,20 +88,25 @@ func move_turn(turn):
 		UP:
 			turn_vector2=Vector2(0,-1)
 	_sort_by_xy(ants,turn)
-	var temp_dict=get_all_grids_number()
-
+	
+	var can_move =false
+	
 	for ant in ants:
+		var temp_dict=get_all_grids_number()
 		var mapIndex = ant.get_map_index()
-
+	
 		var cur = mapIndex+turn_vector2
 		var cur_index =cur.x*100+cur.y
+		ant.now_status = turn
 		if check_block_type(cur.x, cur.y) or temp_dict.keys().has(cur_index):
+			ant.now_status = -1
 			continue
 		
 		var Offset = 0
 		while not check_block_type(cur.x, cur.y) and not temp_dict.keys().has(cur_index):
-			cur =cur +turn_vector2
+			cur =cur + turn_vector2
 			Offset = Offset + 1
+			can_move = true
 			break
 		cur =cur -turn_vector2
 		ant.set_map_index(cur.x, cur.y)
@@ -95,6 +115,8 @@ func move_turn(turn):
 		var move_info = turn_vector2*8
 		ant.set_move_info(move_info.x, move_info.y)
 		ant.set_move_times(Offset*8)
+		
+	return can_move
 	
 	
 func get_all_grids_number():
@@ -127,11 +149,11 @@ func check_pass():
 		
 class MyCustomSorter:
 	static func _sort_by_x(a, b):
-		if a.get_map_index().x<b.get_map_index().x:
+		if a.get_map_index().x>b.get_map_index().x:
 			return true
 		return false	
 	static func _sort_by_x2(a, b):
-		if a.get_map_index().x>=b.get_map_index().x:
+		if a.get_map_index().x<=b.get_map_index().x:
 			return true
 		return false	
 	static func _sort_by_y(a, b):

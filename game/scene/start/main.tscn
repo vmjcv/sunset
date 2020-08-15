@@ -50,7 +50,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="start" type="TextureRect" parent="Container/start_bg"]
+[node name="start" type="TextureButton" parent="Container/start_bg"]
 material = SubResource( 2 )
 anchor_left = 0.312
 anchor_top = 0.391
@@ -60,10 +60,13 @@ margin_left = -0.0480042
 margin_top = 0.470997
 margin_right = -0.0100403
 margin_bottom = 1.6
-texture = ExtResource( 2 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }

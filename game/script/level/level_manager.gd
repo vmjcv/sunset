@@ -61,12 +61,12 @@ func move_up():
 		var curX = mapIndex.x
 		var curY = mapIndex.y - 1
 		if check_block_type(curX, curY, 5):
-			return
+			continue
 		var Offset = 0
 		while not check_block_type(curX, curY, 5) :
 			curY = curY - 1
 			Offset = Offset + 1
-		ant.set_map_index(curX, curY)
+		ant.set_map_index(curX, curY+1)
 		ant.set_move_status(true)
 		ant.set_move_info(0, -8)
 		ant.set_move_times(Offset*8)
@@ -77,12 +77,12 @@ func move_left():
 		var curX = mapIndex.x - 1
 		var curY = mapIndex.y
 		if check_block_type(curX, curY, 5):
-			return
+			continue
 		var Offset = 0
 		while not check_block_type(curX, curY, 5) :
 			curX = curX - 1
 			Offset = Offset + 1
-		ant.set_map_index(curX, curY)
+		ant.set_map_index(curX+1, curY)
 		ant.set_move_status(true)
 		ant.set_move_info(-8, 0)
 		ant.set_move_times(Offset*8)
@@ -93,12 +93,12 @@ func move_right():
 		var curX = mapIndex.x + 1
 		var curY = mapIndex.y
 		if check_block_type(curX, curY, 5):
-			return
+			continue
 		var Offset = 0
 		while not check_block_type(curX, curY, 5) :
 			curX = curX + 1
 			Offset = Offset + 1
-		ant.set_map_index(curX, curY)
+		ant.set_map_index(curX-1, curY)
 		ant.set_move_status(true)
 		ant.set_move_info(+8, 0)
 		ant.set_move_times(Offset*8)
@@ -109,12 +109,12 @@ func move_down():
 		var curX = mapIndex.x
 		var curY = mapIndex.y + 1
 		if check_block_type(curX, curY, 5):
-			return
+			continue
 		var Offset = 0
 		while not check_block_type(curX, curY, 5) :
 			curY = curY + 1
 			Offset = Offset + 1
-		ant.set_map_index(curX, curY)
+		ant.set_map_index(curX, curY-1)
 		ant.set_move_status(true)
 		ant.set_move_info(0, 8)
 		ant.set_move_times(Offset*8)

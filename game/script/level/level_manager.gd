@@ -7,7 +7,7 @@ var ants = []
 var trapped = {}
 var swallowed = {}
 var tileIdMap = {}
-var itemList = []
+var itemList = {}
 enum {UP,DOWN,LEFT,RIGHT}
 
 onready var tileMap : TileMap
@@ -149,7 +149,7 @@ func move_turn(turn):
 		var cur = mapIndex+turn_vector2
 		var item = get_tile_item(mapIndex.x, mapIndex.y)
 		var dict_index = mapIndex.x*100+mapIndex.y
-		if not itemList.key().has(dict_index):
+		if not itemList.keys().has(dict_index) and item:
 			itemList[dict_index] = item
 			item.hide()
 		ant.now_status = turn

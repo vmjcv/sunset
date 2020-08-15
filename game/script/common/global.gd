@@ -3,7 +3,7 @@ extends Node
 
 const PLAIN = ["plain1", "plain2"]
 const BIRTHPOS = ["birthPos"]
-const WALL = ["wall1", "wall2", "wall3", "wall4"]
+const WALL = ["wall1", "wall2", "wall3", ""]
 const DESTINATION = ["destination1", "destination2"]
 const TRAP = ["trap1"]
 const OBSTACLE = ["obstacle1"]

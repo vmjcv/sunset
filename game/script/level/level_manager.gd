@@ -61,6 +61,17 @@ func _process(delta):
 			var move_info = ant.get_move_info()
 			var move_times = ant.get_move_times()
 			ant.position = ant.position+Vector2(move_info.x,move_info.y)
+			
+			match ant.now_status:
+				DOWN:
+					ant.turn_down()
+				LEFT:
+					ant.turn_left()
+				RIGHT:
+					ant.turn_right()
+				UP:
+					ant.turn_up()
+			
 			move_times = move_times - 1
 			ant.set_move_times(move_times)
 			if move_times <= 0:

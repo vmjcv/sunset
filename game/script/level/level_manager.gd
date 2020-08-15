@@ -4,6 +4,8 @@ var globalVar = load("res://script/common/global.gd")
 var pressed_status = false
 var birthPos = []
 var ants = []
+var trapped = {}
+var swallowed = {}
 var tileIdMap = {}
 enum {UP,DOWN,LEFT,RIGHT}
 
@@ -155,10 +157,12 @@ func check_ant_status(ant):
 	var tileId = tileMap.get_cell(curPos.x, curPos.y)
 	var tileName = tileMap.tile_set.tile_get_name(tileId)
 	
-	if tileName == "trap1":
+	if (tileName == "trap1" or tileName == "destination") and not trapped.keys().has(dict_key):
 		ant.set_isTrapped(true)
-	elif tileName == "trap2":
+		trapped[dict_key] = true
+	elif tileName == "trap2" and not swallowed.keys().has(dict_key):
 		ant.set_isSwallowed(true)
+		swallowed[dict_key] = true
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
 	
@@ -174,7 +178,7 @@ func check_ant_status(ant):
 func get_all_grids_number():
 	var dict = {}
 	for ant in ants:
-		if not ant.get_isSwallowed():
+		if not ant.get_isTrapped() and not ant.get_isSwallowed():
 			var mapIndex = ant.get_map_index()
 			dict[mapIndex.x*100+mapIndex.y] = ant
 	return dict
@@ -187,8 +191,6 @@ func check_block_type(x, y):
 	
 	if globalVar.OBSTACLE.has(tileName):
 		return true
-	if temp_dict.keys().has(dict_key):
-		return true
 	if globalVar.WALL.has(tileName):
 		if tileName == "wall1":
 			tileMap.set_cell(x, y, tileIdMap["wall2"])
@@ -197,7 +199,12 @@ func check_block_type(x, y):
 		elif tileName == "wall3":
 			tileMap.set_cell(x, y, tileIdMap["plain"])
 		return true
-	
+	if temp_dict.keys().has(dict_key):
+		return true
+	if (tileName == "trap1" or tileName == "destination") and trapped.keys().has(dict_key):
+		return true
+	if tileName == "trap2" and swallowed.keys().has(dict_key):
+		return false
 	if globalVar.BROKEN.has(tileName):
 		if tileName == "broken1":
 			tileMap.set_cell(x, y, tileIdMap["broken2"])
@@ -212,9 +219,10 @@ func check_pass():
 	var successNum = 0
 	for ant in ants:
 		var pos = ant.get_map_index()
+		var dict_key = pos.x * 100 + pos.y
 		var tileId = tileMap.get_cell(pos.x, pos.y)
 		var tileName = tileMap.tile_set.tile_get_name(tileId)
-		if globalVar.DESTINATION.has(tileName):
+		if globalVar.DESTINATION.has(tileName) and not trapped.keys().has(dict_key):
 			ant.set_isTrapped(true)
 			successNum = successNum + 1
 	#暂时写1，之后条件会读取配置

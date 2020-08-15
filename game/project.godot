@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "AreaItemManage",
+"language": "GDScript",
+"path": "res://script/start/area_item_manage.gd"
+} ]
 _global_script_class_icons={
-
+"AreaItemManage": ""
 }
 
 [application]
@@ -29,6 +34,9 @@ EventChainGraphManage="*res://addons/event_chain/src/core/graph_manage.gd"
 EventChainSignalManage="*res://addons/event_chain/src/core/signal_manage.gd"
 SceneMgr="*res://script/common/scene_mgr.gd"
 TalkMgr="*res://script/taking/talk_mgr.gd"
+ItemManage="*res://script/common/item_manage.gd"
+Configs="*res://data/gdscript/configs.gd"
+GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
 
 [display]
 

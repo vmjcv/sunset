@@ -6,6 +6,10 @@
 [node name="TextureRect" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 103.826
+margin_top = 147.244
+margin_right = 103.826
+margin_bottom = 147.244
 mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true

@@ -1,0 +1,200 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://texture/juqing/1/bg.png" type="Texture" id=1]
+[ext_resource path="res://texture/juqing/1/huaping_1.png" type="Texture" id=2]
+[ext_resource path="res://texture/juqing/1/huaping_2.png" type="Texture" id=3]
+[ext_resource path="res://texture/juqing/1/award_2.png" type="Texture" id=4]
+[ext_resource path="res://texture/juqing/1/picture_3.png" type="Texture" id=5]
+[ext_resource path="res://texture/juqing/1/picture_2.png" type="Texture" id=6]
+[ext_resource path="res://texture/juqing/1/picture_1.png" type="Texture" id=7]
+[ext_resource path="res://texture/juqing/1/ring_2.png" type="Texture" id=8]
+[ext_resource path="res://texture/juqing/1/ring_3.png" type="Texture" id=9]
+[ext_resource path="res://texture/juqing/1/ring_1.png" type="Texture" id=10]
+[ext_resource path="res://texture/juqing/1/mom_2.png" type="Texture" id=11]
+[ext_resource path="res://texture/juqing/1/mom_1.png" type="Texture" id=12]
+[ext_resource path="res://texture/juqing/1/daughter_4.png" type="Texture" id=13]
+[ext_resource path="res://texture/juqing/1/daughter_3.png" type="Texture" id=14]
+[ext_resource path="res://texture/juqing/1/daughter_2.png" type="Texture" id=15]
+[ext_resource path="res://texture/juqing/1/daughter_1.png" type="Texture" id=16]
+[ext_resource path="res://script/juqing/juqing1.gd" type="Script" id=17]
+[ext_resource path="res://script/juqing/chouti.gd" type="Script" id=18]
+[ext_resource path="res://script/juqing/flower.gd" type="Script" id=19]
+[ext_resource path="res://script/juqing/ring.gd" type="Script" id=20]
+[ext_resource path="res://script/juqing/picture.gd" type="Script" id=21]
+[ext_resource path="res://script/juqing/daughter.gd" type="Script" id=22]
+[ext_resource path="res://script/juqing/mom.gd" type="Script" id=23]
+
+[node name="main" type="TextureRect"]
+margin_left = 239.337
+margin_top = 132.33
+margin_right = 2159.34
+margin_bottom = 1212.33
+rect_scale = Vector2( 0.75, 0.75 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960.122, 542.961 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="flower" type="Node2D" parent="."]
+position = Vector2( 254.309, 355.967 )
+script = ExtResource( 19 )
+
+[node name="open" type="Sprite" parent="flower"]
+position = Vector2( 0, 6 )
+texture = ExtResource( 2 )
+
+[node name="finish" type="Sprite" parent="flower"]
+visible = false
+position = Vector2( 0, -67.3334 )
+texture = ExtResource( 3 )
+
+[node name="btn" type="Button" parent="flower"]
+light_mask = -2147483648
+margin_left = -59.8728
+margin_top = -81.1879
+margin_right = 60.1272
+margin_bottom = 73.8121
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="award" type="Node2D" parent="."]
+position = Vector2( 1828.51, 126.921 )
+script = ExtResource( 18 )
+
+[node name="finish" type="Sprite" parent="award"]
+visible = false
+position = Vector2( 0, 60.6666 )
+texture = ExtResource( 4 )
+
+[node name="chouti" type="ToolButton" parent="award"]
+light_mask = -2147483648
+margin_left = -409.508
+margin_top = 139.079
+margin_right = 117.492
+margin_bottom = 262.079
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="picture" type="Node2D" parent="."]
+position = Vector2( 1502.11, 172.971 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 21 )
+
+[node name="close" type="Sprite" parent="picture"]
+position = Vector2( 0.233521, -2.70151 )
+texture = ExtResource( 7 )
+
+[node name="open" type="Sprite" parent="picture"]
+visible = false
+position = Vector2( 0, 6 )
+texture = ExtResource( 6 )
+
+[node name="finish" type="Sprite" parent="picture"]
+visible = false
+position = Vector2( -0.552368, 12.3201 )
+texture = ExtResource( 5 )
+
+[node name="jump" type="ToolButton" parent="picture"]
+light_mask = -2147483648
+margin_left = -61.7404
+margin_top = -70.5314
+margin_right = 58.2596
+margin_bottom = 84.4686
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ring" type="Node2D" parent="."]
+position = Vector2( 429.951, 340.535 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 20 )
+
+[node name="close" type="Sprite" parent="ring"]
+position = Vector2( 23.9034, 66.6512 )
+texture = ExtResource( 10 )
+
+[node name="open" type="Sprite" parent="ring"]
+visible = false
+position = Vector2( 23.1966, 73.7502 )
+texture = ExtResource( 8 )
+
+[node name="finish" type="Sprite" parent="ring"]
+visible = false
+position = Vector2( 21.1494, 65.4251 )
+texture = ExtResource( 9 )
+
+[node name="jump" type="ToolButton" parent="ring"]
+light_mask = -2147483648
+margin_left = -5.31024
+margin_top = 44.2047
+margin_right = 54.6898
+margin_bottom = 104.205
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mom" type="Node2D" parent="."]
+position = Vector2( 983.55, 518.226 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 23 )
+
+[node name="statu1" type="Sprite" parent="mom"]
+visible = false
+position = Vector2( 23.9034, 66.6512 )
+texture = ExtResource( 12 )
+
+[node name="statu2" type="Sprite" parent="mom"]
+visible = false
+position = Vector2( 36.5287, 107.084 )
+texture = ExtResource( 11 )
+
+[node name="daughter" type="Node2D" parent="."]
+position = Vector2( 789.305, 496.209 )
+scale = Vector2( 1, 1 )
+script = ExtResource( 22 )
+
+[node name="flower" type="Sprite" parent="daughter"]
+visible = false
+position = Vector2( 28.6549, 66.6512 )
+texture = ExtResource( 14 )
+
+[node name="rings" type="Sprite" parent="daughter"]
+visible = false
+position = Vector2( 60.0204, 64.2471 )
+texture = ExtResource( 15 )
+
+[node name="award" type="Sprite" parent="daughter"]
+visible = false
+position = Vector2( -27.5531, 159.266 )
+texture = ExtResource( 13 )
+
+[node name="picture" type="Sprite" parent="daughter"]
+visible = false
+position = Vector2( 48.4702, 61.8615 )
+texture = ExtResource( 16 )
+
+[node name="maskTouch" type="ColorRect" parent="."]
+visible = false
+margin_left = -323.0
+margin_top = -179.0
+margin_right = 2242.0
+margin_bottom = 1260.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="flower/btn" to="flower" method="_on_btn_pressed"]
+[connection signal="pressed" from="award/chouti" to="award" method="_on_chouti_pressed"]
+[connection signal="pressed" from="picture/jump" to="picture" method="_on_jump_pressed"]
+[connection signal="pressed" from="ring/jump" to="ring" method="_on_jump_pressed"]

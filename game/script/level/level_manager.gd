@@ -12,7 +12,7 @@ onready var tileMap : TileMap
 onready var curLevel
 onready var curZhoumu
 
-signal success
+signal match_result
 signal fail
 
 var ant_path="res://scene/level/ant.tscn"
@@ -197,7 +197,7 @@ func check_pass():
 func show_pass():
 	print("通关啦!!!!!!!!!!!!!!!!")
 	#点击后发送事件
-	#emit_signal("success")
+	emit_signal("match_result", true)
 		
 class MyCustomSorter:
 	static func _sort_by_x(a, b):

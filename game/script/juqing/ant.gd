@@ -12,6 +12,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _reset():
+	if not get_node("statu1"):
+		return
 	get_node("statu1").hide()
 	get_node("statu2").hide()
 	get_node("statu3").hide()
@@ -28,6 +30,8 @@ func updateStatus(iZhoumu, dLevel):
 			status = STATUS_1
 	
 	_reset()
+	if not get_node("statu1"):
+		return
 	if status == STATUS_1:
 		get_node("statu1").show()
 	elif status == STATUS_2:

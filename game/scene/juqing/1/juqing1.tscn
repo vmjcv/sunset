@@ -150,19 +150,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="mom" type="Node2D" parent="."]
-position = Vector2( 983.55, 518.226 )
-script = ExtResource( 23 )
-
-[node name="statu1" type="Sprite" parent="mom"]
-visible = false
-position = Vector2( 23.9034, 66.6512 )
-texture = ExtResource( 12 )
-
-[node name="statu2" type="Sprite" parent="mom"]
-position = Vector2( 36.5287, 107.084 )
-texture = ExtResource( 11 )
-
 [node name="daughter" type="Node2D" parent="."]
 position = Vector2( 789.305, 496.209 )
 script = ExtResource( 22 )
@@ -192,7 +179,6 @@ position = Vector2( 957.115, 993.647 )
 script = ExtResource( 30 )
 
 [node name="status1" type="Sprite" parent="ant"]
-visible = false
 position = Vector2( 41.9886, 63.9847 )
 texture = ExtResource( 28 )
 
@@ -224,6 +210,19 @@ texture = ExtResource( 26 )
 visible = false
 position = Vector2( 3.55408, 53.3318 )
 texture = ExtResource( 27 )
+
+[node name="mom" type="Node2D" parent="."]
+position = Vector2( 983.55, 518.226 )
+script = ExtResource( 23 )
+
+[node name="statu1" type="Sprite" parent="mom"]
+visible = false
+position = Vector2( 23.9034, 66.6512 )
+texture = ExtResource( 12 )
+
+[node name="statu2" type="Sprite" parent="mom"]
+position = Vector2( 36.5287, 107.084 )
+texture = ExtResource( 11 )
 
 [node name="maskTouch" type="ColorRect" parent="."]
 visible = false

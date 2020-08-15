@@ -8,7 +8,8 @@ var birthPos = []
 var ants = []
 onready var tileMap = get_node("TileMap")
 enum {UP,DOWN,LEFT,RIGHT}
-
+signal success
+signal fail
 
 var ant_path="res://scene/level/ant.tscn"
 
@@ -92,18 +93,16 @@ func move_turn(turn):
 	var can_move =false
 	
 	for ant in ants:
-		var temp_dict=get_all_grids_number()
 		var mapIndex = ant.get_map_index()
 	
 		var cur = mapIndex+turn_vector2
-		var cur_index =cur.x*100+cur.y
 		ant.now_status = turn
-		if check_block_type(cur.x, cur.y) or temp_dict.keys().has(cur_index):
+		if check_block_type(cur.x, cur.y):
 			ant.now_status = -1
 			continue
 		
 		var Offset = 0
-		while not check_block_type(cur.x, cur.y) and not temp_dict.keys().has(cur_index):
+		while not check_block_type(cur.x, cur.y):
 			cur =cur + turn_vector2
 			Offset = Offset + 1
 			can_move = true
@@ -125,15 +124,22 @@ func get_all_grids_number():
 		var mapIndex = ant.get_map_index()
 		dict[mapIndex.x*100+mapIndex.y] = ant
 	return dict
-func check_block_type(x, y):
-	for type in globalVar.OBSTACLE:
-		if tileMap.get_cell(x, y) == type:
-			return true
-			
-	for type in globalVar.OBSTACLE:
-		if tileMap.get_cell(x, y) == type:
-			return true
 
+func check_block_type(x, y):
+	var temp_dict=get_all_grids_number()
+	var cur_index = x * 100 + y
+	for type in globalVar.OBSTACLE:
+		if tileMap.get_cell(x, y) == type:
+			return true
+	for type in globalVar.PLAIN:
+		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(cur_index):
+			return true
+	for type in globalVar.DESTINATION:
+		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(cur_index):
+			return true
+	for type in globalVar.TRAP:
+		if tileMap.get_cell(x, y) == type and not temp_dict.keys().has(cur_index):
+			return true
 	return false
 		
 func check_pass():
@@ -145,7 +151,13 @@ func check_pass():
 				successNum = successNum + 1
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:
-		print("通关啦!!!!!!!!!!!!!!!!")
+		show_pass()
+		
+		
+func show_pass():
+	print("通关啦!!!!!!!!!!!!!!!!")
+	#点击后发送事件
+	#emit_signal("success")
 		
 class MyCustomSorter:
 	static func _sort_by_x(a, b):

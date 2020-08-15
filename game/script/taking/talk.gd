@@ -1,4 +1,4 @@
-extends Node2D
+extends TextureRect
 
 var startTime = 0
 var bStart = false

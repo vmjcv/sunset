@@ -16,8 +16,8 @@ var bSlipAction = false
 var nStartSlipTime = 0
 var lastSceneposi = null
 var curSceneposi = null
-var slipTime = 0.3
-const sceneH = 720
+var slipTime = 300
+const sceneH = 1080
 
 func _ready():
 	var root = get_tree().get_root()
@@ -28,15 +28,15 @@ func _process(time):
 		if OS.get_ticks_msec() - nStartSlipTime > slipTime:
 			last_scene.queue_free()
 			get_tree().set_current_scene(current_scene)
-			current_scene.position = curSceneposi
+			current_scene.rect_position = curSceneposi
+			set_process(false)
 			return
 		var changeH = sceneH * (OS.get_ticks_msec() - nStartSlipTime) / slipTime
-		last_scene.position = {x = lastSceneposi.x, y = lastSceneposi.y - changeH}
-		current_scene.position = {x = curSceneposi.x, y = curSceneposi.y - changeH}
+		current_scene.rect_position = Vector2(curSceneposi.x, curSceneposi.y + sceneH - changeH)
+		last_scene.rect_position = Vector2(lastSceneposi.x, lastSceneposi.y - changeH)
 	
 #	后台加载
 	if loader == null:
-		set_process(false)
 		return
 
 	if wait_frames > 0:
@@ -77,7 +77,6 @@ func _deferred_goto_scene(path):
 	return current_scene
 	
 func _action_goto_scene(path):
-#	current_scene.queue_free()
 	last_scene = current_scene
 
 	var s = null
@@ -87,12 +86,12 @@ func _action_goto_scene(path):
 		s = ResourceLoader.load(path)
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
-#	get_tree().set_current_scene(current_scene)
 	bSlipAction = true
 	nStartSlipTime = OS.get_ticks_msec()
-	lastSceneposi = last_scene.position
-	curSceneposi = current_scene.position
-	current_scene.position.y = current_scene.position.y + sceneH
+	lastSceneposi = last_scene.rect_position
+	curSceneposi = current_scene.rect_position
+	current_scene.rect_position = Vector2(current_scene.rect_position.x, current_scene.rect_position.y + sceneH)
+	set_process(true)
 	return current_scene
 
 

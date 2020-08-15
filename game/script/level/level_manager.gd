@@ -7,6 +7,7 @@ var ants = []
 var trapped = {}
 var swallowed = {}
 var tileIdMap = {}
+var itemList = []
 enum {UP,DOWN,LEFT,RIGHT}
 
 onready var tileMap : TileMap
@@ -29,6 +30,7 @@ func set_map_id(level, zhoumu):
 	curZhoumu = zhoumu
 
 func _add_map(level,zhoumu):
+	itemList.clear()
 	for node in get_children():
 		remove_child(node)
 	var path="res://scene/map/map_%s_%s.tscn"%[level,zhoumu]
@@ -144,8 +146,12 @@ func move_turn(turn):
 			continue
 		
 		var mapIndex = ant.get_map_index()
-	
 		var cur = mapIndex+turn_vector2
+		var item = get_tile_item(mapIndex.x, mapIndex.y)
+		var dict_index = mapIndex.x*100+mapIndex.y
+		if not itemList.key().has(dict_index):
+			itemList[dict_index] = item
+			item.hide()
 		ant.now_status = turn
 		if ant.get_isTrapped() or ant.get_isSwallowed() or check_block_type(cur.x, cur.y):
 			if ant.now_status!=-1:
@@ -210,7 +216,6 @@ func check_block_type(x, y):
 	var dict_key = x * 100 + y
 	var tileId = tileMap.get_cell(x, y)
 	var tileName = tileMap.tile_set.tile_get_name(tileId)
-	
 	if globalVar.OBSTACLE.has(tileName):
 		return true
 	if globalVar.WALL.has(tileName):

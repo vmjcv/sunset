@@ -13,6 +13,8 @@ onready var tileMap : TileMap
 onready var curLevel
 onready var curZhoumu
 
+onready var tilemap_item={}
+
 signal match_result
 signal fail
 
@@ -31,8 +33,14 @@ func _add_map(level,zhoumu):
 	var tile_map_res = load(path)
 	tileMap = tile_map_res.instance()
 	add_child(tileMap)
+	
+	tilemap_item = tileMap.dict
+	
 	for TileId in tileMap.tile_set.get_tiles_ids():
 		tileIdMap[tileMap.tile_set.tile_get_name(TileId)] = TileId
+
+func get_tile_item(x,y):
+	return tilemap_item.get(x*100+y,null)
 
 func _ready():
 	if curLevel == null or curZhoumu == null:
@@ -168,6 +176,7 @@ func check_ant_status(ant):
 		swallowed[dict_key] = true
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
+		
 	
 	var index = 0
 	while index < ants.size():

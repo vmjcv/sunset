@@ -88,7 +88,6 @@ __meta__ = {
 
 [node name="picture" type="Node2D" parent="."]
 position = Vector2( 1502.11, 172.971 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 21 )
 
 [node name="close" type="Sprite" parent="picture"]
@@ -117,7 +116,6 @@ __meta__ = {
 
 [node name="ring" type="Node2D" parent="."]
 position = Vector2( 429.951, 340.535 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 20 )
 
 [node name="close" type="Sprite" parent="ring"]
@@ -146,7 +144,6 @@ __meta__ = {
 
 [node name="mom" type="Node2D" parent="."]
 position = Vector2( 983.55, 518.226 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 23 )
 
 [node name="statu1" type="Sprite" parent="mom"]
@@ -161,7 +158,6 @@ texture = ExtResource( 11 )
 
 [node name="daughter" type="Node2D" parent="."]
 position = Vector2( 789.305, 496.209 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 22 )
 
 [node name="flower" type="Sprite" parent="daughter"]

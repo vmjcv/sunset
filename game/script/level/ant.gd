@@ -35,7 +35,9 @@ func get_isSwallowed():
 	
 func set_isDie(flag):
 	isDie = flag
-	hide()
+	$Ant/icon.hide()
+	$Ant/mayi.show()
+	#hide()
 	
 func get_isDie():
 	return isDie

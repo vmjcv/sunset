@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/C1-3 诡异氛围音.ogg-fc5d2477b5bc791e8b95a6b2d755e612.oggstr"
+
+[deps]
+
+source_file="res://sounds/C1-3 诡异氛围音.ogg"
+dest_files=[ "res://.import/C1-3 诡异氛围音.ogg-fc5d2477b5bc791e8b95a6b2d755e612.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

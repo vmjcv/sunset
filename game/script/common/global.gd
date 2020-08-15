@@ -1,15 +1,14 @@
 # 全局数据类
 extends Node
 
-const ITEM_MAX_NUMBER=7
-
-const PLAIN = [0]
-const BIRTHPOS = [1]
-const WALL = [2]
-const DESTINATION = [3]
-const TRAP = [4]
-const OBSTACLE = [5]
-const HOLE = [6]
+const PLAIN = ["plain"]
+const BIRTHPOS = ["birthPos"]
+const WALL = ["wall1", "wall2", "wall3"]
+const DESTINATION = ["destination1", "destination2"]
+const TRAP = ["trap1", "trap2"]
+const OBSTACLE = ["obstacle"]
+const HOLE = ["hole"]
+const BROKEN = ["broken1", "broken2", "broken3"]
 
 func _ready():
 	pass

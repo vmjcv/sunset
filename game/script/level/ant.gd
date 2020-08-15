@@ -5,6 +5,7 @@ extends Node2D
 # var a = 2
 # var b = "text"
 onready var antModel: KinematicBody2D = $Ant
+onready var icon: AnimatedSprite = $Ant/icon
 onready var isTrapped = false
 onready var isDie = false
 onready var isMoveStatus = false
@@ -27,6 +28,7 @@ func get_isTrapped():
 	
 func set_isDie(flag):
 	isDie = flag
+	hide()
 	
 func get_isDie():
 	return isDie
@@ -60,3 +62,18 @@ func set_move_status(flag):
 func get_move_status():
 	return isMoveStatus
 	
+func turn_left():
+	$Ant/icon.rotation_degrees=-90
+	
+func turn_right():
+	$Ant/icon.rotation_degrees=90
+	
+	
+func turn_up():
+	$Ant/icon.rotation_degrees=0
+	
+func turn_down():
+	$Ant/icon.rotation_degrees=180
+	
+func dead():
+	$Ant/icon.stop()

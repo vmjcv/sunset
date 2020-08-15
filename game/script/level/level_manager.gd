@@ -1,11 +1,10 @@
-extends Panel
+extends Container
 
 var globalVar = load("res://script/common/global.gd")
 var pressed_status = false
-var maxW = 0
-var maxH = 0
 var birthPos = []
 var ants = []
+var tileIdMap = {}
 enum {UP,DOWN,LEFT,RIGHT}
 
 onready var tileMap : TileMap
@@ -30,6 +29,8 @@ func _add_map(level,zhoumu):
 	var tile_map_res = load(path)
 	tileMap = tile_map_res.instance()
 	add_child(tileMap)
+	for TileId in tileMap.tile_set.get_tiles_ids():
+		tileIdMap[tileMap.tile_set.tile_get_name(TileId)] = TileId
 
 func _ready():
 	if curLevel == null or curZhoumu == null:
@@ -37,10 +38,9 @@ func _ready():
 		curZhoumu = 1
 	_add_map(curLevel, curZhoumu)
 	for cord in tileMap.get_used_cells():
-		maxW = max(cord[0], maxW)
-		maxH = max(cord[1], maxH)
 		for type in globalVar.BIRTHPOS:
-			if tileMap.get_cell(cord[0], cord[1]) == type:
+			var tileID = tileMap.get_cell(cord[0], cord[1])
+			if tileID == tileIdMap[type]:
 				birthPos.append(cord)
 
 	for pos in birthPos:
@@ -61,11 +61,22 @@ func _process(delta):
 			var move_info = ant.get_move_info()
 			var move_times = ant.get_move_times()
 			ant.position = ant.position+Vector2(move_info.x,move_info.y)
+			
+			match ant.now_status:
+				DOWN:
+					ant.turn_down()
+				LEFT:
+					ant.turn_left()
+				RIGHT:
+					ant.turn_right()
+				UP:
+					ant.turn_up()
+			
 			move_times = move_times - 1
 			ant.set_move_times(move_times)
-			check_ant_status(ant)
 			if move_times <= 0:
 				ant.set_move_status(false)
+				check_ant_status(ant)
 				length=length-1
 
 	var need_check = true
@@ -112,12 +123,6 @@ func move_turn(turn):
 	_sort_by_xy(ants,turn)
 	
 	var can_move =false
-	var index = 0
-	while index < ants.size():
-		if ants[index].get_isDie():
-			ants.remove(index)
-		else:
-			index = index + 1
 	
 	for ant in ants:
 		var mapIndex = ant.get_map_index()
@@ -146,14 +151,24 @@ func move_turn(turn):
 
 func check_ant_status(ant):
 	var curPos = ant.get_map_index()
-	print("Type:", tileMap.get_cell(curPos.x, curPos.y))
-	for type in globalVar.TRAP:
-		if tileMap.get_cell(curPos.x, curPos.y) == type:
-			ant.set_isTrapped(true)
-			print("set_isTrapped!!!")
-	for type in globalVar.HOLE:
-		if tileMap.get_cell(curPos.x, curPos.y) == type:
-			ant.set_isDie(true)
+	var dict_key = curPos.x * 100 + curPos.y
+	var tileId = tileMap.get_cell(curPos.x, curPos.y)
+	var tileName = tileMap.tile_set.tile_get_name(tileId)
+	
+	if tileName == "trap1":
+		ant.set_isTrapped(true)
+		tileMap.set_cell(curPos.x, curPos.y, tileIdMap["trap2"])
+	if globalVar.HOLE.has(tileName):
+		ant.set_isDie(true)
+	
+	var index = 0
+	while index < ants.size():
+		if ants[index].get_isDie():
+			ants.remove(index)
+		else:
+			index = index + 1
+	if ants.size() == 0:
+		show_fail()
 
 func get_all_grids_number():
 	var dict = {}
@@ -164,31 +179,42 @@ func get_all_grids_number():
 
 func check_block_type(x, y):
 	var temp_dict=get_all_grids_number()
-	var cur_index = x * 100 + y
-	for type in globalVar.OBSTACLE:
-		if tileMap.get_cell(x, y) == type:
-			return true
-	for type in globalVar.PLAIN:
-		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(cur_index):
-			return true
-	for type in globalVar.DESTINATION:
-		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(cur_index):
-			return true
-	for type in globalVar.TRAP:
-		if tileMap.get_cell(x, y) == type and not temp_dict.keys().has(cur_index):
-			return true
-	for type in globalVar.WALL:
-		if tileMap.get_cell(x, y) == type:
-			return true
+	var dict_key = x * 100 + y
+	var tileId = tileMap.get_cell(x, y)
+	var tileName = tileMap.tile_set.tile_get_name(tileId)
+	
+	if globalVar.OBSTACLE.has(tileName):
+		return true
+	if temp_dict.keys().has(dict_key):
+		return true
+	if globalVar.WALL.has(tileName):
+		if tileName == "wall1":
+			tileMap.set_cell(x, y, tileIdMap["wall2"])
+		elif tileName == "wall2":
+			tileMap.set_cell(x, y, tileIdMap["wall3"])
+		elif tileName == "wall3":
+			tileMap.set_cell(x, y, tileIdMap["plain"])
+		return true
+	
+	if globalVar.BROKEN.has(tileName):
+		if tileName == "broken1":
+			tileMap.set_cell(x, y, tileIdMap["broken2"])
+		elif tileName == "broken2":
+			tileMap.set_cell(x, y, tileIdMap["broken3"])
+		elif tileName == "broken3":
+			tileMap.set_cell(x, y, tileIdMap["hole"])
+		return false
 	return false
 		
 func check_pass():
 	var successNum = 0
 	for ant in ants:
 		var pos = ant.get_map_index()
-		for type in globalVar.DESTINATION:
-			if tileMap.get_cell(pos.x, pos.y) == type:
-				successNum = successNum + 1
+		var tileId = tileMap.get_cell(pos.x, pos.y)
+		var tileName = tileMap.tile_set.tile_get_name(tileId)
+		if globalVar.DESTINATION.has(tileName):
+			ant.set_isTrapped(true)
+			successNum = successNum + 1
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:
 		show_pass()
@@ -196,8 +222,13 @@ func check_pass():
 
 func show_pass():
 	print("通关啦!!!!!!!!!!!!!!!!")
-	#点击后发送事件
-	emit_signal("match_result", true)
+	#确认后发送事件
+	#emit_signal("success")
+	
+func show_fail():
+	print("你输拉!!!!!!!!!!!!!!!!")
+	#确认后发送事件
+	#emit_signal("fail")
 		
 class MyCustomSorter:
 	static func _sort_by_x(a, b):

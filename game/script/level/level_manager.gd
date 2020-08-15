@@ -5,6 +5,7 @@ var pressed_status = false
 var maxW = 0
 var maxH = 0
 var birthPos = []
+var trappedAntPos = {}
 var ants = []
 enum {UP,DOWN,LEFT,RIGHT}
 
@@ -63,9 +64,9 @@ func _process(delta):
 			ant.position = ant.position+Vector2(move_info.x,move_info.y)
 			move_times = move_times - 1
 			ant.set_move_times(move_times)
-			check_ant_status(ant)
 			if move_times <= 0:
 				ant.set_move_status(false)
+				check_ant_status(ant)
 				length=length-1
 
 	var need_check = true
@@ -146,11 +147,11 @@ func move_turn(turn):
 
 func check_ant_status(ant):
 	var curPos = ant.get_map_index()
-	print("Type:", tileMap.get_cell(curPos.x, curPos.y))
+	var dict_key = curPos.x * 100 + curPos.y
 	for type in globalVar.TRAP:
-		if tileMap.get_cell(curPos.x, curPos.y) == type:
+		if tileMap.get_cell(curPos.x, curPos.y) == type and not trappedAntPos.keys().has(dict_key):
 			ant.set_isTrapped(true)
-			print("set_isTrapped!!!")
+			trappedAntPos[dict_key] = ant
 	for type in globalVar.HOLE:
 		if tileMap.get_cell(curPos.x, curPos.y) == type:
 			ant.set_isDie(true)
@@ -164,19 +165,19 @@ func get_all_grids_number():
 
 func check_block_type(x, y):
 	var temp_dict=get_all_grids_number()
-	var cur_index = x * 100 + y
+	var dict_key = x * 100 + y
 	for type in globalVar.OBSTACLE:
 		if tileMap.get_cell(x, y) == type:
 			return true
 	for type in globalVar.PLAIN:
-		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(cur_index):
+		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(dict_key):
 			return true
 	for type in globalVar.DESTINATION:
-		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(cur_index):
+		if tileMap.get_cell(x, y) == type and temp_dict.keys().has(dict_key):
 			return true
-	for type in globalVar.TRAP:
-		if tileMap.get_cell(x, y) == type and not temp_dict.keys().has(cur_index):
-			return true
+#	for type in globalVar.TRAP:
+#		if tileMap.get_cell(x, y) == type and not trappedAntPos.keys().has(dict_key):
+#			return true
 	for type in globalVar.WALL:
 		if tileMap.get_cell(x, y) == type:
 			return true

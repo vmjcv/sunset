@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://texture/start/bg1.jpg" type="Texture" id=2]
+[ext_resource path="res://scene/start/area_item.tscn" type="PackedScene" id=4]
+
+[node name="TextureRect" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 888, 248 )
+
+[node name="CollisionPolygon2D" parent="Area2D" index="0"]
+position = Vector2( 1248, 7.99997 )
+scale = Vector2( 96.0603, 24.5996 )
+polygon = PoolVector2Array( -3.98708, -3.07003, -3.80585, 20.4669, -5.79939, 20.4669, -5.79939, -3.07003 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 784, 179.096 )
+
+[node name="CollisionPolygon2D" parent="Area2D2" index="0"]
+position = Vector2( 224, -155.096 )
+scale = Vector2( 26.8303, 6.87847 )
+polygon = PoolVector2Array( -3.27987, 2.3261, -2.59075, 2.80391, -2.13464, 3.10891, -1.73065, 3.15974, -0.844477, 2.70225, -0.388361, 2.11767, -0.010437, 1.45685, 0.463181, 0.529868, 0.965919, -1.6437, 1.21012, -3.45027, -4.51947, -3.49932, -4.04381, -0.0681248 )
+
+[editable path="Area2D"]
+
+[editable path="Area2D2"]

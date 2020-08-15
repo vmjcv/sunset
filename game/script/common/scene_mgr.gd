@@ -68,3 +68,6 @@ func runSceneInteractive(path):
 	current_scene.queue_free() 
 	wait_frames = 1
 
+func go_scene(number):
+	# 去小关卡
+	pass

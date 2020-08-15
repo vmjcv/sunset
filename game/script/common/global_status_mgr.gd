@@ -1,5 +1,7 @@
 extends Node
 
+const maxLevelEachZhoumu = 5
+
 var level = 0
 var zhoumu = 0
 

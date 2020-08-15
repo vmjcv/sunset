@@ -39,4 +39,3 @@ func studio_anim_finished():
 	emit_signal("done")
 	queue_free()
 	SceneMgr.changeScene('res://scene/start/main.tscn')
-	SceneMgr.goDownScene('res://scene/talking/talking.tscn')

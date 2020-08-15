@@ -19,7 +19,7 @@ func mouse_click():
 func check_click():
 	if now_mouse_entered_item:
 		var number = now_mouse_entered_item.number
-		SceneMgr.go_scene(number)
+		GlobalStatusMgr.goToLevel(number)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed==false:

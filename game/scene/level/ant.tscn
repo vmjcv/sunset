@@ -20,5 +20,5 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="icon" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

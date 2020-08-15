@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://texture/juqing/1/bg.png" type="Texture" id=1]
 [ext_resource path="res://texture/juqing/1/huaping_1.png" type="Texture" id=2]
@@ -23,6 +23,14 @@
 [ext_resource path="res://script/juqing/picture.gd" type="Script" id=21]
 [ext_resource path="res://script/juqing/daughter.gd" type="Script" id=22]
 [ext_resource path="res://script/juqing/mom.gd" type="Script" id=23]
+[ext_resource path="res://texture/juqing/1/ant_2.png" type="Texture" id=24]
+[ext_resource path="res://texture/juqing/1/dilie_1.png" type="Texture" id=25]
+[ext_resource path="res://texture/juqing/1/dilie_2.png" type="Texture" id=26]
+[ext_resource path="res://texture/juqing/1/dilie_3.png" type="Texture" id=27]
+[ext_resource path="res://texture/juqing/1/ant_1.png" type="Texture" id=28]
+[ext_resource path="res://texture/juqing/1/ant_3.png" type="Texture" id=29]
+[ext_resource path="res://script/juqing/ant.gd" type="Script" id=30]
+[ext_resource path="res://script/juqing/dilie.gd" type="Script" id=31]
 
 [node name="main" type="TextureRect"]
 margin_left = 239.337
@@ -88,7 +96,6 @@ __meta__ = {
 
 [node name="picture" type="Node2D" parent="."]
 position = Vector2( 1502.11, 172.971 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 21 )
 
 [node name="close" type="Sprite" parent="picture"]
@@ -117,7 +124,6 @@ __meta__ = {
 
 [node name="ring" type="Node2D" parent="."]
 position = Vector2( 429.951, 340.535 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 20 )
 
 [node name="close" type="Sprite" parent="ring"]
@@ -146,7 +152,6 @@ __meta__ = {
 
 [node name="mom" type="Node2D" parent="."]
 position = Vector2( 983.55, 518.226 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 23 )
 
 [node name="statu1" type="Sprite" parent="mom"]
@@ -155,13 +160,11 @@ position = Vector2( 23.9034, 66.6512 )
 texture = ExtResource( 12 )
 
 [node name="statu2" type="Sprite" parent="mom"]
-visible = false
 position = Vector2( 36.5287, 107.084 )
 texture = ExtResource( 11 )
 
 [node name="daughter" type="Node2D" parent="."]
 position = Vector2( 789.305, 496.209 )
-scale = Vector2( 1, 1 )
 script = ExtResource( 22 )
 
 [node name="flower" type="Sprite" parent="daughter"]
@@ -183,6 +186,44 @@ texture = ExtResource( 13 )
 visible = false
 position = Vector2( 48.4702, 61.8615 )
 texture = ExtResource( 16 )
+
+[node name="ant" type="Node2D" parent="."]
+position = Vector2( 957.115, 993.647 )
+script = ExtResource( 30 )
+
+[node name="status1" type="Sprite" parent="ant"]
+visible = false
+position = Vector2( 41.9886, 63.9847 )
+texture = ExtResource( 28 )
+
+[node name="status2" type="Sprite" parent="ant"]
+visible = false
+position = Vector2( 54.0809, -308.743 )
+texture = ExtResource( 24 )
+
+[node name="status3" type="Sprite" parent="ant"]
+visible = false
+position = Vector2( 28.2205, -305.318 )
+texture = ExtResource( 29 )
+
+[node name="dilie" type="Node2D" parent="."]
+position = Vector2( 957.115, 993.647 )
+script = ExtResource( 31 )
+
+[node name="status1" type="Sprite" parent="dilie"]
+visible = false
+position = Vector2( 82.3516, -43.6501 )
+texture = ExtResource( 25 )
+
+[node name="status2" type="Sprite" parent="dilie"]
+visible = false
+position = Vector2( 54.0809, -28.4438 )
+texture = ExtResource( 26 )
+
+[node name="status3" type="Sprite" parent="dilie"]
+visible = false
+position = Vector2( 3.55408, 53.3318 )
+texture = ExtResource( 27 )
 
 [node name="maskTouch" type="ColorRect" parent="."]
 visible = false

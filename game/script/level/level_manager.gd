@@ -3,7 +3,6 @@ extends Panel
 var globalVar = load("res://script/common/global.gd")
 var pressed_status = false
 var birthPos = []
-var trappedAntPos = {}
 var ants = []
 var tileIdMap = {}
 enum {UP,DOWN,LEFT,RIGHT}
@@ -113,12 +112,6 @@ func move_turn(turn):
 	_sort_by_xy(ants,turn)
 	
 	var can_move =false
-	var index = 0
-	while index < ants.size():
-		if ants[index].get_isDie():
-			ants.remove(index)
-		else:
-			index = index + 1
 	
 	for ant in ants:
 		var mapIndex = ant.get_map_index()
@@ -151,11 +144,20 @@ func check_ant_status(ant):
 	var tileId = tileMap.get_cell(curPos.x, curPos.y)
 	var tileName = tileMap.tile_set.tile_get_name(tileId)
 	
-	if globalVar.TRAP.has(tileName) and not trappedAntPos.keys().has(dict_key):
+	if tileName == "trap1":
 		ant.set_isTrapped(true)
-		trappedAntPos[dict_key] = ant
+		tileMap.set_cell(curPos.x, curPos.y, tileIdMap["trap2"])
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
+	
+	var index = 0
+	while index < ants.size():
+		if ants[index].get_isDie():
+			ants.remove(index)
+		else:
+			index = index + 1
+	if ants.size() == 0:
+		show_fail()
 
 func get_all_grids_number():
 	var dict = {}
@@ -179,9 +181,21 @@ func check_block_type(x, y):
 	if globalVar.DESTINATION.has(tileName) and temp_dict.keys().has(dict_key):
 		return true
 	if globalVar.WALL.has(tileName):
-#		var cellKey = tileMap.tile_set.tile_get_name()
-		#tileMap.set_cell(x, y, cellKy)
+		if tileName == "wall1":
+			tileMap.set_cell(x, y, tileIdMap["wall2"])
+		elif tileName == "wall2":
+			tileMap.set_cell(x, y, tileIdMap["wall3"])
+		elif tileName == "wall3":
+			tileMap.set_cell(x, y, tileIdMap["plain"])
 		return true
+	if globalVar.BROKEN.has(tileName):
+		if tileName == "broken1":
+			tileMap.set_cell(x, y, tileIdMap["broken2"])
+		elif tileName == "broken2":
+			tileMap.set_cell(x, y, tileIdMap["broken3"])
+		elif tileName == "broken3":
+			tileMap.set_cell(x, y, tileIdMap["hole"])
+		return false
 	return false
 		
 func check_pass():
@@ -199,8 +213,13 @@ func check_pass():
 
 func show_pass():
 	print("通关啦!!!!!!!!!!!!!!!!")
-	#点击后发送事件
+	#确认后发送事件
 	#emit_signal("success")
+	
+func show_fail():
+	print("你输拉!!!!!!!!!!!!!!!!")
+	#确认后发送事件
+	#emit_signal("fail")
 		
 class MyCustomSorter:
 	static func _sort_by_x(a, b):

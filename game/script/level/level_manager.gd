@@ -174,11 +174,7 @@ func check_block_type(x, y):
 	
 	if globalVar.OBSTACLE.has(tileName):
 		return true
-	if globalVar.PLAIN.has(tileName) and temp_dict.keys().has(dict_key):
-		return true
-	if globalVar.BIRTHPOS.has(tileName) and temp_dict.keys().has(dict_key):
-		return true
-	if globalVar.DESTINATION.has(tileName) and temp_dict.keys().has(dict_key):
+	if temp_dict.keys().has(dict_key):
 		return true
 	if globalVar.WALL.has(tileName):
 		if tileName == "wall1":
@@ -188,6 +184,7 @@ func check_block_type(x, y):
 		elif tileName == "wall3":
 			tileMap.set_cell(x, y, tileIdMap["plain"])
 		return true
+	
 	if globalVar.BROKEN.has(tileName):
 		if tileName == "broken1":
 			tileMap.set_cell(x, y, tileIdMap["broken2"])
@@ -205,6 +202,7 @@ func check_pass():
 		var tileId = tileMap.get_cell(pos.x, pos.y)
 		var tileName = tileMap.tile_set.tile_get_name(tileId)
 		if globalVar.DESTINATION.has(tileName):
+			ant.set_isTrapped(true)
 			successNum = successNum + 1
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:

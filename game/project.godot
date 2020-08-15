@@ -23,17 +23,20 @@ config/icon="res://icon.png"
 [autoload]
 
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
-ItemManage="*res://script/common/item_manage.gd"
-Configs="*res://data/gdscript/configs.gd"
-GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
+StatusUtils="*res://addons/event_chain/src/common/status_util.gd"
+SignalUtils="*res://addons/event_chain/src/common/signal_util.gd"
+EventChainGraphManage="*res://addons/event_chain/src/core/graph_manage.gd"
+EventChainSignalManage="*res://addons/event_chain/src/core/signal_manage.gd"
+SceneMgr="*res://script/common/scene_mgr.gd"
+TalkMgr="*res://script/taking/talk_mgr.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1280
+window/size/height=720
 window/size/always_on_top=true
-window/size/test_width=960
-window/size/test_height=540
+window/size/test_width=1280
+window/size/test_height=720
 window/dpi/allow_hidpi=true
 
 [editor_plugins]

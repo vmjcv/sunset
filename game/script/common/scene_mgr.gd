@@ -32,8 +32,8 @@ func _process(time):
 			set_process(false)
 			return
 		var changeH = sceneH * (OS.get_ticks_msec() - nStartSlipTime) / slipTime
-		current_scene.rect_position = Vector2(curSceneposi.x, curSceneposi.y + sceneH - changeH)
-		last_scene.rect_position = Vector2(lastSceneposi.x, lastSceneposi.y - changeH)
+		current_scene.rect_position = Vector2(curSceneposi.x, curSceneposi.y - sceneH + changeH)
+		last_scene.rect_position = Vector2(lastSceneposi.x, lastSceneposi.y + changeH)
 	
 #	后台加载
 	if loader == null:
@@ -90,7 +90,7 @@ func _action_goto_scene(path):
 	nStartSlipTime = OS.get_ticks_msec()
 	lastSceneposi = last_scene.rect_position
 	curSceneposi = current_scene.rect_position
-	current_scene.rect_position = Vector2(current_scene.rect_position.x, current_scene.rect_position.y + sceneH)
+	current_scene.rect_position = Vector2(current_scene.rect_position.x, current_scene.rect_position.y - sceneH)
 	set_process(true)
 	return current_scene
 

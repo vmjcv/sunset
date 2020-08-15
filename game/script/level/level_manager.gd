@@ -118,7 +118,7 @@ func move_turn(turn):
 	
 		var cur = mapIndex+turn_vector2
 		ant.now_status = turn
-		if ant.get_isTrapped() or check_block_type(cur.x, cur.y):
+		if ant.get_isTrapped() or ant.get_isSwallowed() or check_block_type(cur.x, cur.y):
 			ant.now_status = -1
 			continue
 		
@@ -132,9 +132,9 @@ func move_turn(turn):
 		ant.set_map_index(cur.x, cur.y)
 		ant.set_move_status(true)
 		
-		var move_info = turn_vector2*8
+		var move_info = turn_vector2*4
 		ant.set_move_info(move_info.x, move_info.y)
-		ant.set_move_times(Offset*8)
+		ant.set_move_times(Offset*16)
 		
 	return can_move
 
@@ -146,7 +146,8 @@ func check_ant_status(ant):
 	
 	if tileName == "trap1":
 		ant.set_isTrapped(true)
-		tileMap.set_cell(curPos.x, curPos.y, tileIdMap["trap2"])
+	elif tileName == "trap2":
+		ant.set_isSwallowed(true)
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
 	
@@ -162,8 +163,9 @@ func check_ant_status(ant):
 func get_all_grids_number():
 	var dict = {}
 	for ant in ants:
-		var mapIndex = ant.get_map_index()
-		dict[mapIndex.x*100+mapIndex.y] = ant
+		if not ant.get_isSwallowed():
+			var mapIndex = ant.get_map_index()
+			dict[mapIndex.x*100+mapIndex.y] = ant
 	return dict
 
 func check_block_type(x, y):

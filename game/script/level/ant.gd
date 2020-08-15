@@ -7,6 +7,7 @@ extends Node2D
 onready var antModel: KinematicBody2D = $Ant
 onready var icon: Sprite = $Ant/icon
 onready var isTrapped = false
+onready var isSwallowed = false
 onready var isDie = false
 onready var isMoveStatus = false
 onready var posX	#tilemap坐标x
@@ -25,6 +26,12 @@ func set_isTrapped(flag):
 	
 func get_isTrapped():
 	return isTrapped
+	
+func set_isSwallowed(flag):
+	isSwallowed = flag
+	
+func get_isSwallowed():
+	return isSwallowed
 	
 func set_isDie(flag):
 	isDie = flag

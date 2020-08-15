@@ -4,7 +4,6 @@ extends Node2D
 onready var bg = $bg
 
 func _ready():
-	play_bg("菜单")
 	pass # Replace with function body.
 
 
@@ -33,5 +32,20 @@ func get_music_path(music_name):
 		"3-1":
 			path="res://sounds/C3-2 三周目关卡部分，激昂，紧张.ogg"
 		"3-2":
+			path="res://sounds/C3-3 结局+ed 木吉他 钢琴.ogg"
+	return path
+
+func play_sound(sound_name):
+	var path=get_sound_path(sound_name)
+	
+	var player = AudioStreamPlayer2D.new()
+	
+	player.stream=load(path)
+	player.play()
+	
+func get_sound_path(sound_name):
+	var path
+	match sound_name:
+		"":
 			path="res://sounds/C3-3 结局+ed 木吉他 钢琴.ogg"
 	return path

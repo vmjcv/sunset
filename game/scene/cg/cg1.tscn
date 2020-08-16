@@ -1,21 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://texture/cg/Zhoumu1.png" type="Texture" id=1]
 [ext_resource path="res://fonts/talking.tres" type="DynamicFont" id=2]
-[ext_resource path="res://scene/talking/RichTextLabel1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Word.tres" type="RichTextEffect" id=4]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Bounce.tres" type="RichTextEffect" id=5]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Embers.tres" type="RichTextEffect" id=6]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Console.tres" type="RichTextEffect" id=7]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Redacted.tres" type="RichTextEffect" id=8]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Prickle.tres" type="RichTextEffect" id=9]
-[ext_resource path="res://addons/teeb.text_transitions/resources/WFC.tres" type="RichTextEffect" id=10]
 [ext_resource path="res://sounds/bike_ring.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/door open.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/door knock.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/door close.wav" type="AudioStream" id=14]
+[ext_resource path="res://scene/cg/cg1.gd" type="Script" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "show_cg"
-length = 3.0
-loop = true
+length = 50.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Zhoumu1:modulate")
 tracks/0/interp = 1
@@ -23,10 +18,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.2, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( -0.4, 0, 4, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0.533333 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("bike_ring:playing")
@@ -47,10 +42,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("door_open:playing")
@@ -59,10 +54,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.7, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("door_close:playing")
@@ -71,13 +66,66 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.9 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 2.5, 2.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 5.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "over_cg"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("hello:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3.6, 4.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("getbook:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.7, 5.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("hello")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 4.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+} ]
 }
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 15 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -91,7 +139,7 @@ __meta__ = {
 }
 
 [node name="Zhoumu1" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0.444444 )
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 960, 544 )
 scale = Vector2( 0.746875, 0.75 )
 texture = ExtResource( 1 )
@@ -100,52 +148,53 @@ texture = ExtResource( 1 )
 stream = ExtResource( 11 )
 
 [node name="door_knock" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 13 )
 
 [node name="door_open" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 
 [node name="door_close" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 11 )
+stream = ExtResource( 14 )
 
-[node name="getbook" parent="." instance=ExtResource( 3 )]
-margin_left = 97.0
-margin_top = 772.0
-margin_right = 753.0
-margin_bottom = 1028.0
+[node name="hello" type="RichTextLabel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 112.0
+margin_top = 744.0
+margin_right = 760.0
+margin_bottom = 1080.0
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[bounce]
+bbcode_text = "
+\"您好！EMS！\""
+text = "
+\"您好！EMS！\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="getbook" type="RichTextLabel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 120.0
+margin_top = 728.0
+margin_right = 768.0
+margin_bottom = 1064.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "
 心心念念的通知书终于到了！
 
 要快些拿给爸爸妈妈看一下！
 
-他们的女儿终于长大了！
-[/bounce]"
+他们的女儿终于长大了！"
 text = "
 心心念念的通知书终于到了！
 
 要快些拿给爸爸妈妈看一下！
 
-他们的女儿终于长大了！
-"
-custom_effects = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 4 ), null, null ]
-time = 0.0
-
-[node name="hello" parent="." instance=ExtResource( 3 )]
-margin_left = 168.0
-margin_top = 772.0
-margin_right = 472.0
-margin_bottom = 980.0
-custom_fonts/normal_font = ExtResource( 2 )
-bbcode_enabled = true
-bbcode_text = "[bounce]
-\"您好！EMS！\"
-[/bounce]"
-text = "
-\"您好！EMS！\"
-"
-custom_effects = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 4 ), null, null ]
+他们的女儿终于长大了！"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "show_cg"

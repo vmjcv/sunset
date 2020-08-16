@@ -43,6 +43,15 @@ func get_one():
 			open_box.hide()
 			move_child(close_box,get_child_count())
 			close_box.show()
+			
+			if GlobalStatusMgr.zhoumu == 3 and  GlobalStatusMgr.curLevel == 1:
+				if specialWay==true:
+					SceneMgr.changeScene("res://scene/cg/VideoCg5.tscn")
+					pass
+				else:
+					SceneMgr.changeScene("res://scene/cg/VideoCg6.tscn")
+					pass
+				return 
 			GlobalStatusMgr._matchResult(_item_name_list,bsc_bool)
 		else:
 			need_close = true

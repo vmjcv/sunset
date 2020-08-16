@@ -17,9 +17,9 @@ func get_music_path(music_name):
 		"1-2":
 			node ="res://sounds/C1-2 一周目解密音乐，带困惑，笛子，桑巴爵士.ogg"
 		"1-3":
-			node ="res://sounds/C1-3 诡异氛围音.ogg"
+			node ="res://sounds/C1-2 一周目解密音乐，带困惑，笛子，桑巴爵士.ogg"
 		"1-4":
-			node ="res://sounds/C1-3 诡异氛围音.ogg"
+			node ="res://sounds/C1-2 一周目解密音乐，带困惑，笛子，桑巴爵士.ogg"
 		"1-5":
 			node ="res://sounds/C1-3 诡异氛围音.ogg"
 		"2-1":
@@ -27,7 +27,7 @@ func get_music_path(music_name):
 		"2-2":
 			node ="res://sounds/C2-2 二周目，悲伤基调，纯木吉他.ogg"
 		"2-3":
-			node ="res://sounds/C2-3 一or二，悲伤基调，八音盒.ogg"
+			node ="res://sounds/C2-2 二周目，悲伤基调，纯木吉他.ogg"
 		"2-4":
 			node ="res://sounds/C2-2 二周目，悲伤基调，纯木吉他.ogg"
 		"2-5":

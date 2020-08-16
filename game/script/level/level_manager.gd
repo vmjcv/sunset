@@ -266,8 +266,7 @@ func check_pass():
 func show_pass():
 	var game_over = preload("res://scene/common/game_over.tscn")
 	var panel = game_over.instance()
-	print("111111111111")
-	print(specialWay)
+
 	panel.specialWay= specialWay
 	add_child(panel)
 	panel.get_item_list(itemList,true)

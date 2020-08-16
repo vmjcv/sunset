@@ -9,6 +9,7 @@ onready var temp_timer = $Timer
 
 onready var open_box = $"箱子开"
 onready var close_box = $"箱子关"
+onready var specialWay = false
 
 var need_close=true
 var bsc_bool = true
@@ -46,5 +47,8 @@ func get_one():
 		else:
 			need_close = true
 			temp_timer.start(0.5)
+			
+func set_special_way(isSpecial):
+	specialWay = isSpecial
 
 

@@ -10,4 +10,5 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			SceneMgr.changeScene('res://scene/start/room.tscn')
+			print('周目1结束')
+			SceneMgr.changeScene('res://scene/start/main.tscn')

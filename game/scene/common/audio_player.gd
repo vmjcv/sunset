@@ -7,9 +7,10 @@ func _ready():
 	backmusic=get_node("backmusic")
 
 func play_bg(music_name):
-	var node=get_music_path(music_name)
-	backmusic.stream = load("res://sounds/C0-0.ogg")
-	backmusic.play()
+#	var node=get_music_path(music_name)
+#	backmusic.stream = load("res://sounds/C0-0.ogg")
+#	backmusic.play()
+	pass
 	
 func get_music_path(music_name):
 	var node

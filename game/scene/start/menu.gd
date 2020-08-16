@@ -1,4 +1,4 @@
-extends VideoPlayer
+extends ColorRect
 
 
 # Declare member variables here. Examples:
@@ -16,6 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_VideoPlayer_finished():
-	SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn').updateStatus()
-	AudioPlayer.play_bg("2-2")
+func _on_biaoti2_pressed():
+	SceneMgr.changeScene("res://scene/start/main.tscn")
+	pass # Replace with function body.

@@ -1,12 +1,8 @@
 extends Node
 
-#signal finish_talk
-
 var talkingList = null
 #当前在播放的下标
 var nowIdx = 0 
-
-var curNode = null
 
 var panel
 
@@ -20,12 +16,16 @@ func  _enter_tree():
 
 func _sayOneLine():
 	if len(talkingList) > 0:
+		print("kkkkk")
 		var oneTalkingItem = talkingList.pop_front()
 		if panel:
+			print(panel)
 			pass
 		else:
 			panel = SceneMgr.showPanel('res://scene/talking/talking.tscn')
 			panel.get_node("AnimationPlayer").play("up")
+			print(panel.get_node("AnimationPlayer"))
+			print("11111111111")
 		panel.connect("finish_one_talk", self, "_sayOneLine")
 		panel.talk(oneTalkingItem[0], oneTalkingItem[1])
 	else:
@@ -33,12 +33,11 @@ func _sayOneLine():
 		
 		panel.get_node("AnimationPlayer").play("down")
 		
-		curNode.emit_signal("finish_talk")
-		curNode = null
+		emit_signal("finish_talk")
 
 
 # lTalkingList = [[iTalker, sValue]]
-func talk(node, lTalkingList):
+func talk(lTalkingList):
+	print(lTalkingList)
 	talkingList = lTalkingList
-	curNode = node
 	_sayOneLine()

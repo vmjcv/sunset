@@ -687,6 +687,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 1920, 1080 )
+color = Color( 0, 0, 0, 1 )
+
 [node name="Panel" type="Panel" parent="."]
 margin_left = 960.0
 margin_top = 540.0
@@ -695,7 +701,6 @@ margin_bottom = 540.0
 
 [node name="GamejamLogo" type="AnimatedSprite" parent="Panel"]
 visible = false
-scale = Vector2( 0.696, 0.696 )
 frames = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true

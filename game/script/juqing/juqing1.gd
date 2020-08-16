@@ -36,6 +36,10 @@ func _input(event):
 				nodeDaughter.hideNodes()
 				nodeDilie.showStatus2()
 				nodeAnt.showStatus2()
+				CG1z5lCount = 2
+				return
+				
+			if CG1z5lCount == 2:
 				GlobalStatusMgr.goToLevel(5)
 				CG1z5lCount = 0
 				return
@@ -56,7 +60,8 @@ func _input(event):
 					updateStatus()
 					get_node("maskTouch").hide()
 					bCGing = false
-					
+			elif nowCGZhoumu == 1 and nowCGLevel == 5:
+				SceneMgr.changeScene('res://scene/zhoumu_cg/zhoumu1.tscn')
 				
 func updateStatus():
 	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeDilie, nodeAnt]:
@@ -84,6 +89,5 @@ func finishLevel(iZhoumu, iLevel):
 			nodeDaughter.showGift('rings')
 		elif iLevel == 5:
 			updateStatus()
-			return
 		get_node("maskTouch").show()
 		bCGing = true

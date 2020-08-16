@@ -13,7 +13,7 @@ enum {UP,DOWN,LEFT,RIGHT}
 onready var tileMap : TileMap
 onready var curLevel
 onready var curZhoumu
-
+onready var specialWay = false
 onready var tilemap_item={}
 
 var round_time =0
@@ -39,17 +39,17 @@ func set_map_id(level, zhoumu):
 				birthPos.append(cord)
 
 	var isSpecialAnt = GlobalStatusMgr.is_special_ant(curLevel, curZhoumu)
-	for pos in birthPos:
-		var ant_scene = load(ant_path)
-		var ant_instance = ant_scene.instance()
-		ant_instance.set_map_index(pos.x, pos.y)
-		add_child(ant_instance)
-		ants.append(ant_instance)
-		ant_instance.position=(pos*64)+Vector2(32,32)
-		ant_instance.round_time = round_time
-		if isSpecialAnt:
-			ant_instance.set_ant2()
-		else:
+	if isSpecialAnt:
+		pass
+	else:
+		for pos in birthPos:
+			var ant_scene = load(ant_path)
+			var ant_instance = ant_scene.instance()
+			ant_instance.set_map_index(pos.x, pos.y)
+			add_child(ant_instance)
+			ants.append(ant_instance)
+			ant_instance.position=(pos*64)+Vector2(32,32)
+			ant_instance.round_time = round_time
 			ant_instance.set_ant1()
 
 func _add_map(level,zhoumu):
@@ -191,7 +191,7 @@ func check_ant_status(ant):
 	var tileId = tileMap.get_cell(curPos.x, curPos.y)
 	var tileName = tileMap.tile_set.tile_get_name(tileId)
 	
-	if tileName == "destination" and not trapped.keys().has(dict_key):
+	if globalVar.DESTINATION.has(tileName) and not trapped.keys().has(dict_key):
 		ant.set_isTrapped(true)
 		trapped[dict_key] = true
 	if tileName == "trap1" and not trapped.keys().has(dict_key):
@@ -235,7 +235,7 @@ func check_block_type(x, y):
 		return true
 	if temp_dict.keys().has(dict_key):
 		return true
-	if (tileName == "trap1" or tileName == "destination") and trapped.keys().has(dict_key):
+	if (tileName == "trap1" or globalVar.DESTINATION.has(tileName)) and trapped.keys().has(dict_key):
 		return true
 	if tileName == "trap2" and swallowed.keys().has(dict_key):
 		return false
@@ -256,8 +256,11 @@ func check_pass():
 		var dict_key = pos.x * 100 + pos.y
 		var tileId = tileMap.get_cell(pos.x, pos.y)
 		var tileName = tileMap.tile_set.tile_get_name(tileId)
-		if globalVar.DESTINATION.has(tileName):
+		if tileName == "destination":
 			successNum = successNum + 1
+		elif tileName == "door":
+			successNum = successNum + 1
+			specialWay = true
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1:
 		show_pass()
@@ -266,6 +269,9 @@ func check_pass():
 func show_pass():
 	var game_over = preload("res://scene/common/game_over.tscn")
 	var panel = game_over.instance()
+	print("111111111111")
+	print(specialWay)
+	panel.specialWay= specialWay
 	add_child(panel)
 	panel.get_item_list(itemList,true)
 	#确认后发送事件

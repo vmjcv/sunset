@@ -37,7 +37,7 @@ func show_item_talk(id):
 	var info = _create_info(current_item)
 
 	item_list.append(info)
-	TalkMgr.talk([[0, info]])
+	TalkMgr.talk(-1,[[0, info]])
 	return 
 
 func _create_info(current_item):

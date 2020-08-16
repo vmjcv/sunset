@@ -103,6 +103,7 @@ func _do_talk1():
 	bCGing = false
 
 func CG1to1():
+	print(123123123)
 	connect("finish_talk", self, "_do_talk1")
 	TalkMgr.talk(self, [
 		[0, "妈妈！你快看，我有这么多奖状和证书耶！"],])

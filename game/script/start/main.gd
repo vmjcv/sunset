@@ -10,6 +10,7 @@ var bSlipAction = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sp = get_node("sp")
+	pass # Replace with function body.
 
 
 func _process(time):

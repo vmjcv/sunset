@@ -27,12 +27,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
+AudioPlayer="*res://scene/common/audio_player.gd"
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
 ItemManage="*res://script/common/item_manage.gd"
 Configs="*res://data/gdscript/configs.gd"
 GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
 SceneMgr="*res://script/common/scene_mgr.gd"
-AudioPlayer="*res://scene/common/audio_player.gd"
 TalkMgr="*res://script/taking/talk_mgr.gd"
 
 [display]

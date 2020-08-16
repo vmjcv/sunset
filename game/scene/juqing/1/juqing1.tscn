@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://texture/juqing/1/bg.png" type="Texture" id=1]
 [ext_resource path="res://texture/juqing/1/huaping_1.png" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://texture/juqing/1/ant_3.png" type="Texture" id=29]
 [ext_resource path="res://script/juqing/ant.gd" type="Script" id=30]
 [ext_resource path="res://script/juqing/dilie.gd" type="Script" id=31]
+[ext_resource path="res://texture/juqing/1/ant_4.png" type="Texture" id=32]
 
 [node name="main" type="TextureRect"]
 margin_left = 239.337
@@ -94,7 +95,7 @@ __meta__ = {
 }
 
 [node name="picture" type="Node2D" parent="."]
-position = Vector2( 1502.11, 172.971 )
+position = Vector2( 1504.42, 173.077 )
 script = ExtResource( 21 )
 
 [node name="close" type="Sprite" parent="picture"]
@@ -122,7 +123,7 @@ __meta__ = {
 }
 
 [node name="ring" type="Node2D" parent="."]
-position = Vector2( 429.951, 340.535 )
+position = Vector2( 452.618, 344.535 )
 script = ExtResource( 20 )
 
 [node name="close" type="Sprite" parent="ring"]
@@ -178,7 +179,7 @@ position = Vector2( 957.115, 993.647 )
 script = ExtResource( 30 )
 
 [node name="status1" type="Sprite" parent="ant"]
-position = Vector2( 41.9886, 63.9847 )
+position = Vector2( 59.7865, 81.7825 )
 texture = ExtResource( 28 )
 
 [node name="status2" type="Sprite" parent="ant"]
@@ -191,13 +192,16 @@ visible = false
 position = Vector2( 28.2205, -305.318 )
 texture = ExtResource( 29 )
 
+[node name="s4" type="Sprite" parent="ant"]
+position = Vector2( 147.114, -1002.33 )
+texture = ExtResource( 32 )
+
 [node name="dilie" type="Node2D" parent="."]
-position = Vector2( 957.115, 993.647 )
+position = Vector2( 959.357, 953.284 )
 script = ExtResource( 31 )
 
 [node name="status1" type="Sprite" parent="dilie"]
-visible = false
-position = Vector2( 82.3516, -43.6501 )
+position = Vector2( 100.149, -25.8522 )
 texture = ExtResource( 25 )
 
 [node name="status2" type="Sprite" parent="dilie"]
@@ -211,7 +215,7 @@ position = Vector2( 3.55408, 53.3318 )
 texture = ExtResource( 27 )
 
 [node name="mom" type="Node2D" parent="."]
-position = Vector2( 983.55, 518.226 )
+position = Vector2( 985.33, 512.887 )
 script = ExtResource( 23 )
 
 [node name="statu1" type="Sprite" parent="mom"]

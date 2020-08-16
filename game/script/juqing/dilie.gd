@@ -18,12 +18,12 @@ func _reset():
 
 func updateStatus(iZhoumu, dLevel):
 	if iZhoumu > 1:
-		status = STATUS_0
+		status = STATUS_3
 	else:
 		if dLevel[5]:
 			status = STATUS_3
 		else:
-			status = STATUS_0
+			status = STATUS_1
 	
 	_reset()
 	if status == STATUS_1:

@@ -45,7 +45,6 @@ shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="Ant"]
 frames = SubResource( 2 )
-animation = "ant1"
 frame = 5
 playing = true
 

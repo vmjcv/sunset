@@ -43,9 +43,9 @@ func _add_map(level,zhoumu):
 	for TileId in tileMap.tile_set.get_tiles_ids():
 		tileIdMap[tileMap.tile_set.tile_get_name(TileId)] = TileId
 
-func get_tile_item(x,y):
-	print("???",x*100+y)
-	return tilemap_item.get(x*100+y,null)
+func get_tile_item(k):
+	var item = tilemap_item.get(String(k),null)
+	return item
 
 func _ready():
 	if curLevel == null or curZhoumu == null:
@@ -147,13 +147,14 @@ func move_turn(turn):
 			continue
 		
 		var mapIndex = ant.get_map_index()
-		var cur = mapIndex+turn_vector2
-		var item = get_tile_item(mapIndex.x, mapIndex.y)
 		var dict_index = mapIndex.x*100+mapIndex.y
-		
-		if not itemList.keys().has(dict_index) and item:
-			itemList[dict_index] = item
-			item.hide()
+		if not itemList.keys().has(dict_index):
+			var item = get_tile_item(dict_index)
+			if item != null:
+				item.hide()
+				itemList[dict_index] = item
+
+		var cur = mapIndex+turn_vector2
 		ant.now_status = turn
 		if ant.get_isTrapped() or ant.get_isSwallowed() or check_block_type(cur.x, cur.y):
 			if ant.now_status!=-1:

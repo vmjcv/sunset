@@ -201,6 +201,8 @@ func check_ant_status(ant):
 		trapped[dict_key] = true
 	if tileName == "trap1" and not trapped.keys().has(dict_key):
 		ant.set_isTrapped(true)
+		ant.hide()
+		tileMap.set_cell(curPos.x, curPos.y, "")
 		trapped[dict_key] = true
 	elif tileName == "trap2" and not swallowed.keys().has(dict_key):
 		ant.set_isSwallowed(true)

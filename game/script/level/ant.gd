@@ -90,7 +90,7 @@ func turn_down():
 	$Ant/icon.rotation_degrees=180
 	
 func dead():
-	$Ant/icon.stop()
+	hide()
 
 func set_ant1():
 	$Ant/icon.animation = "ant1"

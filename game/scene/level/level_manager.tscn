@@ -33,6 +33,7 @@ margin_right = 960.0
 margin_bottom = 540.0
 
 [node name="replay" type="Button" parent="Panel2"]
+modulate = Color( 1, 1, 1, 0.501961 )
 margin_left = 850.0
 margin_top = -520.0
 margin_right = 947.0

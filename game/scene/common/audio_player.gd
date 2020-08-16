@@ -7,6 +7,9 @@ func play_bg(music_name):
 	self.stream=load(get_music_path(music_name))
 	self.play()
 	
+func stop_bg():
+	self.stop()
+	
 func get_music_path(music_name):
 	var node
 	match music_name:

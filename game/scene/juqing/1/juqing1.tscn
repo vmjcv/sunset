@@ -33,7 +33,6 @@
 [ext_resource path="res://script/common/juqing/dilie.gd" type="Script" id=31]
 [ext_resource path="res://texture/juqing/1/ant_4.png" type="Texture" id=32]
 
-
 [node name="main" type="TextureRect"]
 margin_left = 239.337
 margin_top = 132.33

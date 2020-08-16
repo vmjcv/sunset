@@ -1,17 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://script/start/main.gd" type="Script" id=1]
-[ext_resource path="res://texture/start/start.png" type="Texture" id=2]
-[ext_resource path="res://texture/start/start_bg.png" type="Texture" id=3]
 [ext_resource path="res://texture/start/bg2.jpg" type="Texture" id=4]
-[ext_resource path="res://shader/breath.shader" type="Shader" id=9]
-[ext_resource path="res://shader/title_breath.shader" type="Shader" id=11]
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 9 )
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = ExtResource( 11 )
 
 [node name="ColorRect" type="TextureRect"]
 anchor_right = 1.0
@@ -43,42 +33,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="start_bg" type="TextureRect" parent="Container"]
-material = SubResource( 1 )
-anchor_left = 0.241
-anchor_top = 0.749
-anchor_right = 0.757
-anchor_bottom = 0.947
-margin_left = -0.0117645
-margin_top = -0.233673
-margin_right = 0.604126
-margin_bottom = -0.0336914
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 7
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="start" type="TextureButton" parent="Container/start_bg"]
-material = SubResource( 2 )
+[node name="start" type="Button" parent="Container"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.312
 anchor_top = 0.391
 anchor_right = 0.69
 anchor_bottom = 0.6
-margin_left = -0.0480042
-margin_top = 0.470997
-margin_right = -0.0100403
-margin_bottom = 1.6
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
-texture_disabled = ExtResource( 2 )
-texture_focused = ExtResource( 2 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_lock_": true
-}
-[connection signal="pressed" from="Container/start_bg/start" to="." method="_on_start_pressed"]
+margin_left = -609.04
+margin_top = -413.28
+margin_right = 602.2
+margin_bottom = 471.0
+[connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]

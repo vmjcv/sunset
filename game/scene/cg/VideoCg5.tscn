@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://texture/cg/5.be——毕业照.ogv" type="VideoStream" id=1]
-[ext_resource path="res://scene/cg/VideoCg1.gd" type="Script" id=2]
+[ext_resource path="res://scene/cg/VideoCg5.gd" type="Script" id=2]
 
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1936.0

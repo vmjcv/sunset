@@ -33,7 +33,7 @@ shape = SubResource( 1 )
 
 [node name="icon" type="AnimatedSprite" parent="Ant"]
 frames = SubResource( 2 )
-frame = 5
+frame = 8
 playing = true
 
 [node name="mayi" type="Sprite" parent="Ant"]

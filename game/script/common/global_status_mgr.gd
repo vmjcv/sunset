@@ -27,7 +27,11 @@ func onLevelFinish():
 #		zhoumu += 1
 #		levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
 #	else:
-	var s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
+	var s
+	if zhoumu == 1:
+		s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
+	else:
+		s = SceneMgr.changeScene('res://scene/juqing/2/juqing.tscn')
 	s.finishLevel(zhoumu, curLevel)
 	
 func getCurLevel():

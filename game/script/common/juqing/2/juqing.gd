@@ -6,7 +6,7 @@ extends TextureRect
 # var b = "text"
 
 func _showDuihua():
-	TalkMgr.talk(self, [[0, "妈妈最喜欢花了，如果给家里布置点花她一定会开心的！"]])
+	TalkMgr.talk(self, [[0, "如果爸爸妈妈都没时间打理植物的话，那只要花永远都不会枯萎就行了！"]])
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_jump_pressed():
-	pass # Replace with function body.
+	GlobalStatusMgr.goToLevel(1)

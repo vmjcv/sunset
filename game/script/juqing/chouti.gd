@@ -1,5 +1,7 @@
 extends Node2D
 
+signal finish_talk
+
 const STATUS_OPEN = 1
 const STATUS_CLOSE = 2
 
@@ -24,6 +26,11 @@ func updateStatus(iZhoumu, dLevel):
 	else:
 		get_node("finish").hide()
 		get_node("chouti").show()
-		
-func _on_chouti_pressed():
+
+func _do_talk():
 	GlobalStatusMgr.goToLevel(1)
+
+func _on_chouti_pressed():
+	connect("finish_talk", self, "_do_talk")
+	TalkMgr.talk(self, [[0, "妈妈看到我的好成绩，一定会高兴的吧！"]])
+	

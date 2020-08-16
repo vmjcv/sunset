@@ -1,8 +1,12 @@
 extends Node
 
+#signal finish_talk
+
 var talkingList = null
 #当前在播放的下标
 var nowIdx = 0 
+
+var curNode = null
 
 var panel
 
@@ -29,10 +33,12 @@ func _sayOneLine():
 		
 		panel.get_node("AnimationPlayer").play("down")
 		
-		emit_signal("finish_talk")
+		curNode.emit_signal("finish_talk")
+		curNode = null
 
 
 # lTalkingList = [[iTalker, sValue]]
-func talk(lTalkingList):
+func talk(node, lTalkingList):
 	talkingList = lTalkingList
+	curNode = node
 	_sayOneLine()

@@ -1,5 +1,7 @@
 extends TextureRect
 
+signal finish_talk
+
 # node
 var nodeFlower = null
 var nodeAward = null
@@ -44,7 +46,7 @@ func _input(event):
 				CG1z5lCount = 0
 				return
 				
-			if nowCGZhoumu == 1 and (nowCGLevel == 1 or nowCGLevel == 2):
+			if nowCGZhoumu == 1 and ( nowCGLevel == 2):
 				nodeDaughter.hideNodes()
 				updateStatus()
 				get_node("maskTouch").hide()
@@ -75,6 +77,7 @@ func finishLevel(iZhoumu, iLevel):
 			for nodes in [nodeAward, nodeFlower, nodeMom,]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('award')
+			CG1to1()
 		elif iLevel == 2:
 			for nodes in [nodeAward, nodeFlower, nodeMom,]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
@@ -91,3 +94,19 @@ func finishLevel(iZhoumu, iLevel):
 			updateStatus()
 		get_node("maskTouch").show()
 		bCGing = true
+
+func _do_talk1():
+	print(345345)
+	nodeDaughter.hideNodes()
+	updateStatus()
+	get_node("maskTouch").hide()
+	bCGing = false
+
+func CG1to1():
+	connect("finish_talk", self, "_do_talk1")
+	TalkMgr.talk(self, [
+		[0, "妈妈！你快看，我有这么多奖状和证书耶！"],
+		[1, "... ..."],
+		[1, "... 噢...囡囡真是令妈妈骄傲..."],
+		[0, "... ..."],
+	])

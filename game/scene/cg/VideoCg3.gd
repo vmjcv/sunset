@@ -20,7 +20,7 @@ func _on_VideoPlayer_finished():
 #	SceneMgr.changeScene('res://scene/juqing/2/juqing.tscn')
 #	AudioPlayer.play_bg("2-1")
 	
-	SceneMgr.changeScene("res://scene/juqing/2/juqing1.tscn")
+	SceneMgr.changeScene("res://scene/juqing/2/juqing.tscn")
 	GlobalStatusMgr.nextZhoumu()
 	AudioPlayer.play_bg("2-1")
 

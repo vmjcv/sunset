@@ -25,17 +25,20 @@ func _ready():
 
 func set_isTrapped(flag):
 	isTrapped = flag
+	now_status = -1
 	
 func get_isTrapped():
 	return isTrapped
 	
 func set_isSwallowed(flag):
 	isSwallowed = flag
+	now_status = -1
 	
 func get_isSwallowed():
 	return isSwallowed
 	
 func set_isDie(flag):
+	now_status = -1
 	isDie = flag
 	$Ant/icon.hide()
 	$Ant/mayi.show()
@@ -71,7 +74,7 @@ func set_move_status(flag):
 	isMoveStatus = flag
 	
 func get_move_status():
-	return isMoveStatus
+	return not isTrapped and not isDie and not isSwallowed and isMoveStatus
 	
 func turn_left():
 	$Ant/icon.rotation_degrees=-90

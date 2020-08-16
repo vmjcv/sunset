@@ -71,7 +71,24 @@ func get_tile_item(k):
 	return item
 
 func _ready():
-	pass
+	if curLevel == null or curZhoumu == null:
+		curLevel = 2
+		curZhoumu = 1
+	_add_map(curLevel, curZhoumu)
+	for cord in tileMap.get_used_cells():
+		for type in globalVar.BIRTHPOS:
+			var tileID = tileMap.get_cell(cord[0], cord[1])
+			if tileID == tileIdMap[type]:
+				birthPos.append(cord)
+	for pos in birthPos:
+		var ant_scene = load(ant_path)
+		var ant_instance = ant_scene.instance()
+		ant_instance.set_map_index(pos.x, pos.y)
+		add_child(ant_instance)
+		ants.append(ant_instance)
+		ant_instance.position=(pos*64)+Vector2(32,32)
+		ant_instance.round_time = round_time
+		ant_instance.set_ant1()
 
 func _process(delta):
 	var length=0
@@ -117,6 +134,14 @@ func _input(event):
 		return
 	else:
 		round_time = round_time + 1
+		for ant in ants:
+			ant.round_time = round_time
+		var index = 0
+		while index < ants.size():
+			if ants[index].get_isDie():
+				ants.remove(index)
+			else:
+				index = index + 1
 		
 	if Input.is_action_pressed('ui_up'):
 		move_turn(UP)
@@ -154,13 +179,13 @@ func move_turn(turn):
 		if not itemList.keys().has(dict_index):
 			var item = get_tile_item(dict_index)
 			if item != null:
-				ItemManage.show_item_talk(item.item_name)
+#				ItemManage.show_item_talk(item.item_name)
 				item.hide()
 				itemList[dict_index] = item
 
 		var cur = mapIndex+turn_vector2
 		ant.now_status = turn
-		if ant.get_isTrapped() or ant.get_isSwallowed() or check_block_type(cur.x, cur.y):
+		if ant.get_isTrapped() or ant.get_isSwallowed() or ant.get_isDie() or check_block_type(cur.x, cur.y):
 			if ant.now_status!=-1:
 				ant.round_time = round_time+1
 			ant.now_status = -1
@@ -199,13 +224,6 @@ func check_ant_status(ant):
 		swallowed[dict_key] = true
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
-	
-	var index = 0
-	while index < ants.size():
-		if ants[index].get_isDie():
-			ants.remove(index)
-		else:
-			index = index + 1
 
 func get_all_grids_number():
 	var dict = {}
@@ -266,8 +284,6 @@ func check_pass():
 func show_pass():
 	var game_over = preload("res://scene/common/game_over.tscn")
 	var panel = game_over.instance()
-	print("111111111111")
-	print(specialWay)
 	panel.specialWay= specialWay
 	add_child(panel)
 	panel.get_item_list(itemList,true)

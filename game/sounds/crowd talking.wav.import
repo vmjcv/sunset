@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/crowd talking.wav-92c47fa0409080e780124e7b910e131f.sample"
+
+[deps]
+
+source_file="res://sounds/crowd talking.wav"
+dest_files=[ "res://.import/crowd talking.wav-92c47fa0409080e780124e7b910e131f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

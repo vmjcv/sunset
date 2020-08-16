@@ -47,10 +47,12 @@ func goToLevel(number):
 	curLevel = number
 	#TODO 跳转关卡
 	#print("jump to " + str(number))
-	_matchResult([],true)
-#	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
-#	scene.set_map_id(curLevel, zhoumu)
-#	scene.connect("match_result", self, "_matchResult")
+	#_matchResult([],true)
+	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
+	var panel = scene.get_node("Panel")
+	panel.set_map_id(curLevel, zhoumu)
+	panel.connect("match_result", self, "_matchResult")
+	AudioPlayer.play_bg("%s-%s"%[zhoumu,curLevel])
 	
 
 func get_match_result(item_list,bSuc):

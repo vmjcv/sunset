@@ -19,7 +19,7 @@ func _process(delta):
 	if cal > 1000:
 		get_node("NinePatchRect/label").time = 1
 		bStart = false
-		emit_signal("finish_one_talk")
+#		emit_signal("finish_one_talk")
 		return
 	get_node("NinePatchRect/label").time = float(cal) / 1000
 	
@@ -28,7 +28,7 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if get_node("NinePatchRect/label").time < 1:
 				get_node("NinePatchRect/label").time = 1
-				emit_signal("finish_one_talk")
+#				emit_signal("finish_one_talk")
 				bStart = false
 			else:
 				get_node("AnimationPlayer").play("down")

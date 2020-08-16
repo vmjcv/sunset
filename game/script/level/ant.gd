@@ -40,9 +40,9 @@ func get_isSwallowed():
 func set_isDie(flag):
 	now_status = -1
 	isDie = flag
-	$Ant/icon.hide()
-	$Ant/mayi.show()
-	#hide()
+#	$Ant/icon.hide()
+#	$Ant/mayi.show()
+	hide()
 	
 func get_isDie():
 	return isDie
@@ -90,7 +90,7 @@ func turn_down():
 	$Ant/icon.rotation_degrees=180
 	
 func dead():
-	$Ant/icon.stop()
+	hide()
 
 func set_ant1():
 	$Ant/icon.animation = "ant1"

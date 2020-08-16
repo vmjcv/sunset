@@ -205,6 +205,8 @@ func check_ant_status(ant):
 	elif tileName == "trap2" and not swallowed.keys().has(dict_key):
 		ant.set_isSwallowed(true)
 		swallowed[dict_key] = true
+		ant.hide()
+		tileMap.set_cell(curPos.x, curPos.y, tileIdMap["trap3"])
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
 
@@ -235,7 +237,7 @@ func check_block_type(x, y):
 		return true
 	if (tileName == "trap1" or globalVar.DESTINATION.has(tileName)) and trapped.keys().has(dict_key):
 		return true
-	if tileName == "trap2" and swallowed.keys().has(dict_key):
+	if tileName == "trap3" and swallowed.keys().has(dict_key):
 		return false
 	if globalVar.BROKEN.has(tileName):
 		if tileName == "broken1":

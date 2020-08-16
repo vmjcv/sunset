@@ -1,5 +1,6 @@
 extends TextureRect
 
+signal finish_talk
 
 # Declare member variables here. Examples:
 # var a = 2

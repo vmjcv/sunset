@@ -18,4 +18,5 @@ func _ready():
 
 func _on_VideoPlayer_finished():
 	SceneMgr.changeScene('res://scene/juqing/3/juqing1.tscn')
+	GlobalStatusMgr.nextZhoumu()
 	AudioPlayer.play_bg("3-1")

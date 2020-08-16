@@ -99,6 +99,7 @@ func _process(delta):
 			if move_times <= 0:
 				ant.set_move_status(false)
 				check_ant_status(ant)
+				check_pass()
 				length=length-1
 
 	if length<=0 and have_move:
@@ -106,7 +107,6 @@ func _process(delta):
 			if ant.now_status>-1:
 				move_turn(ant.now_status)
 				break
-	check_pass()
 
 func _input(event):
 	var isMoving = false

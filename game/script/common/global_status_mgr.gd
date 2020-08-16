@@ -54,6 +54,8 @@ func goToLevel(number):
 	panel.connect("match_result", self, "_matchResult")
 	AudioPlayer.play_bg("%s-%s"%[zhoumu,curLevel])
 	
+func nextZhoumu():
+	pass
 
 func get_match_result(item_list,bSuc):
 	var scene = SceneMgr.changeScene("res://scene/common/over_item.tscn")

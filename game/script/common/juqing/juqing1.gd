@@ -63,7 +63,7 @@ func _input(event):
 					get_node("maskTouch").hide()
 					bCGing = false
 			elif nowCGZhoumu == 1 and nowCGLevel == 5:
-				SceneMgr.changeScene('res://scene/zhoumu_cg/zhoumu1.tscn')
+				SceneMgr.changeScene("res://scene/cg/VideoCg3.tscn")
 				
 func updateStatus():
 	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeDilie, nodeAnt]:
@@ -105,8 +105,9 @@ func _do_talk1():
 func CG1to1():
 	connect("finish_talk", self, "_do_talk1")
 	TalkMgr.talk(self, [
-		[0, "妈妈！你快看，我有这么多奖状和证书耶！"],
-		[1, "... ..."],
-		[1, "... 噢...囡囡真是令妈妈骄傲..."],
-		[0, "... ..."],
-	])
+		[0, "妈妈！你快看，我有这么多奖状和证书耶！"],])
+		
+#		[1, "... ..."],
+#		[1, "... 噢...囡囡真是令妈妈骄傲..."],
+#		[0, "... ..."],
+#	])

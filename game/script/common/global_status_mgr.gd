@@ -62,7 +62,8 @@ func goToLevel(number):
 	AudioPlayer.play_bg("%s-%s"%[zhoumu,curLevel])
 	
 func nextZhoumu():
-	pass
+	zhoumu += 1
+	levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
 
 func get_match_result(item_list,bSuc):
 	var scene = SceneMgr.changeScene("res://scene/common/over_item.tscn")

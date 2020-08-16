@@ -38,6 +38,8 @@ func show_item_talk(id):
 	print(id)
 	print(item_dict[id].name)
 	#text_manage(0,info)
+	TalkMgr.talk([[0,info]])
+	
 	
 	item_list.append(info)
 	TalkMgr.talk([[0, info]])

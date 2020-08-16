@@ -28,26 +28,6 @@ var ant_path="res://scene/level/ant.tscn"
 func set_map_id(level, zhoumu):
 	curLevel = level
 	curZhoumu = zhoumu
-
-func _add_map(level,zhoumu):
-	itemList.clear()
-	for node in get_children():
-		remove_child(node)
-	var path="res://scene/map/map_%s_%s.tscn"%[level,zhoumu]
-	var tile_map_res = load(path)
-	tileMap = tile_map_res.instance()
-	add_child(tileMap)
-	
-	tilemap_item = tileMap.dict
-	
-	for TileId in tileMap.tile_set.get_tiles_ids():
-		tileIdMap[tileMap.tile_set.tile_get_name(TileId)] = TileId
-
-func get_tile_item(k):
-	var item = tilemap_item.get(String(k),null)
-	return item
-
-func _ready():
 	if curLevel == null or curZhoumu == null:
 		curLevel = 1
 		curZhoumu = 1
@@ -71,6 +51,27 @@ func _ready():
 			ant_instance.set_ant2()
 		else:
 			ant_instance.set_ant1()
+
+func _add_map(level,zhoumu):
+	itemList.clear()
+	for node in get_children():
+		remove_child(node)
+	var path="res://scene/map/map_%s_%s.tscn"%[zhoumu,level]
+	var tile_map_res = load(path)
+	tileMap = tile_map_res.instance()
+	add_child(tileMap)
+	
+	tilemap_item = tileMap.dict
+	
+	for TileId in tileMap.tile_set.get_tiles_ids():
+		tileIdMap[tileMap.tile_set.tile_get_name(TileId)] = TileId
+
+func get_tile_item(k):
+	var item = tilemap_item.get(String(k),null)
+	return item
+
+func _ready():
+	pass
 
 func _process(delta):
 	var length=0

@@ -121,10 +121,9 @@ position = Vector2( 1665.7, 520.795 )
 texture = ExtResource( 2 )
 
 [node name="NinePatchRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
-margin_top = 1120.0
-margin_bottom = 1600.0
+margin_top = 600.0
+margin_bottom = 1080.0
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 1

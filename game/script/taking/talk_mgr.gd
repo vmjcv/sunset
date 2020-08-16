@@ -19,6 +19,9 @@ func  _enter_tree():
 	pass # Replace with function body.
 
 func _sayOneLine():
+	if typeof(talkingList) != TYPE_ARRAY:
+		print(talkingList, 'talkingList')
+		return
 	if len(talkingList) > 0:
 		var oneTalkingItem = talkingList.pop_front()
 		if panel:
@@ -32,14 +35,16 @@ func _sayOneLine():
 			panel.get_node("AnimationPlayer").play("up")
 		panel.connect("finish_one_talk", self, "_sayOneLine")
 		panel.talk(oneTalkingItem[0], oneTalkingItem[1])
+		panel = null
 	else:
 		talkingList = null
 		
-		panel.get_node("AnimationPlayer").play("down")
+#		panel.get_node("AnimationPlayer").play("down")
 		
 		if typeof(curNode) != TYPE_INT:
 			curNode.emit_signal("finish_talk")
 		curNode = null
+		panel = null
 
 
 # lTalkingList = [[iTalker, sValue]]

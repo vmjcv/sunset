@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 [autoload]
 
 AudioPlayer="*res://scene/common/audio_player.gd"
+TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
 ItemManage="*res://script/common/item_manage.gd"
 Configs="*res://data/gdscript/configs.gd"
 GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
@@ -44,6 +45,10 @@ window/size/test_height=1080
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "zylann.translation_editor" )
+
 [event_chain_graph]
 
 generation/enable_multithreading=true
@@ -54,5 +59,4 @@ user_interface/group_nodes_by_type=false
 [rendering]
 
 quality/2d/use_pixel_snap=true
-environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"

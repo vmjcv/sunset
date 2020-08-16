@@ -20,6 +20,7 @@ func _process(delta):
 		get_node("NinePatchRect/label").time = 1
 		bStart = false
 #		emit_signal("finish_one_talk")
+#		close_panel()
 		return
 	get_node("NinePatchRect/label").time = float(cal) / 1000
 	
@@ -29,6 +30,7 @@ func _input(event):
 			if get_node("NinePatchRect/label").time < 1:
 				get_node("NinePatchRect/label").time = 1
 #				emit_signal("finish_one_talk")
+#				close_panel()
 				bStart = false
 			else:
 				get_node("AnimationPlayer").play("down")
@@ -48,6 +50,7 @@ func talk(iTalker, sValue):
 		nameStr = "妈妈"
 		
 func talk_now():
+	print_stack()
 	get_node("NinePatchRect/label").bbcode_text = "[color=gray]"+nameStr+":[/color] [bounce]"+value+"[/bounce]"
 	get_node("NinePatchRect/label").time = 0
 	startTime = OS.get_ticks_msec()

@@ -28,6 +28,12 @@ func _ready():
 	nodeDaughter = get_node("daughter")
 	nodeAnt = get_node("ant")
 	nodeDilie = get_node("dilie")
+	
+	if GlobalStatusMgr.getCurZhoumu() == 1 and not GlobalStatusMgr.isLevelFinish(1) and not GlobalStatusMgr.isLevelFinish(2):
+		TalkMgr.talk(self, [
+		[0, "妈妈为什么一个人坐在这里……"],
+		[0, "我能做些什么让她开心起来吗……"],
+	])
 
 func _input(event):
 	if not bCGing:
@@ -46,12 +52,13 @@ func _input(event):
 				CG1z5lCount = 0
 				return
 				
-			if nowCGZhoumu == 1 and ( nowCGLevel == 2):
-				nodeDaughter.hideNodes()
-				updateStatus()
-				get_node("maskTouch").hide()
-				bCGing = false
-			elif nowCGZhoumu == 1 and(nowCGLevel == 3 or nowCGLevel == 4):
+#			if nowCGZhoumu == 1 and ( nowCGLevel == 2):
+#				nodeDaughter.hideNodes()
+#				updateStatus()
+#				get_node("maskTouch").hide()
+#				bCGing = false
+#			el
+			if nowCGZhoumu == 1 and(nowCGLevel == 4):
 				var dLevel = GlobalStatusMgr.getCurZhoumuLevel()
 				if dLevel[3] and dLevel[4]:
 #					CG及对话
@@ -82,10 +89,12 @@ func finishLevel(iZhoumu, iLevel):
 			for nodes in [nodeAward, nodeFlower, nodeMom,]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('flower')
+			CG1to2()
 		elif iLevel == 3:
 			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic, nodeRing]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('picture')
+			CG1to3()			
 		elif iLevel == 4:
 			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic, nodeRing]:
 				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
@@ -96,7 +105,6 @@ func finishLevel(iZhoumu, iLevel):
 		bCGing = true
 
 func _do_talk1():
-	print(345345)
 	nodeDaughter.hideNodes()
 	updateStatus()
 	get_node("maskTouch").hide()
@@ -105,9 +113,42 @@ func _do_talk1():
 func CG1to1():
 	connect("finish_talk", self, "_do_talk1")
 	TalkMgr.talk(self, [
-		[0, "妈妈！你快看，我有这么多奖状和证书耶！"],])
-		
-#		[1, "... ..."],
-#		[1, "... 噢...囡囡真是令妈妈骄傲..."],
-#		[0, "... ..."],
-#	])
+		[0, "妈妈！你快看，我有这么多奖状和证书耶！"],
+		[1, "... ..."],
+		[1, "... 噢...囡囡真是令妈妈骄傲..."],
+		[0, "... ..."],
+	])
+
+
+func _do_talk2():
+	nodeDaughter.hideNodes()
+	updateStatus()
+	get_node("maskTouch").hide()
+	bCGing = false
+
+func CG1to2():
+	connect("finish_talk", self, "_do_talk2")
+	TalkMgr.talk(self, [
+		[0, "妈妈！看这个花漂亮吧~"],
+		[1, "... 啊... 是囡囡啊..."],
+		[0, "... ... 妈..."],
+	])
+	
+func _do_talk3():
+	var dLevel = GlobalStatusMgr.getCurZhoumuLevel()
+	if dLevel[3] and dLevel[4]:
+#					CG及对话
+		nodeDilie.showStatus1()
+		CG1z5lCount = 1
+	else:
+		nodeDaughter.hideNodes()
+		updateStatus()
+		get_node("maskTouch").hide()
+		bCGing = false
+
+func CG1to3():
+	connect("finish_talk", self, "_do_talk3")
+	TalkMgr.talk(self, [
+		[0, "妈妈！你看我找到了什么！你们结婚时看起来还蛮青春靓丽的哦~"],
+		[1, "... ... （凝重）"],
+	])

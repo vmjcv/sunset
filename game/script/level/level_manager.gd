@@ -156,6 +156,7 @@ func move_turn(turn):
 		if not itemList.keys().has(dict_index):
 			var item = get_tile_item(dict_index)
 			if item != null:
+				ItemManage.show_item_talk(item.item_name)
 				item.hide()
 				itemList[dict_index] = item
 

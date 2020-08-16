@@ -24,10 +24,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.0369099, 0, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 600 ), Vector2( 0, 625 ), Vector2( 0, 1120 ) ]
+"values": [ Vector2( 0, 600 ), Vector2( 0, 1120 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("NinePatchRect:self_modulate")
@@ -65,10 +65,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.0369099, 0, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1120 ), Vector2( 0, 1120 ), Vector2( 0, 600 ) ]
+"values": [ Vector2( 0, 1120 ), Vector2( 0, 600 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("NinePatchRect:self_modulate")
@@ -121,9 +121,10 @@ position = Vector2( 1665.7, 520.795 )
 texture = ExtResource( 2 )
 
 [node name="NinePatchRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
-margin_top = 600.0
-margin_bottom = 1080.0
+margin_top = 1120.0
+margin_bottom = 1600.0
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 1

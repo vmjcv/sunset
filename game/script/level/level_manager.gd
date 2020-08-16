@@ -28,12 +28,35 @@ var ant_path="res://scene/level/ant.tscn"
 func set_map_id(level, zhoumu):
 	curLevel = level
 	curZhoumu = zhoumu
+	if curLevel == null or curZhoumu == null:
+		curLevel = 1
+		curZhoumu = 1
+	_add_map(curLevel, curZhoumu)
+	for cord in tileMap.get_used_cells():
+		for type in globalVar.BIRTHPOS:
+			var tileID = tileMap.get_cell(cord[0], cord[1])
+			if tileID == tileIdMap[type]:
+				birthPos.append(cord)
+
+	var isSpecialAnt = GlobalStatusMgr.is_special_ant(curLevel, curZhoumu)
+	for pos in birthPos:
+		var ant_scene = load(ant_path)
+		var ant_instance = ant_scene.instance()
+		ant_instance.set_map_index(pos.x, pos.y)
+		add_child(ant_instance)
+		ants.append(ant_instance)
+		ant_instance.position=(pos*64)+Vector2(32,32)
+		ant_instance.round_time = round_time
+		if isSpecialAnt:
+			ant_instance.set_ant2()
+		else:
+			ant_instance.set_ant1()
 
 func _add_map(level,zhoumu):
 	itemList.clear()
 	for node in get_children():
 		remove_child(node)
-	var path="res://scene/map/map_%s_%s.tscn"%[level,zhoumu]
+	var path="res://scene/map/map_%s_%s.tscn"%[zhoumu,level]
 	var tile_map_res = load(path)
 	tileMap = tile_map_res.instance()
 	add_child(tileMap)
@@ -48,24 +71,7 @@ func get_tile_item(k):
 	return item
 
 func _ready():
-	if curLevel == null or curZhoumu == null:
-		curLevel = 1
-		curZhoumu = 1
-	_add_map(curLevel, curZhoumu)
-	for cord in tileMap.get_used_cells():
-		for type in globalVar.BIRTHPOS:
-			var tileID = tileMap.get_cell(cord[0], cord[1])
-			if tileID == tileIdMap[type]:
-				birthPos.append(cord)
-
-	for pos in birthPos:
-		var ant_scene = load(ant_path)
-		var ant_instance = ant_scene.instance()
-		ant_instance.set_map_index(pos.x, pos.y)
-		add_child(ant_instance)
-		ants.append(ant_instance)
-		ant_instance.position=(pos*64)+Vector2(32,32)
-		ant_instance.round_time = round_time
+	pass
 
 func _process(delta):
 	var length=0
@@ -151,6 +157,7 @@ func move_turn(turn):
 		if not itemList.keys().has(dict_index):
 			var item = get_tile_item(dict_index)
 			if item != null:
+				ItemManage.show_item_talk(item.item_name)
 				item.hide()
 				itemList[dict_index] = item
 

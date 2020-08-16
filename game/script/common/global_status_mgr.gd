@@ -58,3 +58,6 @@ func goToLevel(number):
 func get_match_result(item_list,bSuc):
 	var scene = SceneMgr.changeScene("res://scene/common/over_item.tscn")
 	pass
+
+func is_special_ant(level, zhoumu):
+	return false

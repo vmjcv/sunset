@@ -1,25 +1,37 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://script/level/ant.gd" type="Script" id=1]
-[ext_resource path="res://texture/common/蚂蚁/7.png" type="Texture" id=2]
-[ext_resource path="res://texture/common/蚂蚁/1.png" type="Texture" id=3]
-[ext_resource path="res://texture/common/蚂蚁/2.png" type="Texture" id=4]
-[ext_resource path="res://texture/common/蚂蚁/3.png" type="Texture" id=5]
-[ext_resource path="res://texture/common/蚂蚁/5.png" type="Texture" id=6]
-[ext_resource path="res://texture/common/蚂蚁/4.png" type="Texture" id=7]
-[ext_resource path="res://texture/common/蚂蚁/6.png" type="Texture" id=8]
-[ext_resource path="res://texture/common/蚂蚁/8.png" type="Texture" id=9]
-[ext_resource path="res://texture/common/蚂蚁/9.png" type="Texture" id=10]
-[ext_resource path="res://texture/item/蚂蚁.png" type="Texture" id=11]
+[ext_resource path="res://texture/common/ant2/7.png" type="Texture" id=2]
+[ext_resource path="res://texture/common/ant1/2.png" type="Texture" id=3]
+[ext_resource path="res://texture/common/ant1/4.png" type="Texture" id=4]
+[ext_resource path="res://texture/common/ant1/6.png" type="Texture" id=5]
+[ext_resource path="res://texture/common/ant1/5.png" type="Texture" id=6]
+[ext_resource path="res://texture/common/ant2/2.png" type="Texture" id=7]
+[ext_resource path="res://texture/common/ant2/8.png" type="Texture" id=8]
+[ext_resource path="res://texture/common/ant1/7.png" type="Texture" id=9]
+[ext_resource path="res://texture/common/ant1/9.png" type="Texture" id=10]
+[ext_resource path="res://texture/common/ant2/6.png" type="Texture" id=12]
+[ext_resource path="res://texture/common/ant1/3.png" type="Texture" id=13]
+[ext_resource path="res://texture/common/ant2/3.png" type="Texture" id=14]
+[ext_resource path="res://texture/common/ant1/1.png" type="Texture" id=15]
+[ext_resource path="res://texture/common/ant2/1.png" type="Texture" id=16]
+[ext_resource path="res://texture/common/ant1/8.png" type="Texture" id=17]
+[ext_resource path="res://texture/common/ant2/5.png" type="Texture" id=18]
+[ext_resource path="res://texture/common/ant2/4.png" type="Texture" id=19]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "default",
+"name": "ant1",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "ant2",
 "speed": 10.0
 } ]
 
@@ -38,4 +50,4 @@ playing = true
 
 [node name="mayi" type="Sprite" parent="Ant"]
 visible = false
-texture = ExtResource( 11 )
+texture = ExtResource( 15 )

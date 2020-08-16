@@ -88,3 +88,9 @@ func turn_down():
 	
 func dead():
 	$Ant/icon.stop()
+
+func set_ant1():
+	$Ant/icon.animation = "ant1"
+	
+func set_ant2():
+	$Ant/icon.animation = "ant2"

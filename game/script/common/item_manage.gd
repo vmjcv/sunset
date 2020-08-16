@@ -21,8 +21,8 @@ func _array_to_dict(item_array):
 	return dict
 
 func get_by_name(item_name):
-	var level = GlobalStatusMgr.get_level()
-	var zhoumu = GlobalStatusMgr.get_zhoumu()
+	var level = GlobalStatusMgr.getCurLevel()
+	var zhoumu = GlobalStatusMgr.getCurZhoumu()
 	var new_item_name =item_name+"_"+String(level)+"_"+String(zhoumu)
 	if item_dict.has(new_item_name):
 		return item_dict[new_item_name]
@@ -32,13 +32,17 @@ func get_by_name(item_name):
 		else:
 			return ""
 
-func  _get_item(id):
+func show_item_talk(id):
 	var current_item = get_by_name(item_dict[id].name)
 	var info = _create_info(current_item)
-	
+	print(id)
+	print(item_dict[id].name)
 	#text_manage(0,info)
+	TalkMgr.talk([[0,info]])
 	
-	item_list.append(current_item)
+	
+	item_list.append(info)
+	TalkMgr.talk([[0, info]])
 	return 
 
 func _create_info(current_item):
@@ -49,6 +53,7 @@ func _create_info(current_item):
 		"钢笔_1_1":
 			if _have_item("纸_1_1"):
 				return get_by_name("规章")
+	return current_item.info 
 
 func _have_item(_item_name):
 	for item in item_list:

@@ -1,10 +1,9 @@
-tool
 extends RichTextLabel
 
 
 export(String) var id:String = "main"
 export(float, 0.0, 1.0) var time:float = 0.0
-export(float, 1.0, 32.0) var length:float = 8.0
+export(float, 1.0, 64.0) var length:float = 8.0
 export(bool) var reverse:bool = false
 export(bool) var all_at_once:bool = false
 export(float, 0.1, 2.0) var animation_time:float = 1.0 

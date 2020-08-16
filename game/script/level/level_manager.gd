@@ -58,6 +58,7 @@ func _ready():
 			if tileID == tileIdMap[type]:
 				birthPos.append(cord)
 
+	var isSpecialAnt = GlobalStatusMgr.is_special_ant(curLevel, curZhoumu)
 	for pos in birthPos:
 		var ant_scene = load(ant_path)
 		var ant_instance = ant_scene.instance()
@@ -66,6 +67,10 @@ func _ready():
 		ants.append(ant_instance)
 		ant_instance.position=(pos*64)+Vector2(32,32)
 		ant_instance.round_time = round_time
+		if isSpecialAnt:
+			ant_instance.set_ant2()
+		else:
+			ant_instance.set_ant1()
 
 func _process(delta):
 	var length=0

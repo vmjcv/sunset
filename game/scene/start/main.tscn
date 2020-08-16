@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://script/start/main.gd" type="Script" id=1]
 [ext_resource path="res://texture/start/start.png" type="Texture" id=2]
 [ext_resource path="res://texture/start/start_bg.png" type="Texture" id=3]
 [ext_resource path="res://texture/start/bg2.jpg" type="Texture" id=4]
+[ext_resource path="res://texture/common/biaoti2.png" type="Texture" id=5]
 [ext_resource path="res://shader/breath.shader" type="Shader" id=9]
 [ext_resource path="res://shader/title_breath.shader" type="Shader" id=11]
 
@@ -31,6 +32,9 @@ __meta__ = {
 position = Vector2( 956.425, 250.908 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Container" type="Control" parent="."]
 anchor_right = 1.0
@@ -78,4 +82,9 @@ stretch_mode = 6
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="biaoti2" type="Sprite" parent="."]
+position = Vector2( 990.968, 379.943 )
+scale = Vector2( 1.46025, 1.67911 )
+texture = ExtResource( 5 )
 [connection signal="pressed" from="Container/start_bg/start" to="." method="_on_start_pressed"]

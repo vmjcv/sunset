@@ -101,15 +101,12 @@ func _process(delta):
 				check_ant_status(ant)
 				length=length-1
 
-	var need_check = true
 	if length<=0 and have_move:
 		for ant in ants:
 			if ant.now_status>-1:
-				need_check=false
-				need_check = not move_turn(ant.now_status)
+				move_turn(ant.now_status)
 				break
-		if  need_check:
-			check_pass()
+	check_pass()
 
 func _input(event):
 	var isMoving = false

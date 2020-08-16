@@ -9,7 +9,7 @@ onready var temp_timer = $Timer
 
 onready var open_box = $"箱子开"
 onready var close_box = $"箱子关"
-onready var specialWay = false
+var specialWay
 
 var need_close=true
 var bsc_bool = true
@@ -43,6 +43,15 @@ func get_one():
 			open_box.hide()
 			move_child(close_box,get_child_count())
 			close_box.show()
+			
+			if GlobalStatusMgr.zhoumu == 3 and  GlobalStatusMgr.curLevel == 1:
+
+				if self.specialWay:
+					SceneMgr.changeScene("res://scene/cg/VideoCg5.tscn")
+				else:
+					SceneMgr.changeScene("res://scene/cg/VideoCg6.tscn")
+					pass
+				return 
 			GlobalStatusMgr._matchResult(_item_name_list,bsc_bool)
 		else:
 			need_close = true

@@ -27,11 +27,14 @@ func onLevelFinish():
 #		zhoumu += 1
 #		levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
 #	else:
+
 	var s
 	if zhoumu == 1:
 		s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
-	else:
+	elif zhoumu ==2:
 		s = SceneMgr.changeScene('res://scene/juqing/2/juqing.tscn')
+	elif zhoumu ==3:
+		s = SceneMgr.changeScene('res://scene/juqing/3/juqing1.tscn')	
 	s.finishLevel(zhoumu, curLevel)
 	
 func getCurLevel():
@@ -51,12 +54,12 @@ func goToLevel(number):
 	curLevel = number
 	#TODO 跳转关卡
 	#print("jump to " + str(number))
-	_matchResult([],true)
-#	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
-#	var panel = scene.get_node("Panel")
-#	panel.set_map_id(curLevel, zhoumu)
-#	panel.connect("match_result", self, "_matchResult")
-#	AudioPlayer.play_bg("%s-%s"%[zhoumu,curLevel])
+#	_matchResult([],true)
+	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
+	var panel = scene.get_node("Panel")
+	panel.set_map_id(curLevel, zhoumu)
+	panel.connect("match_result", self, "_matchResult")
+	AudioPlayer.play_bg("%s-%s"%[zhoumu,curLevel])
 	
 func nextZhoumu():
 	pass

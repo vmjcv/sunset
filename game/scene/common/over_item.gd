@@ -43,6 +43,8 @@ func change_img(item_name):
 			path="res://texture/item/家规.png"
 		"结婚照":
 			path="res://texture/item/结婚照.png"
+		"奇怪的门":
+			path="res://texture/item/纸.png"
 	
 	texture=load(path)
 	

@@ -151,7 +151,7 @@ func move_turn(turn):
 		var item = get_tile_item(mapIndex.x, mapIndex.y)
 		var dict_index = mapIndex.x*100+mapIndex.y
 		
-		if not itemList.keys().has(dict_index):
+		if not itemList.keys().has(dict_index) and item:
 			itemList[dict_index] = item
 			item.hide()
 		ant.now_status = turn

@@ -5,6 +5,7 @@ var bStart = false
 const allTime = 3
 var talker
 var value
+var nameStr
 signal finish_one_talk
 
 func _ready():
@@ -38,14 +39,14 @@ func close_panel():
 func talk(iTalker, sValue):
 	talker = iTalker
 	value=sValue
-	var name
 
 	if iTalker == 0:
-		name = "我"
+		nameStr = "我"
 	else:
-		name = "妈妈"
+		nameStr = "妈妈"
+		
 func talk_now():
-	get_node("NinePatchRect/label").bbcode_text = "[color=gray]"+name+":[/color] [bounce]"+value+"[/bounce]"
+	get_node("NinePatchRect/label").bbcode_text = "[color=gray]"+nameStr+":[/color] [bounce]"+value+"[/bounce]"
 	get_node("NinePatchRect/label").time = 0
 	startTime = OS.get_ticks_msec()
 	bStart = true

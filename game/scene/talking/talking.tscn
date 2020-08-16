@@ -122,8 +122,8 @@ texture = ExtResource( 2 )
 
 [node name="NinePatchRect" type="TextureRect" parent="."]
 anchor_right = 1.0
-margin_top = 625.0
-margin_bottom = 1105.0
+margin_top = 600.0
+margin_bottom = 1080.0
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 1
@@ -143,7 +143,6 @@ custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
 custom_effects = [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), null, null ]
-reverse = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0

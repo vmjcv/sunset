@@ -35,12 +35,7 @@ func get_by_name(item_name):
 func show_item_talk(id):
 	var current_item = get_by_name(item_dict[id].name)
 	var info = _create_info(current_item)
-	print(id)
-	print(item_dict[id].name)
-	#text_manage(0,info)
-	TalkMgr.talk([[0,info]])
-	
-	
+
 	item_list.append(info)
 	TalkMgr.talk([[0, info]])
 	return 

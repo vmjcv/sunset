@@ -38,15 +38,14 @@ func close_panel():
 func talk(iTalker, sValue):
 	talker = iTalker
 	value=sValue
-	var sp
+	var name
 
-#	if iTalker == 0:
-#		sp = get_node("mom")
-#	else:
-#		sp = get_node("daughter")
-#	sp.show()
+	if iTalker == 0:
+		name = "我"
+	else:
+		name = "妈妈"
 func talk_now():
-	get_node("NinePatchRect/label").bbcode_text = "[color=gray]bounce:[/color] [bounce]"+value+"[/bounce]"
+	get_node("NinePatchRect/label").bbcode_text = "[color=gray]"+name+":[/color] [bounce]"+value+"[/bounce]"
 	get_node("NinePatchRect/label").time = 0
 	startTime = OS.get_ticks_msec()
 	bStart = true

@@ -16,12 +16,16 @@ func  _enter_tree():
 
 func _sayOneLine():
 	if len(talkingList) > 0:
+		print("kkkkk")
 		var oneTalkingItem = talkingList.pop_front()
 		if panel:
+			print(panel)
 			pass
 		else:
 			panel = SceneMgr.showPanel('res://scene/talking/talking.tscn')
 			panel.get_node("AnimationPlayer").play("up")
+			print(panel.get_node("AnimationPlayer"))
+			print("11111111111")
 		panel.connect("finish_one_talk", self, "_sayOneLine")
 		panel.talk(oneTalkingItem[0], oneTalkingItem[1])
 	else:
@@ -34,5 +38,6 @@ func _sayOneLine():
 
 # lTalkingList = [[iTalker, sValue]]
 func talk(lTalkingList):
+	print(lTalkingList)
 	talkingList = lTalkingList
 	_sayOneLine()

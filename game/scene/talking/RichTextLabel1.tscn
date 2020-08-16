@@ -19,4 +19,7 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-time = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )

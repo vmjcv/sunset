@@ -202,7 +202,6 @@ func check_ant_status(ant):
 		swallowed[dict_key] = true
 	if globalVar.HOLE.has(tileName):
 		ant.set_isDie(true)
-		
 	
 	var index = 0
 	while index < ants.size():
@@ -210,8 +209,6 @@ func check_ant_status(ant):
 			ants.remove(index)
 		else:
 			index = index + 1
-	if ants.size() == 0:
-		show_fail()
 
 func get_all_grids_number():
 	var dict = {}
@@ -267,22 +264,20 @@ func check_pass():
 
 
 func show_pass():
-	print("通关啦!!!!!!!!!!!!!!!!")
 	var game_over = preload("res://scene/common/game_over.tscn")
 	var panel = game_over.instance()
 	add_child(panel)
 	panel.get_item_list(itemList,true)
-	
-	
-	
-	
 	#确认后发送事件
 	#emit_signal("success")
 	
 func show_fail():
-	print("你输拉!!!!!!!!!!!!!!!!")
+	pass
 	#确认后发送事件
 	#emit_signal("fail")
+
+func replay():
+	GlobalStatusMgr.goToLevel(curLevel)
 		
 class MyCustomSorter:
 	static func _sort_by_x(a, b):

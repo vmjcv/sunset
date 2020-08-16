@@ -25,10 +25,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="."]
-visible = false
-margin_left = 911.0
-margin_top = 500.0
-margin_right = 1008.0
-margin_bottom = 579.0
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="replay" type="Button" parent="Panel2"]
+margin_left = 850.0
+margin_top = -520.0
+margin_right = 947.0
+margin_bottom = -441.0
 icon = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Panel2/replay" to="Panel" method="replay"]

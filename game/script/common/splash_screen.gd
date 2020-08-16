@@ -35,7 +35,6 @@ func logo_anim_finished():
 	studio_anim.play()
 	
 func studio_anim_finished():
-	print("finished")
 	emit_signal("done")
 	#queue_free()
 	SceneMgr.changeScene("res://scene/cg/VideoCg1.tscn")

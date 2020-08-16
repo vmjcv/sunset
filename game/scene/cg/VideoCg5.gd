@@ -17,5 +17,7 @@ func _ready():
 
 
 func _on_VideoPlayer_finished():
-	SceneMgr.changeScene('res://scene/start/main.tscn')
+	SceneMgr.changeScene('res://scene/start/menu.tscn')
+	GlobalStatusMgr.zhoumu=1
+	GlobalStatusMgr.levelFinsihList= {1:false, 2:false, 3:false, 4:false, 5:false}
 	AudioPlayer.play_bg("菜单")

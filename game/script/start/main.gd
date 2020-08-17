@@ -1,4 +1,4 @@
-extends TextureRect
+extends Container
 
 var nStartSlipTime = 0
 var slipTime = 300

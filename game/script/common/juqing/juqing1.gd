@@ -1,4 +1,4 @@
-extends TextureRect
+extends Container
 
 signal finish_talk
 

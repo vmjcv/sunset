@@ -20,11 +20,9 @@ func updateStatus(iZhoumu, dLevel):
 			status = STATUS_OPEN
 	
 	if status == STATUS_FINISH:
-		get_node("btn").hide()
 		get_node("open").hide()
 		get_node("finish").show()
 	else:
-		get_node("btn").show()
 		get_node("open").show()
 		get_node("finish").hide()
 

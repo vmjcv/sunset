@@ -33,50 +33,58 @@
 [ext_resource path="res://script/common/juqing/dilie.gd" type="Script" id=31]
 [ext_resource path="res://texture/juqing/1/ant_4.png" type="Texture" id=32]
 
-[node name="main" type="TextureRect"]
-margin_left = 239.337
-margin_top = 132.33
-margin_right = 2159.34
-margin_bottom = 1212.33
-rect_scale = Vector2( 0.75, 0.75 )
+[node name="main" type="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 960.122, 542.961 )
+[node name="Sprite" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="flower" type="Node2D" parent="."]
-position = Vector2( 254.309, 355.967 )
+position = Vector2( 428, 403.329 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 19 )
-
-[node name="open" type="Sprite" parent="flower"]
-position = Vector2( 0, 6 )
-texture = ExtResource( 2 )
 
 [node name="finish" type="Sprite" parent="flower"]
 visible = false
 position = Vector2( 0, -67.3334 )
 texture = ExtResource( 3 )
 
-[node name="btn" type="Button" parent="flower"]
+[node name="open" type="TextureButton" parent="flower"]
 light_mask = -2147483648
-margin_left = -59.8728
-margin_top = -81.1879
-margin_right = 60.1272
-margin_bottom = 73.8121
-flat = true
+margin_left = -119.0
+margin_top = -81.0
+margin_right = 121.0
+margin_bottom = 87.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="award" type="Node2D" parent="."]
-position = Vector2( 1828.51, 126.921 )
+position = Vector2( 1619.51, 226.921 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 18 )
 
 [node name="finish" type="Sprite" parent="award"]
@@ -84,18 +92,20 @@ visible = false
 position = Vector2( 0, 60.6666 )
 texture = ExtResource( 4 )
 
-[node name="chouti" type="ToolButton" parent="award"]
+[node name="chouti" type="Button" parent="award"]
 light_mask = -2147483648
-margin_left = -409.508
-margin_top = 139.079
-margin_right = 117.492
-margin_bottom = 262.079
+margin_left = -399.347
+margin_top = 145.439
+margin_right = 100.653
+margin_bottom = 255.439
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="picture" type="Node2D" parent="."]
-position = Vector2( 1504.42, 173.077 )
+position = Vector2( 1367.42, 261.077 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 21 )
 
 [node name="close" type="Sprite" parent="picture"]
@@ -112,18 +122,17 @@ visible = false
 position = Vector2( -0.552368, 12.3201 )
 texture = ExtResource( 5 )
 
-[node name="jump" type="ToolButton" parent="picture"]
+[node name="jump" type="Button" parent="picture"]
 light_mask = -2147483648
 margin_left = -61.7404
 margin_top = -70.5314
 margin_right = 58.2596
 margin_bottom = 84.4686
-__meta__ = {
-"_edit_use_anchors_": false
-}
+flat = true
 
 [node name="ring" type="Node2D" parent="."]
-position = Vector2( 452.618, 344.535 )
+position = Vector2( 571.618, 390.535 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 20 )
 
 [node name="close" type="Sprite" parent="ring"]
@@ -140,18 +149,20 @@ visible = false
 position = Vector2( 21.1494, 65.4251 )
 texture = ExtResource( 9 )
 
-[node name="jump" type="ToolButton" parent="ring"]
+[node name="jump" type="Button" parent="ring"]
 light_mask = -2147483648
 margin_left = -5.31024
 margin_top = 44.2047
 margin_right = 54.6898
 margin_bottom = 104.205
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="daughter" type="Node2D" parent="."]
 position = Vector2( 789.305, 496.209 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 22 )
 
 [node name="flower" type="Sprite" parent="daughter"]
@@ -175,7 +186,8 @@ position = Vector2( 48.4702, 61.8615 )
 texture = ExtResource( 16 )
 
 [node name="ant" type="Node2D" parent="."]
-position = Vector2( 957.115, 993.647 )
+position = Vector2( 957.115, 882.647 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 30 )
 
 [node name="status1" type="Sprite" parent="ant"]
@@ -193,11 +205,12 @@ position = Vector2( 28.2205, -305.318 )
 texture = ExtResource( 29 )
 
 [node name="s4" type="Sprite" parent="ant"]
-position = Vector2( 147.114, -1002.33 )
+position = Vector2( 147.781, -1009.66 )
 texture = ExtResource( 32 )
 
 [node name="dilie" type="Node2D" parent="."]
-position = Vector2( 959.357, 953.284 )
+position = Vector2( 958.115, 851 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 31 )
 
 [node name="status1" type="Sprite" parent="dilie"]
@@ -215,15 +228,16 @@ position = Vector2( 3.55408, 53.3318 )
 texture = ExtResource( 27 )
 
 [node name="mom" type="Node2D" parent="."]
-position = Vector2( 985.33, 512.887 )
+position = Vector2( 977.33, 515.887 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 23 )
 
 [node name="statu1" type="Sprite" parent="mom"]
-visible = false
 position = Vector2( 23.9034, 66.6512 )
 texture = ExtResource( 12 )
 
 [node name="statu2" type="Sprite" parent="mom"]
+visible = false
 position = Vector2( 36.5287, 107.084 )
 texture = ExtResource( 11 )
 
@@ -237,7 +251,7 @@ color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="flower/btn" to="flower" method="_on_btn_pressed"]
+[connection signal="pressed" from="flower/open" to="flower" method="_on_btn_pressed"]
 [connection signal="pressed" from="award/chouti" to="award" method="_on_chouti_pressed"]
 [connection signal="pressed" from="picture/jump" to="picture" method="_on_jump_pressed"]
 [connection signal="pressed" from="ring/jump" to="ring" method="_on_jump_pressed"]

@@ -1,4 +1,4 @@
-extends Sprite
+extends TextureRect
 
 
 # Declare member variables here. Examples:

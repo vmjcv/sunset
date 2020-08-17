@@ -50,7 +50,6 @@ func talk(iTalker, sValue):
 		nameStr = "妈妈"
 		
 func talk_now():
-	print_stack()
 	get_node("NinePatchRect/label").bbcode_text = "[color=gray]"+nameStr+":[/color] [bounce]"+value+"[/bounce]"
 	get_node("NinePatchRect/label").time = 0
 	startTime = OS.get_ticks_msec()

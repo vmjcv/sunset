@@ -8,7 +8,8 @@ signal finish_talk
 var temp_timer
 
 func _do_talk():
-	SceneMgr.changeScene("res://scene/juqing/2/juqing3.tscn")
+#	Fade.fade_in(self, 3)
+	SceneMgr.changeSceneFade("res://scene/juqing/2/juqing3.tscn")
 
 func _showDuihua():
 	connect("finish_talk", self, "_do_talk")

@@ -1,16 +1,16 @@
 extends Node
 
-const maxLevelEachZhoumu = 5
 
 var curLevel = 0
 
 var levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
-var zhoumu = 1
+var zhoumu = 2
 
 func _ready():
 	pass
 	
 func _matchResult(item_list,bSuc):
+	print_stack()
 	if bSuc:
 		onLevelFinish()
 	else:
@@ -32,9 +32,9 @@ func onLevelFinish():
 	if zhoumu == 1:
 		s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
 	elif zhoumu ==2:
-		s = SceneMgr.changeScene('res://scene/juqing/2/juqing2.tscn')
+		s = SceneMgr.changeSceneFade('res://scene/juqing/2/juqing2.tscn')
 	elif zhoumu ==3:
-		s = SceneMgr.changeScene('res://scene/juqing/3/juqing1.tscn')	
+		s = SceneMgr.changeScene('res://scene/juqing/3/juqing1.tscn')
 	s.finishLevel(zhoumu, curLevel)
 	
 func getCurLevel():

@@ -3,6 +3,9 @@ extends Node
 var last_scene = null
 var current_scene = null
 
+# fade变化时的背景板
+var temp_color_scene = null
+
 #预加载场景
 var perload_scene_map = {}
 
@@ -22,11 +25,13 @@ const sceneH = 1080
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
+	preloadScene('res://scene/common/fade_bg_scene.tscn')
 
 func _process(time):
 	if bSlipAction:
 		if OS.get_ticks_msec() - nStartSlipTime > slipTime:
 			last_scene.queue_free()
+			last_scene = null
 			get_tree().set_current_scene(current_scene)
 			current_scene.rect_position = curSceneposi
 			set_process(false)
@@ -94,6 +99,30 @@ func _action_goto_scene(path):
 	set_process(true)
 	return current_scene
 
+func _after_fade():
+	last_scene.queue_free()
+	last_scene = null
+	temp_color_scene.queue_free()
+	temp_color_scene = null
+	get_tree().set_current_scene(current_scene)
+
+func _change_scene_with_fade(path, sec):
+	last_scene = current_scene
+
+	var s = null
+	if perload_scene_map.get(path):
+		s = perload_scene_map[path]
+	else:
+		s = ResourceLoader.load(path)
+	current_scene = s.instance()
+	get_tree().get_root().add_child(current_scene)
+	temp_color_scene = perload_scene_map['res://scene/common/fade_bg_scene.tscn'].instance()
+	get_tree().get_root().add_child(temp_color_scene)
+	
+	current_scene.modulate.a = 0
+	Fade.fade_in(last_scene, sec)
+	Fade.fade_out(current_scene, sec, funcref(self, "_after_fade"))
+	return current_scene
 
 # 更改当前场景
 func changeScene(tscnPath):
@@ -103,6 +132,11 @@ func changeScene(tscnPath):
 # 更改当前场景，使用上下切换的动画
 func goDownScene(tscnPath):
 	return _action_goto_scene(tscnPath)
+
+func changeSceneFade(tscnPath, sec = 1):
+	print(tscnPath, temp_color_scene)
+	assert(temp_color_scene == null, "切换场景中，不能重复调用changeSceneFade")
+	return _change_scene_with_fade(tscnPath, sec)
 
 # 加载场景
 func preloadScene(tscnPath):

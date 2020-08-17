@@ -3,17 +3,15 @@
 [ext_resource path="res://script/start/main.gd" type="Script" id=1]
 [ext_resource path="res://texture/start/bg2.jpg" type="Texture" id=4]
 
-[node name="ColorRect" type="TextureRect"]
+[node name="ColorRect" type="Container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.22772
 margin_top = -1.16634
 margin_right = 1.22778
 margin_bottom = -1.16632
-expand = true
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -21,9 +19,6 @@ __meta__ = {
 position = Vector2( 956.425, 250.908 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Container" type="Control" parent="."]
 anchor_right = 1.0
@@ -43,4 +38,7 @@ margin_left = -609.04
 margin_top = -413.28
 margin_right = 602.2
 margin_bottom = 471.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Container/start" to="." method="_on_start_pressed"]

@@ -4,8 +4,12 @@
 [ext_resource path="res://scene/cg/VideoCg1.gd" type="Script" id=2]
 
 [node name="VideoPlayer" type="VideoPlayer"]
-margin_right = 1936.0
-margin_bottom = 1088.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
 stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 2 )

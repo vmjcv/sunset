@@ -98,9 +98,8 @@ tracks/2/keys = {
 }
 
 [node name="main" type="TextureRect"]
-margin_top = -8.0
-margin_right = 1918.0
-margin_bottom = 1079.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -121,12 +120,13 @@ position = Vector2( 1665.7, 520.795 )
 texture = ExtResource( 2 )
 
 [node name="NinePatchRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
-margin_top = 1104.0
-margin_bottom = 1584.0
+margin_top = 1120.0
+margin_bottom = 1600.0
 texture = ExtResource( 11 )
 expand = true
-stretch_mode = 1
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -148,3 +148,6 @@ custom_effects = [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ), ExtReso
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

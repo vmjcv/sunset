@@ -26,6 +26,7 @@ func _ready():
 func set_isTrapped(flag):
 	isTrapped = flag
 	now_status = -1
+	$Ant/icon.stop()
 	
 func get_isTrapped():
 	return isTrapped
@@ -40,8 +41,6 @@ func get_isSwallowed():
 func set_isDie(flag):
 	now_status = -1
 	isDie = flag
-#	$Ant/icon.hide()
-#	$Ant/mayi.show()
 	hide()
 	
 func get_isDie():

@@ -3,10 +3,11 @@
 [ext_resource path="res://texture/cg/loose_temper.ogv" type="VideoStream" id=1]
 [ext_resource path="res://scene/cg/VideoCg3.gd" type="Script" id=2]
 
-
 [node name="VideoPlayer" type="VideoPlayer"]
-margin_right = 1936.0
-margin_bottom = 1088.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
 stream = ExtResource( 1 )
 autoplay = true
 script = ExtResource( 2 )

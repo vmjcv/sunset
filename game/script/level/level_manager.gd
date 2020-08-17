@@ -135,6 +135,32 @@ func _input(event):
 	elif Input.is_action_pressed('ui_right'):
 		move_turn(RIGHT)
 		
+func my_input(movement):
+	var isMoving = false
+	for ant in ants:
+		if ant.get_move_status():
+			isMoving = true
+	if isMoving:
+		return
+	else:
+		round_time = round_time + 1
+		for ant in ants:
+			ant.round_time = round_time
+		var index = 0
+		while index < ants.size():
+			if ants[index].get_isDie():
+				ants.remove(index)
+			else:
+				index = index + 1
+	if movement == 'ui_up':
+		move_turn(UP)
+	elif movement == 'ui_down':
+		move_turn(DOWN)
+	elif movement == 'ui_left':
+		move_turn(LEFT)
+	elif movement == 'ui_right':
+		move_turn(RIGHT)
+		
 func move_turn(turn):
 	var turn_vector2
 	match turn:

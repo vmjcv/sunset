@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://texture/item/负面情绪.png" type="Texture" id=1]
+[ext_resource path="res://texture/item/negative_emotion.png" type="Texture" id=1]
 [ext_resource path="res://scene/map/common_set.tres" type="TileSet" id=2]
 [ext_resource path="res://scene/map/tile_map.gd" type="Script" id=3]
 [ext_resource path="res://scene/map/tile_item.tscn" type="PackedScene" id=16]
+
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 2 )

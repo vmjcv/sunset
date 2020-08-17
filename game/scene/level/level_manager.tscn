@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://script/level/level_manager.gd" type="Script" id=1]
-[ext_resource path="res://texture/blocks/重开.png" type="Texture" id=2]
+[ext_resource path="res://texture/blocks/reopen.png" type="Texture" id=2]
+
 
 [node name="CenterNode" type="CenterContainer"]
 anchor_right = 1.0

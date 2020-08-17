@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scene/map/tile_item.gd" type="Script" id=1]
-[ext_resource path="res://texture/item/奖状.png" type="Texture" id=2]
+[ext_resource path="res://texture/item/certificate.png" type="Texture" id=2]
+
 
 [node name="tile_item" type="Sprite"]
 position = Vector2( 352.139, 100.409 )

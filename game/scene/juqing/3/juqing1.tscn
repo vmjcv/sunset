@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scene/juqing/3/juqing1.gd" type="Script" id=1]
-[ext_resource path="res://texture/juqing/3/第三章 1 开局画面，点哪都行，跳对话框.jpg" type="Texture" id=2]
+[ext_resource path="res://texture/juqing/3/3_1_1.jpg" type="Texture" id=2]
+
+
 
 [node name="main" type="TextureRect"]
 anchor_right = 1.0

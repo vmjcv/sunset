@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scene/juqing/3/juqing3.gd" type="Script" id=1]
-[ext_resource path="res://texture/juqing/3/第三章 3 第二次走进，伸手.jpg" type="Texture" id=2]
+[ext_resource path="res://texture/juqing/3/3_1_3.jpg" type="Texture" id=2]
+
 
 [node name="main" type="TextureRect"]
 anchor_right = 1.0

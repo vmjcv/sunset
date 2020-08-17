@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scene/juqing/3/juqing4.gd" type="Script" id=1]
-[ext_resource path="res://texture/juqing/3/第三章 4 再次点击对话框后，坠落。下一个场景就是内心世界入口的断桥.jpg" type="Texture" id=2]
+[ext_resource path="res://texture/juqing/3/3_1_4.jpg" type="Texture" id=2]
+
 
 [node name="main" type="TextureRect"]
 anchor_right = 1.0

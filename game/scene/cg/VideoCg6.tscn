@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://texture/cg/6-大结局-制作人员名单-萤火虫.ogv" type="VideoStream" id=1]
+[ext_resource path="res://texture/cg/season_finale.ogv" type="VideoStream" id=1]
 [ext_resource path="res://scene/cg/VideoCg6.gd" type="Script" id=2]
+
 
 [node name="VideoPlayer" type="VideoPlayer"]
 margin_right = 1936.0

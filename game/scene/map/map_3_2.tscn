@@ -2,9 +2,11 @@
 
 [ext_resource path="res://scene/map/common_set.tres" type="TileSet" id=1]
 [ext_resource path="res://scene/map/tile_item.tscn" type="PackedScene" id=14]
-[ext_resource path="res://texture/item/干燥剂.png" type="Texture" id=15]
-[ext_resource path="res://texture/item/花.png" type="Texture" id=16]
+[ext_resource path="res://texture/item/desiccant.png" type="Texture" id=15]
+[ext_resource path="res://texture/item/flower.png" type="Texture" id=16]
 [ext_resource path="res://scene/map/tile_map.gd" type="Script" id=17]
+
+
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )

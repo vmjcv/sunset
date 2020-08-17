@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://texture/item/箱子开.png" type="Texture" id=2]
-[ext_resource path="res://texture/item/箱子关.png" type="Texture" id=3]
+[ext_resource path="res://texture/item/open_box.png" type="Texture" id=2]
+[ext_resource path="res://texture/item/close_box.png" type="Texture" id=3]
 [ext_resource path="res://ColorRect.gd" type="Script" id=4]
 
 [node name="ColorRect" type="ColorRect"]

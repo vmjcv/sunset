@@ -15,10 +15,10 @@ func updateStatus(iZhoumu, dLevel):
 	else:
 		status = STATUS_NORMAL
 	
-	get_node("statu1").hide()
-	get_node("statu2").hide()
 	if status == STATUS_NORMAL:
-		get_node("statu1").show()
+		Fade.fade_out(get_node("statu1"), GlobalConst.JUQING_FADE_SEC)
+		Fade.fade_in(get_node("statu2"), GlobalConst.JUQING_FADE_SEC)
 	elif status == STATUS_SAD:
-		get_node("statu2").show()
+		Fade.fade_out(get_node("statu2"), GlobalConst.JUQING_FADE_SEC)
+		Fade.fade_in(get_node("statu1"), GlobalConst.JUQING_FADE_SEC)
 

@@ -10,5 +10,7 @@ const OBSTACLE = ["obstacle"]
 const HOLE = ["hole"]
 const BROKEN = ["broken1", "broken2", "broken3"]
 
+const JUQING_FADE_SEC = 1
+
 func _ready():
 	pass

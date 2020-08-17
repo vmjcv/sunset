@@ -37,6 +37,7 @@ GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
 SceneMgr="*res://script/common/scene_mgr.gd"
 TalkMgr="*res://script/taking/talk_mgr.gd"
 Fade="*res://script/common/fade.gd"
+GlobalConst="*res://script/common/global.gd"
 
 [display]
 

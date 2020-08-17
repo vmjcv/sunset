@@ -4,13 +4,12 @@ extends Node
 var curLevel = 0
 
 var levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
-var zhoumu = 2
+var zhoumu = 1
 
 func _ready():
 	pass
 	
 func _matchResult(item_list,bSuc):
-	print_stack()
 	if bSuc:
 		onLevelFinish()
 	else:
@@ -32,7 +31,7 @@ func onLevelFinish():
 	if zhoumu == 1:
 		s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
 	elif zhoumu ==2:
-		s = SceneMgr.changeSceneFade('res://scene/juqing/2/juqing2.tscn')
+		s = SceneMgr.changeScene('res://scene/juqing/2/juqing2.tscn')
 	elif zhoumu ==3:
 		s = SceneMgr.changeScene('res://scene/juqing/3/juqing1.tscn')
 	s.finishLevel(zhoumu, curLevel)
@@ -55,7 +54,7 @@ func goToLevel(number):
 	#TODO 跳转关卡
 	#print("jump to " + str(number))
 #	_matchResult([],true)
-	var scene = SceneMgr.changeScene('res://scene/level/level_manager.tscn')
+	var scene = SceneMgr.changeSceneFade('res://scene/level/level_manager.tscn')
 	var panel = scene.get_node("Panel")
 	panel.set_map_id(curLevel, zhoumu)
 	panel.connect("match_result", self, "_matchResult")

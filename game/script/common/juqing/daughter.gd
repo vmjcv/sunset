@@ -3,23 +3,24 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("flower").modulate.a = 0
+	get_node("rings").modulate.a = 0
+	get_node("award").modulate.a = 0
+	get_node("picture").modulate.a = 0
 	pass # Replace with function body.
 
 func updateStatus(iZhoumu, dLevel):
 	pass
-	
+
 	
 func showGift(sTag):
-	get_node("flower").hide()
-	get_node("rings").hide()
-	get_node("award").hide()
-	get_node("picture").hide()
+	hideNodes()
 	
-	get_node(sTag).show()
+	Fade.fade_out(get_node(sTag), GlobalConst.JUQING_FADE_SEC)
 
 	
 func hideNodes():
-	get_node("flower").hide()
-	get_node("rings").hide()
-	get_node("award").hide()
-	get_node("picture").hide()
+	Fade.fade_in(get_node("flower"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("rings"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("award"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("picture"), GlobalConst.JUQING_FADE_SEC)

@@ -11,29 +11,34 @@ func _ready():
 	pass # Replace with function body.
 
 func updateStatus(iZhoumu, dLevel):
+	var nowStatus
 	if iZhoumu > 1:
-		status = STATUS_FINISH
+		nowStatus = STATUS_FINISH
 	else:
 		if not dLevel[1] or not dLevel[2]:
-			status = STATUS_CLOSE
+			nowStatus = STATUS_CLOSE
 		elif dLevel[4]:
-			status = STATUS_FINISH
+			nowStatus = STATUS_FINISH
 		else:
-			status = STATUS_OPEN
+			nowStatus = STATUS_OPEN
+			
+	if nowStatus == status:
+		return
+	status = nowStatus
 	
-	get_node("close").hide()
-	get_node("open").hide()
-	get_node("finish").hide()
+	Fade.fade_in(get_node("close"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("open"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
 	get_node("jump").hide()
 	if status == STATUS_CLOSE:
-		get_node("close").show()
+		Fade.fade_out(get_node("close"), GlobalConst.JUQING_FADE_SEC)
 	elif status == STATUS_OPEN:
-		get_node("open").show()
+		Fade.fade_out(get_node("open"), GlobalConst.JUQING_FADE_SEC)
 		get_node("jump").show()
 	else:
-		get_node("finish").show()
+		Fade.fade_out(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
 
 
 
 func _on_jump_pressed():
-	GlobalStatusMgr.goToLevel(4)
+	SceneMgr.changeScene("res://scene/cg/VideoCg2.tscn")

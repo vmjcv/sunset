@@ -20,11 +20,11 @@ func updateStatus(iZhoumu, dLevel):
 			status = STATUS_OPEN
 	
 	if status == STATUS_FINISH:
+		Fade.fade_out(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
 		get_node("open").hide()
-		get_node("finish").show()
 	else:
+		Fade.fade_in(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
 		get_node("open").show()
-		get_node("finish").hide()
 
 func _on_btn_pressed():
 	GlobalStatusMgr.goToLevel(2)

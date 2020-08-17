@@ -63,7 +63,7 @@ scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 19 )
 
 [node name="finish" type="Sprite" parent="flower"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -67.3334 )
 texture = ExtResource( 3 )
 
@@ -88,7 +88,7 @@ scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 18 )
 
 [node name="finish" type="Sprite" parent="award"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 60.6666 )
 texture = ExtResource( 4 )
 
@@ -113,12 +113,12 @@ position = Vector2( 0.233521, -2.70151 )
 texture = ExtResource( 7 )
 
 [node name="open" type="Sprite" parent="picture"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 6 )
 texture = ExtResource( 6 )
 
 [node name="finish" type="Sprite" parent="picture"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -0.552368, 12.3201 )
 texture = ExtResource( 5 )
 
@@ -140,12 +140,12 @@ position = Vector2( 23.9034, 66.6512 )
 texture = ExtResource( 10 )
 
 [node name="open" type="Sprite" parent="ring"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 23.1966, 73.7502 )
 texture = ExtResource( 8 )
 
 [node name="finish" type="Sprite" parent="ring"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 21.1494, 65.4251 )
 texture = ExtResource( 9 )
 
@@ -166,22 +166,18 @@ scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 22 )
 
 [node name="flower" type="Sprite" parent="daughter"]
-visible = false
 position = Vector2( 28.6549, 66.6512 )
 texture = ExtResource( 14 )
 
 [node name="rings" type="Sprite" parent="daughter"]
-visible = false
 position = Vector2( 60.0204, 64.2471 )
 texture = ExtResource( 15 )
 
 [node name="award" type="Sprite" parent="daughter"]
-visible = false
 position = Vector2( -27.5531, 159.266 )
 texture = ExtResource( 13 )
 
 [node name="picture" type="Sprite" parent="daughter"]
-visible = false
 position = Vector2( 48.4702, 61.8615 )
 texture = ExtResource( 16 )
 
@@ -195,12 +191,12 @@ position = Vector2( 59.7865, 81.7825 )
 texture = ExtResource( 28 )
 
 [node name="status2" type="Sprite" parent="ant"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 54.0809, -308.743 )
 texture = ExtResource( 24 )
 
 [node name="status3" type="Sprite" parent="ant"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 28.2205, -305.318 )
 texture = ExtResource( 29 )
 
@@ -218,12 +214,12 @@ position = Vector2( 100.149, -25.8522 )
 texture = ExtResource( 25 )
 
 [node name="status2" type="Sprite" parent="dilie"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 54.0809, -28.4438 )
 texture = ExtResource( 26 )
 
 [node name="status3" type="Sprite" parent="dilie"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 3.55408, 53.3318 )
 texture = ExtResource( 27 )
 
@@ -237,7 +233,7 @@ position = Vector2( 23.9034, 66.6512 )
 texture = ExtResource( 12 )
 
 [node name="statu2" type="Sprite" parent="mom"]
-visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 36.5287, 107.084 )
 texture = ExtResource( 11 )
 

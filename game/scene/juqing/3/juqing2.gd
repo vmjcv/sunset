@@ -22,5 +22,4 @@ func _ready():
 
 
 func _do_talk1():
-	print("22222222222222")
 	SceneMgr.changeScene("res://scene/juqing/3/juqing3.tscn")

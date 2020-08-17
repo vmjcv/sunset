@@ -22,9 +22,9 @@ func updateStatus(iZhoumu, dLevel):
 	
 	if status == STATUS_CLOSE:
 		get_node("chouti").hide()
-		get_node("finish").show()
+		Fade.fade_out(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
 	else:
-		get_node("finish").hide()
+		Fade.fade_out(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
 		get_node("chouti").show()
 
 func _do_talk():

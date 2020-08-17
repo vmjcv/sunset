@@ -48,7 +48,7 @@ __meta__ = {
 }
 
 [node name="joystick" type="Sprite" parent="Panel2"]
-self_modulate = Color( 0, 0, 0, 0.54902 )
+self_modulate = Color( 0, 0, 0, 0.117647 )
 position = Vector2( -650.487, 257.26 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
@@ -57,6 +57,7 @@ region_rect = Rect2( 0, 0, 120, 120 )
 script = ExtResource( 4 )
 
 [node name="point" type="Sprite" parent="Panel2/joystick"]
+self_modulate = Color( 1, 1, 1, 0.392157 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 [connection signal="button_down" from="Panel2/replay" to="Panel" method="replay"]

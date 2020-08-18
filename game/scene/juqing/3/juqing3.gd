@@ -22,4 +22,4 @@ func _ready():
 
 
 func _do_talk1():
-	SceneMgr.changeScene("res://scene/juqing/3/juqing4.tscn")
+	SceneMgr.changeSceneFade("res://scene/juqing/3/juqing4.tscn")

@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scene/map/common_set.tres" type="TileSet" id=1]
+[ext_resource path="res://scene/map/tile_item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://texture/item/yellow_flower.png" type="Texture" id=3]
+[ext_resource path="res://texture/item/blue_flower.png" type="Texture" id=4]
+[ext_resource path="res://texture/item/red_flower.png" type="Texture" id=5]
 [ext_resource path="res://scene/map/tile_map.gd" type="Script" id=17]
 
 [node name="TileMap" type="TileMap"]
@@ -11,3 +15,27 @@ script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="tile_item" parent="." instance=ExtResource( 2 )]
+position = Vector2( 798.801, 675.883 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 4 )
+x = 12
+y = 10
+item_name = "蓝花"
+
+[node name="tile_item2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1122.2, 549.196 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 5 )
+x = 17
+y = 8
+item_name = "红花"
+
+[node name="tile_item3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 989.48, 356.774 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 3 )
+x = 15
+y = 5
+item_name = "黄花"

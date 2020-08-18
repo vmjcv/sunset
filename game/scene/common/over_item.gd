@@ -19,6 +19,12 @@ func change_img(item_name):
 			path="res://texture/item/negative_emotion.png"
 		"花":
 			path="res://texture/item/flower.png"
+		"红花":
+			path="res://texture/item/red_flower.png"
+		"黄花":
+			path="res://texture/item/yellow_flower.png"
+		"蓝花":
+			path="res://texture/item/blue_flower.png"
 		"奖状":
 			path = "res://texture/item/certificate.png"
 		"干燥剂":

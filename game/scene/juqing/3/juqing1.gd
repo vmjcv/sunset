@@ -27,5 +27,5 @@ func _on_jump_pressed():
 #	if click_time==0:
 #		TalkMgr.talk(self,[[0,"11111111111111"]])
 	
-	SceneMgr.changeScene("res://scene/juqing/3/juqing2.tscn")
+	SceneMgr.changeSceneFade("res://scene/juqing/3/juqing2.tscn")
 	pass # Replace with function body.

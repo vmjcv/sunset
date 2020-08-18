@@ -10,7 +10,7 @@ var status = STATUS_FINISH
 func _ready():
 	pass # Replace with function body.
 
-func updateStatus(iZhoumu, dLevel):
+func _setStatus(iZhoumu, dLevel):
 	if iZhoumu > 1:
 		status = STATUS_FINISH
 	else:
@@ -19,12 +19,34 @@ func updateStatus(iZhoumu, dLevel):
 		else:
 			status = STATUS_OPEN
 	
+func resetStatus(iZhoumu, dLevel):
+	_setStatus(iZhoumu, dLevel)
+	
+	if status == STATUS_FINISH:
+		get_node("finish").modulate.a = 1
+		get_node("open").modulate.a = 0
+		get_node("jump").hide()
+	else:
+		get_node("finish").modulate.a = 0
+		get_node("open").modulate.a = 1
+		get_node("jump").show()
+
+func updateStatus(iZhoumu, dLevel):
+	_setStatus(iZhoumu, dLevel)
+	
 	if status == STATUS_FINISH:
 		Fade.fade_out(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
-		get_node("open").hide()
+		Fade.fade_in(get_node("open"), GlobalConst.JUQING_FADE_SEC)
+		get_node("jump").hide()
 	else:
 		Fade.fade_in(get_node("finish"), GlobalConst.JUQING_FADE_SEC)
-		get_node("open").show()
+		Fade.fade_out(get_node("open"), GlobalConst.JUQING_FADE_SEC)
+		get_node("jump").show()
+
+func beforeCG():
+	get_node("finish").modulate.a = 0
+	get_node("open").modulate.a = 1
+	get_node("jump").hide()
 
 func _on_btn_pressed():
 	GlobalStatusMgr.goToLevel(2)

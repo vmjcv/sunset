@@ -20,7 +20,6 @@ func  _enter_tree():
 
 func _sayOneLine():
 	if typeof(talkingList) != TYPE_ARRAY:
-		print(talkingList, 'talkingList')
 		return
 	if len(talkingList) > 0:
 		var oneTalkingItem = talkingList.pop_front()

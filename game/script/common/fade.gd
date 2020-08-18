@@ -14,29 +14,33 @@ func _ready():
 
 func _process(delta):
 	var now = OS.get_ticks_msec()
+	var new_fadein_list = []
 	for fadeInfoList in fadein_list:
 		if fadeInfoList[0] == null:
-			fadein_list.erase(fadeInfoList)
-			return
+			continue
 		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (-fadeInfoList[3]) + fadeInfoList[3]
 		fadeInfoList[0].modulate.a = nowAlpha
 		if fadeInfoList[0].modulate.a<=0:
 			fadeInfoList[0].modulate.a = 0
-			fadein_list.erase(fadeInfoList)
 			if fadeInfoList[4] != null:
 				fadeInfoList[4].call_func()
+		else:
+			new_fadein_list.append(fadeInfoList)
+	fadein_list = new_fadein_list
 
+	var new_fadeout_list = []
 	for fadeInfoList in fadeout_list:
 		if fadeInfoList[0] == null:
-			fadeout_list.erase(fadeInfoList)
-			return
+			continue
 		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (1-fadeInfoList[3]) + fadeInfoList[3]
 		fadeInfoList[0].modulate.a = nowAlpha
 		if fadeInfoList[0].modulate.a > 1:
 			fadeInfoList[0].modulate.a = 1
-			fadeout_list.erase(fadeInfoList)
 			if fadeInfoList[4] != null:
 				fadeInfoList[4].call_func()
+		else:
+			new_fadeout_list.append(fadeInfoList)
+	fadeout_list = new_fadeout_list
 
 func fade_in(node, iSec, callback = null):
 	if node.modulate.a <= 0:

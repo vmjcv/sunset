@@ -11,12 +11,7 @@ var status = STATUS_1
 func _ready():
 	pass # Replace with function body.
 
-func _reset():
-	Fade.fade_in(get_node("status1"), GlobalConst.JUQING_FADE_SEC)
-	Fade.fade_in(get_node("status2"), GlobalConst.JUQING_FADE_SEC)
-	Fade.fade_in(get_node("status3"), GlobalConst.JUQING_FADE_SEC)
-
-func updateStatus(iZhoumu, dLevel):
+func _setStatus(iZhoumu, dLevel):
 	var nowStatus
 	if iZhoumu > 1:
 		status = STATUS_3
@@ -31,10 +26,33 @@ func updateStatus(iZhoumu, dLevel):
 	if nowStatus == status:
 		return
 	status = nowStatus
+
+func resetStatus(iZhoumu, dLevel):
+	_setStatus(iZhoumu, dLevel)
+	
+	get_node("status1").modulate.a = 0
+	get_node("status2").modulate.a = 0
+	get_node("status3").modulate.a = 0
+	if status == STATUS_1:
+		get_node("status1").modulate.a = 1
+	elif status == STATUS_2:
+		get_node("status2").modulate.a = 1
+	elif status == STATUS_3:
+		get_node("status3").modulate.a = 1
+
+func _reset():
+	Fade.fade_in(get_node("status1"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("status2"), GlobalConst.JUQING_FADE_SEC)
+	Fade.fade_in(get_node("status3"), GlobalConst.JUQING_FADE_SEC)
+
+func updateStatus(iZhoumu, dLevel):
+	var npreStatus = status
+	_setStatus(iZhoumu, dLevel)
+	
+	if npreStatus == status:
+		return
 	
 	_reset()
-	if not get_node("status1"):
-		return
 	if status == STATUS_1:
 		Fade.fade_out(get_node("status1"), GlobalConst.JUQING_FADE_SEC)
 	elif status == STATUS_2:

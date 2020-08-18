@@ -52,16 +52,11 @@ func _input(event):
 				CG1z5lCount = 0
 				return
 				
-#			if nowCGZhoumu == 1 and ( nowCGLevel == 2):
-#				nodeDaughter.hideNodes()
-#				updateStatus()
-#				get_node("maskTouch").hide()
-#				bCGing = false
-#			el
-			if nowCGZhoumu == 1 and(nowCGLevel == 4):
+			if nowCGZhoumu == 1 and (nowCGLevel == 4):
 				var dLevel = GlobalStatusMgr.getCurZhoumuLevel()
 				if dLevel[3] and dLevel[4]:
 #					CG及对话
+					nodeRing.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 					nodeDilie.showStatus1()
 					CG1z5lCount = 1
 				else:
@@ -72,6 +67,10 @@ func _input(event):
 			elif nowCGZhoumu == 1 and nowCGLevel == 5:
 				SceneMgr.changeScene("res://scene/cg/VideoCg3.tscn")
 				
+func resetStatus():
+	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeDilie, nodeAnt]:
+		nodes.resetStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
+		
 func updateStatus():
 	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeDilie, nodeAnt]:
 		nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
@@ -81,25 +80,31 @@ func finishLevel(iZhoumu, iLevel):
 	nowCGLevel = iLevel
 	if iZhoumu == 1:
 		if iLevel == 1:
-			for nodes in [nodeAward, nodeFlower, nodeMom,]:
-				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
+			for nodes in [nodeFlower, nodeMom,]:
+				nodes.resetStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('award')
+			nodeAward.beforeCG()
 			CG1to1()
 		elif iLevel == 2:
-			for nodes in [nodeAward, nodeFlower, nodeMom,]:
-				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
+			for nodes in [nodeAward, nodeMom,]:
+				nodes.resetStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('flower')
+			nodeFlower.beforeCG()
 			CG1to2()
 		elif iLevel == 3:
-			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic, nodeRing]:
-				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
+			for nodes in [nodeAward, nodeFlower, nodeMom, nodeRing]:
+				nodes.resetStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('picture')
+			nodePic.beforeCG()
 			CG1to3()			
 		elif iLevel == 4:
-			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic, nodeRing]:
-				nodes.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
+			for nodes in [nodeAward, nodeFlower, nodeMom, nodePic]:
+				nodes.resetStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			nodeDaughter.showGift('rings')
+			nodeRing.beforeCG()
 		elif iLevel == 5:
+			for nodes in [nodeAward, nodeFlower, nodePic, nodeRing]:
+				nodes.resetStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 			updateStatus()
 		get_node("maskTouch").show()
 		bCGing = true
@@ -138,6 +143,7 @@ func _do_talk3():
 	var dLevel = GlobalStatusMgr.getCurZhoumuLevel()
 	if dLevel[3] and dLevel[4]:
 #					CG及对话
+		nodePic.updateStatus(GlobalStatusMgr.getCurZhoumu(), GlobalStatusMgr.getCurZhoumuLevel())
 		nodeDilie.showStatus1()
 		CG1z5lCount = 1
 	else:

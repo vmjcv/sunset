@@ -134,7 +134,6 @@ func goDownScene(tscnPath):
 	return _action_goto_scene(tscnPath)
 
 func changeSceneFade(tscnPath, sec = 1):
-	print(tscnPath, temp_color_scene)
 	assert(temp_color_scene == null, "切换场景中，不能重复调用changeSceneFade")
 	return _change_scene_with_fade(tscnPath, sec)
 

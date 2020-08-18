@@ -67,17 +67,16 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -67.3334 )
 texture = ExtResource( 3 )
 
-[node name="open" type="TextureButton" parent="flower"]
+[node name="open" type="Sprite" parent="flower"]
+position = Vector2( 1.69012, 1.80432 )
+texture = ExtResource( 2 )
+
+[node name="jump" type="TextureButton" parent="flower"]
 light_mask = -2147483648
 margin_left = -119.0
 margin_top = -81.0
 margin_right = 121.0
 margin_bottom = 87.0
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
-texture_disabled = ExtResource( 2 )
-texture_focused = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -247,7 +246,7 @@ color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="flower/open" to="flower" method="_on_btn_pressed"]
+[connection signal="pressed" from="flower/jump" to="flower" method="_on_btn_pressed"]
 [connection signal="pressed" from="award/chouti" to="award" method="_on_chouti_pressed"]
 [connection signal="pressed" from="picture/jump" to="picture" method="_on_jump_pressed"]
 [connection signal="pressed" from="ring/jump" to="ring" method="_on_jump_pressed"]

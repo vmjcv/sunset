@@ -9,6 +9,9 @@ func _ready():
 	get_node("picture").modulate.a = 0
 	pass # Replace with function body.
 
+func resetStatus(iZhoumu, dLevel):
+	pass
+	
 func updateStatus(iZhoumu, dLevel):
 	pass
 

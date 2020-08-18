@@ -18,7 +18,7 @@ func _process(time):
 		return
 	if OS.get_ticks_msec() - nStartSlipTime > slipTime:
 		set_process(false)
-		SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn').updateStatus()
+		SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn').resetStatus()
 		return
 	var changeH = sceneH * (OS.get_ticks_msec() - nStartSlipTime) / slipTime
 	sp.position = Vector2(curposi.x, curposi.y + changeH)

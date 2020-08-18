@@ -11,6 +11,8 @@ func _ready():
 	tween = Tween.new()
 	add_child(tween)
 	tween.connect("tween_all_completed",self,"tween_all_completed")
+	if OS.get_name() != "Android" and OS.get_name() != "iOS":
+		hide()
 
 func _input(event):
 	if event is InputEventScreenDrag or (event is InputEventScreenTouch and event.is_pressed()):

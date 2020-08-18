@@ -34,9 +34,9 @@ func get_one():
 		
 		if GlobalStatusMgr.zhoumu == 3 and  GlobalStatusMgr.curLevel == 1:
 			if self.specialWay:
-				SceneMgr.changeSceneFade("res://scene/cg/VideoCg5.tscn")
+				SceneMgr.changeScene("res://scene/cg/VideoCg5.tscn")
 			else:
-				SceneMgr.changeSceneFade("res://scene/cg/VideoCg6.tscn")
+				SceneMgr.changeScene("res://scene/cg/VideoCg6.tscn")
 				pass
 			return 
 		GlobalStatusMgr._matchResult(_item_name_list,bsc_bool)

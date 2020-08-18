@@ -29,11 +29,11 @@ func onLevelFinish():
 
 	var s
 	if zhoumu == 1:
-		s = SceneMgr.changeSceneFade('res://scene/juqing/1/juqing1.tscn')
+		s = SceneMgr.changeScene('res://scene/juqing/1/juqing1.tscn')
 	elif zhoumu ==2:
-		s = SceneMgr.changeSceneFade('res://scene/juqing/2/juqing2.tscn')
+		s = SceneMgr.changeScene('res://scene/juqing/2/juqing2.tscn')
 	elif zhoumu ==3:
-		s = SceneMgr.changeSceneFade('res://scene/juqing/3/juqing1.tscn')
+		s = SceneMgr.changeScene('res://scene/juqing/3/juqing1.tscn')
 	s.finishLevel(zhoumu, curLevel)
 	
 func getCurLevel():

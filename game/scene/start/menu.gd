@@ -17,5 +17,5 @@ func _ready():
 
 
 func _on_biaoti2_pressed():
-	SceneMgr.changeSceneFade("res://scene/start/main.tscn")
+	SceneMgr.changeScene("res://scene/start/main.tscn")
 	pass # Replace with function body.

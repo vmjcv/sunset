@@ -18,5 +18,5 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			SceneMgr.changeSceneFade("res://scene/cg/VideoCg4.tscn")
+			SceneMgr.changeScene("res://scene/cg/VideoCg4.tscn")
 			

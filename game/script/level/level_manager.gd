@@ -16,6 +16,7 @@ onready var curZhoumu
 onready var specialWay = false
 onready var tilemap_item={}
 
+var is_over =false
 var round_time =0
 
 signal match_result
@@ -76,6 +77,7 @@ func _ready():
 func _process(delta):
 	var length=0
 	var have_move = false
+	var need_check_pass = false
 	for ant in ants:
 		if ant.get_move_status() and ant.round_time<=round_time:
 			have_move = true
@@ -99,9 +101,13 @@ func _process(delta):
 			if move_times <= 0:
 				ant.set_move_status(false)
 				check_ant_status(ant)
-				check_pass()
-				length=length-1
+				need_check_pass = true
 
+				length=length-1
+	
+	if need_check_pass:
+		check_pass()
+	
 	if length<=0 and have_move:
 		for ant in ants:
 			if ant.now_status>-1:
@@ -288,11 +294,13 @@ func check_pass():
 			successNum = successNum + 1
 			specialWay = true
 	#暂时写1，之后条件会读取配置
-	if successNum >= 1:
+	if successNum >= 1 and not is_over:
 		show_pass()
 
 
 func show_pass():
+	is_over = true
+
 	var game_over = preload("res://scene/common/game_over.tscn")
 	var panel = game_over.instance()
 	panel.specialWay= specialWay

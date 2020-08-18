@@ -132,6 +132,9 @@ margin_bottom = 84.4686
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ring" type="Node2D" parent="."]
 position = Vector2( 571.618, 390.535 )

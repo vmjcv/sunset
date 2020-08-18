@@ -69,10 +69,10 @@ Or, simply mess with the following slider and toggles."
 time = 1.0
 
 [node name="bounce" parent="." instance=ExtResource( 1 )]
-margin_left = -99.4885
-margin_top = 385.099
-margin_right = 1060.51
-margin_bottom = 512.099
+margin_left = -35.9924
+margin_top = 464.469
+margin_right = 1124.01
+margin_bottom = 591.469
 bbcode_enabled = true
 bbcode_text = "[color=gray]bounce:[/color] [bounce]A long time ago, in a far away place...[/bounce]"
 text = "bounce: A long time ago, in a far away place..."

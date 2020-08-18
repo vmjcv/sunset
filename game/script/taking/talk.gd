@@ -9,7 +9,8 @@ var nameStr
 signal finish_one_talk
 
 func _ready():
-	
+	talk(0,"adfasdfasdfasdf")
+	get_node("AnimationPlayer").play("up")
 	pass # Replace with function body.
 
 func _process(delta):

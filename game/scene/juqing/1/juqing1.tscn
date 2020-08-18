@@ -97,6 +97,8 @@ margin_left = -399.347
 margin_top = 145.439
 margin_right = 100.653
 margin_bottom = 255.439
+focus_mode = 0
+enabled_focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -127,6 +129,8 @@ margin_left = -61.7404
 margin_top = -70.5314
 margin_right = 58.2596
 margin_bottom = 84.4686
+focus_mode = 0
+enabled_focus_mode = 0
 flat = true
 
 [node name="ring" type="Node2D" parent="."]
@@ -154,6 +158,8 @@ margin_left = -5.31024
 margin_top = 44.2047
 margin_right = 54.6898
 margin_bottom = 104.205
+focus_mode = 0
+enabled_focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false

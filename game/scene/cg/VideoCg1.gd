@@ -18,6 +18,6 @@ func _ready():
 
 
 func _on_VideoPlayer_finished():
-	SceneMgr.changeScene('res://scene/start/menu.tscn')
+	SceneMgr.changeSceneFade('res://scene/start/menu.tscn')
 	AudioPlayer.play_bg("菜单")
 

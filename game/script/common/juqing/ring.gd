@@ -69,4 +69,4 @@ func beforeCG():
 	get_node("jump").hide()
 	
 func _on_jump_pressed():
-	SceneMgr.changeScene("res://scene/cg/VideoCg2.tscn")
+	SceneMgr.changeSceneFade("res://scene/cg/VideoCg2.tscn")

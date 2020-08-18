@@ -65,7 +65,7 @@ func _input(event):
 					get_node("maskTouch").hide()
 					bCGing = false
 			elif nowCGZhoumu == 1 and nowCGLevel == 5:
-				SceneMgr.changeScene("res://scene/cg/VideoCg3.tscn")
+				SceneMgr.changeSceneFade("res://scene/cg/VideoCg3.tscn")
 				
 func resetStatus():
 	for nodes in [nodeAward, nodeFlower, nodePic, nodeRing, nodeMom, nodeDaughter, nodeDilie, nodeAnt]:

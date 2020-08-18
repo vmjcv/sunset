@@ -24,7 +24,7 @@ config/name="sunset"
 config/description="来玩大佬们做的游戏把"
 run/main_scene="res://scene/splash/splash_screen.tscn"
 boot_splash/image="res://texture/splash/blank.png"
-boot_splash/bg_color=Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://sunset_icon.png"
 
 [autoload]

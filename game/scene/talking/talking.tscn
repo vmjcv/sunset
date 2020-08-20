@@ -1,18 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://texture/juqing/1/mom_1.png" type="Texture" id=1]
 [ext_resource path="res://texture/juqing/1/daughter_1.png" type="Texture" id=2]
-[ext_resource path="res://addons/teeb.text_transitions/resources/WFC.tres" type="RichTextEffect" id=3]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Console.tres" type="RichTextEffect" id=4]
 [ext_resource path="res://addons/teeb.text_transitions/demo/RichTextLabel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Redacted.tres" type="RichTextEffect" id=6]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Prickle.tres" type="RichTextEffect" id=7]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Bounce.tres" type="RichTextEffect" id=8]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Embers.tres" type="RichTextEffect" id=9]
-[ext_resource path="res://addons/teeb.text_transitions/resources/Word.tres" type="RichTextEffect" id=10]
 [ext_resource path="res://texture/talking/duihuadi.png" type="Texture" id=11]
 [ext_resource path="res://script/taking/talk.gd" type="Script" id=12]
-[ext_resource path="res://fonts/talking.tres" type="DynamicFont" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "down"
@@ -120,10 +112,9 @@ position = Vector2( 1665.7, 520.795 )
 texture = ExtResource( 2 )
 
 [node name="NinePatchRect" type="TextureRect" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
-margin_top = 1120.0
-margin_bottom = 1600.0
+margin_top = 600.0
+margin_bottom = 1080.0
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 6
@@ -131,24 +122,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="label" parent="NinePatchRect" instance=ExtResource( 5 )]
-margin_left = 72.0
-margin_top = 120.0
-margin_right = 1779.0
-margin_bottom = 406.0
-custom_fonts/normal_font = ExtResource( 13 )
+[node name="RichTextLabel" parent="NinePatchRect" instance=ExtResource( 5 )]
+margin_left = 112.0
+margin_top = 112.0
+margin_right = 1768.0
+margin_bottom = 304.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
-custom_effects = [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), null, null ]
-reverse = false
+id = "talk"
+time = 0.0
+animation_time = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }

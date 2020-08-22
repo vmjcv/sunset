@@ -9,8 +9,8 @@ var click_time = 0
 var can_click = true
 
 func _showDuihua():
-	connect("finish_talk", self, "_do_talk1")
-	TalkMgr.talk(self, [[0, "妈妈看看我！！——"]])
+	TalkMgr.connect("finish_talk",self,"_do_talk1")
+	TalkMgr.talk([[0, "妈妈看看我！！——"]])
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,3 +24,4 @@ func _ready():
 func _do_talk1():
 	GlobalStatusMgr.zhoumu=3
 	GlobalStatusMgr.goToLevel(1)
+	TalkMgr.disconnect("finish_talk",self,"_do_talk1")

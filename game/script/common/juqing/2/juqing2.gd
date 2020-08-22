@@ -10,10 +10,11 @@ var temp_timer
 func _do_talk():
 #	Fade.fade_in(self, 3)
 	SceneMgr.changeSceneFade("res://scene/juqing/2/juqing3.tscn")
+	TalkMgr.disconnect("finish_talk",self,"_do_talk")
 
 func _showDuihua():
-	connect("finish_talk", self, "_do_talk")
-	TalkMgr.talk(self, [[0, "妈妈！看这个花漂亮吧~"]])
+	TalkMgr.connect("finish_talk",self,"_do_talk")
+	TalkMgr.talk([[0, "妈妈！看这个花漂亮吧~"]])
 	temp_timer.stop()
 
 # Called when the node enters the scene tree for the first time.

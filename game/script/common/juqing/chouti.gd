@@ -44,9 +44,11 @@ func beforeCG():
 	get_node("chouti").hide()
 
 func _do_talk():
+	TalkMgr.disconnect("finish_talk",self,"_do_talk")
 	GlobalStatusMgr.goToLevel(1)
 
 func _on_chouti_pressed():
+	TalkMgr.connect("finish_talk",self,"_do_talk")
 	connect("finish_talk", self, "_do_talk")
-	TalkMgr.talk(self, [[0, "妈妈看到我的好成绩，一定会高兴的吧！"]])
+	TalkMgr.talk([[0, "妈妈看到我的好成绩，一定会高兴的吧！"]])
 	

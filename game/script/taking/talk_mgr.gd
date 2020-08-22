@@ -1,53 +1,18 @@
 extends Node
-
-#signal finish_talk
-
-var talkingList = null
-#当前在播放的下标
-var nowIdx = 0 
-
-var curNode = null
-
+signal finish_talk
 var panel
 
 func _ready():
-	#talk([[0, "123213213"], [1, "duqwhufod21d12d21d21d21de"]])
 	pass # Replace with function body.
-
-func  _enter_tree():
-#	talk([[0, "123213213"], [1, "duqwhufode"]])
-	pass # Replace with function body.
-
-func _sayOneLine():
-	if typeof(talkingList) != TYPE_ARRAY:
-		return
-	if len(talkingList) > 0:
-		var oneTalkingItem = talkingList.pop_front()
-		if panel:
-			pass
-		else:
-			if typeof(curNode) == TYPE_INT:
-				panel = load('res://scene/talking/talking.tscn').instance()
-				get_tree().get_root().add_child(panel)
-			else:
-				panel = SceneMgr.showPanel('res://scene/talking/talking.tscn')
-			panel.get_node("AnimationPlayer").play("up")
-		panel.connect("finish_one_talk", self, "_sayOneLine")
-		panel.talk(oneTalkingItem[0], oneTalkingItem[1])
-		panel = null
-	else:
-		talkingList = null
-		
-#		panel.get_node("AnimationPlayer").play("down")
-		
-		if typeof(curNode) != TYPE_INT:
-			curNode.emit_signal("finish_talk")
-		curNode = null
-		panel = null
-
-
-# lTalkingList = [[iTalker, sValue]]
-func talk(node, lTalkingList):
-	talkingList = lTalkingList
-	curNode = node
-	_sayOneLine()
+	
+func talk(talking_list):
+	panel = load('res://scene/talking/talking.tscn').instance()
+	get_tree().get_root().add_child(panel)
+	panel.add_talk_list(talking_list)
+	panel.talk_begin()
+	panel.connect("finish_talk",self,"finish_talk")
+	
+	
+func finish_talk():
+	emit_signal("finish_talk")
+	

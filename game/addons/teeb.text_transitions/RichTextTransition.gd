@@ -9,6 +9,8 @@ export(bool) var reverse:bool = false
 export(bool) var all_at_once:bool = false
 export(float, 0.1, 2.0) var animation_time:float = 0.5
 
+signal fade_in_finished
+signal fade_out_finished
 
 func _enter_tree():
 	TextTransitionSettings.register(self)
@@ -28,8 +30,12 @@ func _process(delta):
 
 func on_animation_finish(anim_name:String):
 	match anim_name:
-		"fade_in": prints("Faded in.", self.name)
-		"fade_out": prints("Faded out.", self.name)
+		"fade_in": 
+			prints("Faded in.", self.name)
+			emit_signal("fade_in_finished")
+		"fade_out":
+			prints("Faded out.", self.name)
+			emit_signal("fade_out_finished")
 
 
 func fade_in():
@@ -39,6 +45,12 @@ func fade_in():
 func fade_out():
 	$AnimationPlayer.play("fade_out", -1, animation_time)
 
+func stop():
+	time =1 
+	$AnimationPlayer.stop()
+
+func get_now_animation():
+	return $AnimationPlayer.current_animation
 
 # char_index: Character position requesting a time value.
 # allow_all_together: used internally by some transitions.

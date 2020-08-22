@@ -6,7 +6,7 @@ extends Container
 var temp_timer
 
 func _showDuihua():
-	TalkMgr.talk(self, [[0, "如果爸爸妈妈都没时间打理植物的话，那只要花永远都不会枯萎就行了！"]])
+	TalkMgr.talk([[0, "如果爸爸妈妈都没时间打理植物的话，那只要花永远都不会枯萎就行了！"]])
 	temp_timer.stop()
 
 # Called when the node enters the scene tree for the first time.

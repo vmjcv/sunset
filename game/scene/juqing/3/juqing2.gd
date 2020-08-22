@@ -9,8 +9,8 @@ var click_time = 0
 var can_click = true
 
 func _showDuihua():
-	connect("finish_talk", self, "_do_talk1")
-	TalkMgr.talk(self, [[0, "怎么还是会这样..."]])
+	TalkMgr.connect("finish_talk",self,"_do_talk1")
+	TalkMgr.talk([[0, "怎么还是会这样..."]])
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,3 +23,4 @@ func _ready():
 
 func _do_talk1():
 	SceneMgr.changeSceneFade("res://scene/juqing/3/juqing3.tscn")
+	TalkMgr.disconnect("finish_talk",self,"_do_talk1")

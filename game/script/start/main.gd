@@ -1,7 +1,7 @@
 extends Container
 
 var nStartSlipTime = 0
-var slipTime = 300
+var slipTime = 600
 var curposi = null
 var sp
 const sceneH = 580

@@ -22,14 +22,14 @@ _global_script_class_icons={
 
 config/name="sunset"
 config/description="来玩大佬们做的游戏把"
-run/main_scene="res://scene/splash/splash_screen.tscn"
+run/main_scene="res://scene/other/splash_screen.tscn"
 boot_splash/image="res://texture/splash/blank.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://sunset_icon.png"
 
 [autoload]
 
-AudioPlayer="*res://scene/common/audio_player.gd"
+AudioPlayer="*res://script/common/audio_player.gd"
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
 ItemManage="*res://script/common/item_manage.gd"
 Configs="*res://data/gdscript/configs.gd"
@@ -38,6 +38,7 @@ SceneMgr="*res://script/common/scene_mgr.gd"
 TalkMgr="*res://script/taking/talk_mgr.gd"
 Fade="*res://script/common/fade.gd"
 GlobalConst="*res://script/common/global.gd"
+ResultInfo="*res://script/level/result_info.gd"
 
 [display]
 

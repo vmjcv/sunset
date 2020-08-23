@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sticky_trigger.ogg-f58d7e2f194bf2361b14314b660bc899.oggstr"
+
+[deps]
+
+source_file="res://sound/sticky_trigger.ogg"
+dest_files=[ "res://.import/sticky_trigger.ogg-f58d7e2f194bf2361b14314b660bc899.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

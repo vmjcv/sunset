@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scene/map/common_set.tres" type="TileSet" id=1]
-[ext_resource path="res://scene/map/tile_map.gd" type="Script" id=3]
+[ext_resource path="res://script/map/tile_map.gd" type="Script" id=3]
 [ext_resource path="res://scene/map/tile_item.tscn" type="PackedScene" id=15]
 [ext_resource path="res://texture/item/pen.png" type="Texture" id=16]
 [ext_resource path="res://texture/item/notice.png" type="Texture" id=17]
+
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )

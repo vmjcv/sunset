@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ant_walk_short.ogg-4190a54b4bcca6745e48a8f84829192f.oggstr"
+
+[deps]
+
+source_file="res://sound/ant_walk_short.ogg"
+dest_files=[ "res://.import/ant_walk_short.ogg-4190a54b4bcca6745e48a8f84829192f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

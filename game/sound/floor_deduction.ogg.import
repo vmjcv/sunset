@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/floor_deduction.ogg-e938048f082782c999294f922a7e91c6.oggstr"
+
+[deps]
+
+source_file="res://sound/floor_deduction.ogg"
+dest_files=[ "res://.import/floor_deduction.ogg-e938048f082782c999294f922a7e91c6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -301,7 +301,7 @@ func check_pass():
 func show_pass():
 	is_over = true
 
-	var game_over = preload("res://scene/common/game_over.tscn")
+	var game_over = preload("res://scene/result/result.tscn")
 	var panel = game_over.instance()
 	panel.specialWay= specialWay
 	add_child(panel)

@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "AreaItemManage",
 "language": "GDScript",
 "path": "res://script/start/area_item_manage.gd"
+}, {
+"base": "Node",
+"class": "PlotItem",
+"language": "GDScript",
+"path": "res://script/plot/plot_item.gd"
 } ]
 _global_script_class_icons={
-"AreaItemManage": ""
+"AreaItemManage": "",
+"PlotItem": ""
 }
 
 [application]
@@ -39,6 +45,7 @@ TalkMgr="*res://script/taking/talk_mgr.gd"
 Fade="*res://script/common/fade.gd"
 GlobalConst="*res://script/common/global.gd"
 ResultInfo="*res://script/level/result_info.gd"
+PlotInputManage="*res://script/plot/input_manage.gd"
 
 [display]
 

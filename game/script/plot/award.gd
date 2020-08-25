@@ -13,7 +13,7 @@ func _ready():
 	pass 
 
 func _init_status():
-	now_status = status.STATUS_1
+	now_status = status.STATUS_3
 	obj_dict[status.STATUS_2].modulate.a = 0 
 	obj_dict[status.STATUS_3].modulate.a = 0 
 	obj_dict[status.STATUS_4].modulate.a = 0 
@@ -44,8 +44,12 @@ func change():
 
 func click():
 	if can_click():
-		
-		
-		
+		PlotBG.connect("change_over",self,"plot_change_over")
+		PlotBG.go_state(3)
 		return true
 	return false
+	
+func plot_change_over():
+	PlotBG.disconnect("change_over",self,"plot_change_over")
+	GlobalStatusMgr.goToLevel(2)
+

@@ -64,7 +64,10 @@ func add_talk_list(temp_talk_list):
 		talk_list.append(onetalk)
 
 func talk_begin():
-	get_node("AnimationPlayer").play("up")
+	if talk_list.size()>0:
+		get_node("AnimationPlayer").play("up")
+	else:
+		close_panel()
 	
 func show_talker(name_id):
 	if name_id==0:

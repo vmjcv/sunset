@@ -22,7 +22,7 @@ func _ready():
 func _fade_finish():
 	self.now_status = self.next_status
 	self.next_status = null
-	emit_signal("fade_finish")
+	emit_signal("fade_finish",self)
 
 func can_click():
 	if now_status == 3:

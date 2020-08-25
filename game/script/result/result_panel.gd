@@ -38,7 +38,6 @@ func get_one():
 				SceneMgr.changeSceneFade("res://scene/cg/VideoCg6.tscn")
 				pass
 			return 
-		print(_item_name_list,bsc_bool)
 		GlobalStatusMgr._matchResult(_item_name_list,bsc_bool)
 		need_change  =false
 		return 

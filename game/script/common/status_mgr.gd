@@ -6,9 +6,6 @@ var curLevel = 0
 var levelFinsihList = {1:false, 2:false, 3:false, 4:false, 5:false}
 var zhoumu = 1
 
-func _ready():
-	pass
-	
 func _matchResult(item_list,bSuc):
 	if bSuc:
 		onLevelFinish()

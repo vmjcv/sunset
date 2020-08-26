@@ -39,12 +39,16 @@ func _process(delta):
 
 func fade_in(node, iSec, callback = null):
 	if node.modulate.a <= 0:
+		if callback:
+			callback.call_func()
 		return
 	fadein_list.append([node, iSec, OS.get_ticks_msec(), node.modulate.a, callback])
 	
 
 func fade_out(node, iSec, callback = null):
 	if node.modulate.a >= 1:
+		if callback:
+			callback.call_func()
 		return
 	fadeout_list.append([node, iSec, OS.get_ticks_msec(), node.modulate.a, callback])
 	

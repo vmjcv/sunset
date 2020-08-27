@@ -120,8 +120,8 @@ func _change_scene_with_fade(path, sec):
 	get_tree().get_root().add_child(temp_color_scene)
 	
 	current_scene.modulate.a = 0
-	Fade.fade_in(last_scene, sec)
-	Fade.fade_out(current_scene, sec, funcref(self, "_after_fade"))
+	Fade.fade_out(last_scene, sec)
+	Fade.fade_in(current_scene, sec, funcref(self, "_after_fade"))
 	return current_scene
 
 # 更改当前场景

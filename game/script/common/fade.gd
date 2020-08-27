@@ -13,10 +13,10 @@ func _process(delta):
 	for fadeInfoList in fadein_list:
 		if fadeInfoList[0] == null:
 			continue
-		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (-fadeInfoList[3]) + fadeInfoList[3]
+		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (1-fadeInfoList[3]) + fadeInfoList[3]
 		fadeInfoList[0].modulate.a = nowAlpha
-		if fadeInfoList[0].modulate.a<=0:
-			fadeInfoList[0].modulate.a = 0
+		if fadeInfoList[0].modulate.a>=1:
+			fadeInfoList[0].modulate.a = 1
 			if fadeInfoList[4] != null:
 				fadeInfoList[4].call_func()
 		else:
@@ -27,10 +27,10 @@ func _process(delta):
 	for fadeInfoList in fadeout_list:
 		if fadeInfoList[0] == null:
 			continue
-		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (1-fadeInfoList[3]) + fadeInfoList[3]
+		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (fadeInfoList[3]) + fadeInfoList[3]
 		fadeInfoList[0].modulate.a = nowAlpha
-		if fadeInfoList[0].modulate.a > 1:
-			fadeInfoList[0].modulate.a = 1
+		if fadeInfoList[0].modulate.a <=0:
+			fadeInfoList[0].modulate.a = 0
 			if fadeInfoList[4] != null:
 				fadeInfoList[4].call_func()
 		else:
@@ -38,7 +38,8 @@ func _process(delta):
 	fadeout_list = new_fadeout_list
 
 func fade_in(node, iSec, callback = null):
-	if node.modulate.a <= 0:
+	# @:淡入动画
+	if node.modulate.a >= 1:
 		if callback:
 			callback.call_func()
 		return
@@ -46,7 +47,8 @@ func fade_in(node, iSec, callback = null):
 	
 
 func fade_out(node, iSec, callback = null):
-	if node.modulate.a >= 1:
+	# @:淡出动画
+	if node.modulate.a <= 0:
 		if callback:
 			callback.call_func()
 		return

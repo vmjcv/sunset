@@ -16,11 +16,12 @@ onready var ground_fissure = $ground_fissure
 onready var mom = $mom
 onready var picture = $picture
 onready var ring = $ring
-
+var level = preload("res://scene/level/level.tscn")
 
 func _ready():
 	plot_array = _get_table()
 	plot_dict = _array_to_dict(plot_array)
+
 
 func _get_table():
 	return Configs.get_table_configs(Configs.plot_infoData)
@@ -61,16 +62,29 @@ func change_one(obj,state_obj,state_number):
 		finish_count = finish_count + 1
 		obj.change()
 
-func fade_finish(state_obj,obj):
+func fade_finish(obj,state_obj):
 	obj.disconnect("fade_finish",self,"fade_finish")
 	finish_count = finish_count - 1
 	if finish_count == 0:
 		after_change(state_obj)
 
 func after_change(state_obj):
-	TalkMgr.connect("finish_talk",self,"state_change_over")
+	TalkMgr.connect("finish_talk",self,"state_change_over",[state_obj])
 	TalkMgr.talk(state_obj.after)
 
-func state_change_over():
-	emit_signal("change_over")
+func state_change_over(state_obj):
+	TalkMgr.disconnect("finish_talk",self,"state_change_over")
+	var temp_array = state_obj.to_level.split("-")
+	var cur_zhoumu = int(temp_array[0])
+	var cur_level = int(temp_array[1])
+	if cur_zhoumu ==0 and cur_level ==0:
+		emit_signal("change_over")
+	else:
+		var level_obj = level.instance()
+		get_tree().get_root().add_child(level_obj)
+		var panel = level_obj.get_node("Panel")
+		panel.set_map_id(cur_level, cur_zhoumu)
+		AudioPlayer.play_bg(state_obj.to_level)
+		emit_signal("change_over")
 
+	

@@ -45,4 +45,3 @@ func click():
 	
 func plot_change_over():
 	PlotBG.disconnect("change_over",self,"plot_change_over")
-	GlobalStatusMgr.goToLevel(3)

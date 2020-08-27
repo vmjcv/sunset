@@ -41,6 +41,7 @@ GlobalConst="*res://script/common/global.gd"
 ResultInfo="*res://script/level/result_info.gd"
 PlotInputManage="*res://script/plot/input_manage.gd"
 PlotBG="*res://scene/plot/bg.tscn"
+ResultMgr="*res://script/result/result_mgr.gd"
 
 [display]
 
@@ -96,6 +97,10 @@ ui_down={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[physics]
+
+common/physics_fps=120
 
 [rendering]
 

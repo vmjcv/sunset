@@ -31,3 +31,5 @@ func can_click():
 
 func click():
 	pass
+
+

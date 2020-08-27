@@ -7,20 +7,25 @@ onready var close_box = $"box_close"
 onready var label_container = $"label_container"
 
 var _item_name_list
-
+var _item_result
+var _level 
 var item_count
 
 func _ready():
-	get_item_list({"结婚照":{"item_name":"花束"},"结婚照1":{"item_name":"花束"},"结婚照2":{"item_name":"花束"},"结婚照3":{"item_name":"花束"},"结婚照4":{"item_name":"花束"}})
+	# test
+	# get_item_list({"奖状":{"item_name":"奖状"},"钢笔":{"item_name":"钢笔"},"纸":{"item_name":"纸"},"通知书":{"item_name":"通知书"}})
 	pass 
 
 
 
-func get_item_list(item_name_dict):
+func get_item_list(item_name_dict,level):
 	_item_name_list = []
+	_item_result = []
 	item_count = 0 
+	_level = level
 	for key in item_name_dict.values():
 		_item_name_list.append(key.item_name)
+		_item_result.append(key.item_name)
 		item_count = item_count + 1
 	
 	if item_count<=0:
@@ -65,6 +70,18 @@ func get_item_done():
 
 func result_done():
 	# @:所有的结果动画结束
+	var result_obj = ResultMgr.get_result(_item_result,_level)
+	if result_obj:
+		TalkMgr.connect("finish_talk",self,"change_state",[result_obj])
+		TalkMgr.talk(result_obj.dialogue)
+	
 
-	pass
-	#PlotMgr.getResult(_item_name_list)
+func change_state(result_obj):
+	TalkMgr.disconnect("finish_talk",self,"change_state")
+	var sec = 0.1
+	#Fade.fade_out(self, sec, funcref(self, "remove_self"))
+	PlotBG.go_state(result_obj.state)
+	
+	queue_free()
+
+

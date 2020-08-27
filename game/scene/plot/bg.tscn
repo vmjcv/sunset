@@ -27,11 +27,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="white_bg" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
-mouse_filter = 2
-
 [node name="window" type="Sprite" parent="."]
 position = Vector2( 967.5, 110.5 )
 scale = Vector2( 0.75, 0.75 )

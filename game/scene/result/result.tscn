@@ -2,9 +2,9 @@
 
 [ext_resource path="res://texture/result/open_box.png" type="Texture" id=2]
 [ext_resource path="res://texture/result/close_box.png" type="Texture" id=3]
-[ext_resource path="res://script/result/result_panel.gd" type="Script" id=4]
+[ext_resource path="res://script/result/result.gd" type="Script" id=4]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="result" type="Container"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 6
@@ -14,7 +14,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="箱子开" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="box_open" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -28,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="箱子关" type="TextureRect" parent="."]
+[node name="box_close" type="TextureRect" parent="."]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -40,5 +44,11 @@ margin_right = 357.0
 margin_bottom = 168.0
 texture = ExtResource( 3 )
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
+[node name="label_container" type="VBoxContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 650.0
+margin_bottom = -100.0
+size_flags_horizontal = 7
+size_flags_vertical = 7

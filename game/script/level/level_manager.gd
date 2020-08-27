@@ -39,19 +39,20 @@ func set_map_id(level, zhoumu):
 			if tileID == tileIdMap[type]:
 				birthPos.append(cord)
 
-	var isSpecialAnt = GlobalStatusMgr.is_special_ant(curLevel, curZhoumu)
-	if isSpecialAnt:
-		pass
-	else:
-		for pos in birthPos:
-			var ant_scene = load(ant_path)
-			var ant_instance = ant_scene.instance()
-			ant_instance.set_map_index(pos.x, pos.y)
-			add_child(ant_instance)
-			ants.append(ant_instance)
-			ant_instance.position=(pos*64)+Vector2(32,32)
-			ant_instance.round_time = round_time
-			ant_instance.set_ant1()
+#	var isSpecialAnt = GlobalStatusMgr.is_special_ant(curLevel, curZhoumu)
+#	if isSpecialAnt:
+#		pass
+#	else:
+		
+	for pos in birthPos:
+		var ant_scene = load(ant_path)
+		var ant_instance = ant_scene.instance()
+		ant_instance.set_map_index(pos.x, pos.y)
+		add_child(ant_instance)
+		ants.append(ant_instance)
+		ant_instance.position=(pos*64)+Vector2(32,32)
+		ant_instance.round_time = round_time
+		ant_instance.set_ant1()
 
 func _add_map(level,zhoumu):
 	itemList.clear()
@@ -194,7 +195,7 @@ func move_turn(turn):
 		if not itemList.keys().has(dict_index):
 			var item = get_tile_item(dict_index)
 			if item != null:
-				ItemManage.show_item_talk(item.item_name)
+				#ItemManage.show_item_talk(item.item_name)
 				item.hide()
 				itemList[dict_index] = item
 
@@ -303,9 +304,12 @@ func show_pass():
 
 	var game_over = preload("res://scene/result/result.tscn")
 	var panel = game_over.instance()
-	panel.specialWay= specialWay
-	add_child(panel)
-	panel.get_item_list(itemList,true)
+	get_tree().get_root().add_child(panel)
+
+	panel.get_item_list(itemList,"%s-%s"%[curZhoumu,curLevel])
+	
+	get_parent().queue_free()
+	
 	#确认后发送事件
 	#emit_signal("success")
 	

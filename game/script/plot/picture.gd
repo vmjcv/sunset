@@ -35,11 +35,13 @@ func change():
 		"3_4":
 			Fade.fade_out(obj_dict[now_status], fade_time)
 			Fade.fade_in(obj_dict[next_status], fade_time,funcref(self, "_fade_finish"))
-
+			
 func click():
 	if can_click():
-		
-		
-		
+		PlotBG.connect("change_over",self,"plot_change_over")
+		PlotBG.go_state(6)
 		return true
 	return false
+	
+func plot_change_over():
+	PlotBG.disconnect("change_over",self,"plot_change_over")

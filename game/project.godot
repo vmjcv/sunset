@@ -10,17 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
-"class": "AreaItemManage",
-"language": "GDScript",
-"path": "res://script/start/area_item_manage.gd"
-}, {
-"base": "Node",
 "class": "PlotItem",
 "language": "GDScript",
 "path": "res://script/plot/plot_item.gd"
 } ]
 _global_script_class_icons={
-"AreaItemManage": "",
 "PlotItem": ""
 }
 
@@ -39,13 +33,15 @@ AudioPlayer="*res://script/common/audio_player.gd"
 TextTransitionSettings="*res://addons/teeb.text_transitions/TextTransitionSettings.gd"
 ItemManage="*res://script/common/item_manage.gd"
 Configs="*res://data/gdscript/configs.gd"
-GlobalStatusMgr="*res://script/common/global_status_mgr.gd"
+GlobalStatusMgr="*res://script/common/status_mgr.gd"
 SceneMgr="*res://script/common/scene_mgr.gd"
 TalkMgr="*res://script/taking/talk_mgr.gd"
 Fade="*res://script/common/fade.gd"
 GlobalConst="*res://script/common/global.gd"
 ResultInfo="*res://script/level/result_info.gd"
 PlotInputManage="*res://script/plot/input_manage.gd"
+PlotBG="*res://scene/plot/bg.tscn"
+ResultMgr="*res://script/result/result_mgr.gd"
 
 [display]
 
@@ -102,7 +98,12 @@ ui_down={
 
 pointing/emulate_touch_from_mouse=true
 
+[physics]
+
+common/physics_fps=120
+
 [rendering]
 
 quality/2d/use_pixel_snap=true
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"

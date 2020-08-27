@@ -33,8 +33,10 @@ func change():
 
 func click():
 	if can_click():
-		
-		
-		
+		PlotBG.connect("change_over",self,"plot_change_over")
+		PlotBG.go_state(2)
 		return true
 	return false
+	
+func plot_change_over():
+	PlotBG.disconnect("change_over",self,"plot_change_over")

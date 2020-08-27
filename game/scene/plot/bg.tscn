@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://texture/plot/bg/window_bg.png" type="Texture" id=1]
 [ext_resource path="res://scene/plot/big_ant.tscn" type="PackedScene" id=2]
@@ -15,21 +15,17 @@
 [ext_resource path="res://texture/plot/bg/desk.png" type="Texture" id=13]
 [ext_resource path="res://texture/plot/bg/window.png" type="Texture" id=14]
 [ext_resource path="res://scene/common/click_area.tscn" type="PackedScene" id=15]
+[ext_resource path="res://script/plot/bg.gd" type="Script" id=16]
 
 [node name="main" type="Container"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = -8.0
-margin_right = -8.0
-margin_bottom = -8.0
+mouse_filter = 2
+script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="white_bg" type="ColorRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1080.0
 
 [node name="window" type="Sprite" parent="."]
 position = Vector2( 967.5, 110.5 )
@@ -59,6 +55,14 @@ texture = ExtResource( 13 )
 [node name="ant" parent="." instance=ExtResource( 4 )]
 position = Vector2( 990, 816.125 )
 scale = Vector2( 0.75, 0.75 )
+
+[node name="click_area" parent="ant" instance=ExtResource( 15 )]
+position = Vector2( 365.334, -522.833 )
+scale = Vector2( 1.33333, 1.33333 )
+
+[node name="click_collision" parent="ant/click_area" index="0"]
+position = Vector2( -609.627, -280.001 )
+polygon = PoolVector2Array( 305.626, 37.0363, 273.626, 38.408, 249.626, 42.5232, 265.626, 50.7535, 257.626, 56.2403, 265.626, 61.7272, 265.626, 69.9575, 265.626, 75.4443, 249.626, 80.9312, 265.626, 91.9049, 289.626, 96.0201, 289.626, 97.3918, -22.3751, 116.596, 305.626, 115.224, 289.626, 160.491, 369.626, 160.491, 345.626, 115.224, 665.627, 112.481, 409.626, 96.0201, 401.626, 94.6483, 369.626, 87.7898, 393.626, 85.0463, 385.626, 79.5595, 393.626, 74.0726, 393.626, 58.9837, 353.626, 52.1252, 345.626, 48.01, 329.626, 39.7797 )
 
 [node name="award" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1616, 280 )
@@ -119,6 +123,8 @@ scale = Vector2( 0.75, 0.75 )
 [node name="click_collision" parent="ring/click_area" index="0"]
 position = Vector2( -32.8561, 5.33685 )
 polygon = PoolVector2Array( 42.6667, -5.11533, 0, -5.11533, 0, 2.20046, 42.6667, 2.20046 )
+
+[editable path="ant/click_area"]
 
 [editable path="award/click_area"]
 

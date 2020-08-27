@@ -10,4 +10,3 @@ script = ExtResource( 1 )
 position = Vector2( 4.27504, 42.5228 )
 scale = Vector2( 1, 5.83213 )
 polygon = PoolVector2Array( 984.202, -7.83348, -10.1825, -7.31668, -7.79774, 96.4166 )
-[connection signal="mouse_entered" from="." to="." method="_on_Area2D_mouse_entered"]

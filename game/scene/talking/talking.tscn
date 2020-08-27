@@ -141,8 +141,6 @@ bbcode_enabled = true
 custom_effects = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), null, null ]
 id = "talk"
 time = 0.0
-length = 8.0
-all_at_once = false
 animation_time = 0.5
 
 [node name="ColorRect" type="ColorRect" parent="."]

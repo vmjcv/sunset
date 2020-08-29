@@ -27,7 +27,7 @@ func _process(delta):
 	for fadeInfoList in fadeout_list:
 		if fadeInfoList[0] == null:
 			continue
-		var nowAlpha = float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1] * (fadeInfoList[3]) + fadeInfoList[3]
+		var nowAlpha = fadeInfoList[3]*(1- float(now - fadeInfoList[2]) / 1000 / fadeInfoList[1])
 		fadeInfoList[0].modulate.a = nowAlpha
 		if fadeInfoList[0].modulate.a <=0:
 			fadeInfoList[0].modulate.a = 0

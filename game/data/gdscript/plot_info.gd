@@ -41,6 +41,7 @@ static func load_configs():
 		plot_infoData.new(JSON.parse("[]").result, 0, 0, 0, JSON.parse("[[0,\"妈妈看到我的好成绩，一定会高兴的吧！\"]]").result, 0, 0, "第一幕点击抽屉", 0, 0, 0, 0, 0, 3, "1-2"),
 		plot_infoData.new(JSON.parse("[]").result, 0, 0, 0, JSON.parse("[[0,\"妈妈！看这个花漂亮吧~\"],[1,\"... ... 啊... 是囡囡啊...\"],[0,\"... ... 妈...\"]]").result, 0, 0, "第一幕花瓶关卡结束", 4, 0, 0, 0, 0, 4, "0-0"),
 		plot_infoData.new(JSON.parse("[]").result, 0, 0, 4, JSON.parse("[[0,\"妈妈！你快看，我有这么多奖状和证书耶！\"],[1,\"... ...\"],[1,\"... 噢...囡囡真是令妈妈骄傲...\"],[0,\"......\"]]").result, 0, 0, "第一幕抽屉关卡结束", 0, 0, 0, 0, 0, 5, "0-0"),
+		plot_infoData.new(JSON.parse("[]").result, 0, 0, 0, JSON.parse("[]").result, 0, 0, "第一幕花瓶和抽屉关卡结束", 0, 0, 0, 3, 3, 14, "0-0"),
 		plot_infoData.new(JSON.parse("[]").result, 0, 0, 0, JSON.parse("[[0,\"让妈妈想起以前快乐的日子，他们就不会离婚了吧\"]]").result, 0, 0, "第一幕点击相框", 0, 0, 0, 0, 0, 6, "1-3"),
 		plot_infoData.new(JSON.parse("[]").result, 0, 0, 0, JSON.parse("[[0,\"这个一定会让妈妈想起当初的热情、誓言\"]]").result, 0, 0, "第一幕点击戒指盒", 0, 0, 0, 0, 0, 7, "1-4"),
 		plot_infoData.new(JSON.parse("[]").result, 0, 0, 0, JSON.parse("[[0,\"妈妈！你看我找到了什么！你们结婚时看起来还蛮青春靓丽的哦！\"],[]]").result, 0, 0, "第一幕相框关卡结束", 0, 0, 0, 4, 0, 8, "0-0"),

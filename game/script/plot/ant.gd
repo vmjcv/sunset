@@ -43,7 +43,7 @@ func can_click():
 func click():
 	if can_click():
 		PlotBG.connect("change_over",self,"plot_change_over")
-		PlotBG.go_state(11)
+		PlotBG.go_state(12)
 		return true
 	return false
 	

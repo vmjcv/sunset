@@ -31,5 +31,7 @@ func can_click():
 
 func click():
 	pass
-
+	
+func is_change():
+	return now_status == 4
 

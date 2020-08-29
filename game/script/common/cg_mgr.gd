@@ -3,7 +3,7 @@ extends Node
 var cg_class = preload("res://scene/cg/cg.tscn")
 
 signal cg_over
-
+var number
 func _ready():
 	pass 
 
@@ -25,7 +25,7 @@ func show_cg(cg_number):
 			path = "res://effect/cg/graduation_photo.ogv"
 		6: # 我奔向你结局
 			path = "res://effect/cg/season_finale.ogv"
-	
+	number = cg_number
 	var player = cg_class.instance()
 	player.stream =  load(path)
 	add_child(player)
@@ -36,3 +36,6 @@ func remove_one(node):
 	node.disconnect("finished",self,"remove_one")
 	remove_child(node)
 	emit_signal("cg_over")
+	if number == 2:
+		PlotBG.go_state(11)
+	number = null

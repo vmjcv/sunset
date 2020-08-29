@@ -18,8 +18,8 @@ class result_infoData:
 
 static func load_configs():
 	return [
-		result_infoData.new(JSON.parse("[\"奖状\",\"钢笔\",\"纸\",\"通知书\"]").result, "一周目一关卡结尾对话", JSON.parse("[[0,\"一周目一关卡结尾对话\"]]").result, "1-1", 1, 4),
-		result_infoData.new(JSON.parse("[\"红花\",\"蓝花\",\"黄花\"]").result, "一周目二关卡结尾对话", JSON.parse("[[0,\"一周目二关卡结尾对话\"]]").result, "1-2", 1, 5),
+		result_infoData.new(JSON.parse("[\"红花\",\"蓝花\",\"黄花\"]").result, "一周目一关卡结尾对话", JSON.parse("[[0,\"一周目一关卡结尾对话\"]]").result, "1-1", 1, 4),
+		result_infoData.new(JSON.parse("[\"奖状\",\"钢笔\",\"纸\",\"通知书\"]").result, "一周目二关卡结尾对话", JSON.parse("[[0,\"一周目二关卡结尾对话\"]]").result, "1-2", 1, 5),
 		result_infoData.new(JSON.parse("[\"花照片\",\"结婚照\"]").result, "一周目三关卡结尾对话", JSON.parse("[[0,\"一周目三关卡结尾对话\"]]").result, "1-3", 1, 8),
 		result_infoData.new(JSON.parse("[\"钻戒\",\"草戒指\"]").result, "一周目四关卡结尾对话", JSON.parse("[[0,\"一周目四关卡结尾对话\"]]").result, "1-4", 1, 9),
 		result_infoData.new(JSON.parse("[\"负面情绪\",\"负面情绪\",\"负面情绪\",\"负面情绪\"]").result, "一周目五关卡结尾对话", JSON.parse("[[0,\"一周目五关卡结尾对话\"]]").result, "1-5", 1, 0),

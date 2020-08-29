@@ -13,7 +13,6 @@ enum {UP,DOWN,LEFT,RIGHT}
 onready var tileMap : TileMap
 onready var curLevel
 onready var curZhoumu
-onready var specialWay = false
 onready var tilemap_item={}
 
 var is_over =false
@@ -293,7 +292,6 @@ func check_pass():
 			successNum = successNum + 1
 		elif tileName == "door":
 			successNum = successNum + 1
-			specialWay = true
 	#暂时写1，之后条件会读取配置
 	if successNum >= 1 and not is_over:
 		show_pass()

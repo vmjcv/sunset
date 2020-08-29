@@ -42,6 +42,12 @@ ResultInfo="*res://script/level/result_info.gd"
 PlotInputManage="*res://script/plot/input_manage.gd"
 PlotBG="*res://scene/plot/bg.tscn"
 ResultMgr="*res://script/result/result_mgr.gd"
+FpsLabel="*res://script/common/FPSLabel.gd"
+CGMgr="*res://script/common/cg_mgr.gd"
+
+[debug]
+
+settings/fps/force_fps=120
 
 [display]
 

@@ -39,7 +39,15 @@ func logo_anim_finished():
 func studio_anim_finished():
 	emit_signal("done")
 	#queue_free()
-	SceneMgr.changeScene("res://scene/cg/VideoCg1.tscn")
-	
-	
+	#SceneMgr.changeScene("res://scene/cg/VideoCg1.tscn")
+	self.modulate.a= 0
+	CGMgr.connect("cg_over",self,"cg_over")
+	CGMgr.show_cg(1)
+	#self.queue_free()
+	#Fade.fade_out(self,1)
+
+func cg_over():
+	CGMgr.disconnect("cg_over",self,"cg_over")
+	SceneMgr.changeSceneFade('res://scene/start/menu.tscn')
+	AudioPlayer.play_bg("菜单")
 	
